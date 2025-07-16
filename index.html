@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Green Diamond - Café Verde de Especialidad Colombiano</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         :root {
             --primary-color: #0a7040; /* Green */
@@ -13,34 +13,7 @@
             --text-color: #333;
             --light-text-color: #666;
             --white: #fff;
-            :root {
-    --primary-color: #0a7040; /* Green */
-    --secondary-color: #f0f0f0; /* Light gray for sections */
-    --text-color: #333;
-    --light-text-color: #666;
-    --white: #fff;
-    /* NUEVA VARIABLE PARA ALTURA DEL VIEWPORT */
-    --vh: 100vh; 
-}
-
-/* Modifica la altura de .hero para usar la nueva variable */
-.hero {
-    position: relative;
-    width: 100%;
-    height: 100vh; /* Fallback para navegadores que no soporten la variable */
-    height: var(--vh, 100vh); /* Usa la variable --vh calculada por JS */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    text-align: center;
-    color: #fff;
-    padding-top: 50px;
-    box-sizing: border-box;
-}
-
-/* El resto de tu CSS se mantiene igual para .hero-background-image y media queries */
+            --vh: 100vh;
         }
 
         body {
@@ -50,6 +23,7 @@
             box-sizing: border-box;
             color: var(--text-color);
             line-height: 1.6;
+            text-align: left;
         }
 
         .container {
@@ -58,108 +32,82 @@
             padding: 20px;
         }
 
-        /* --- Reseteo básico para el cuerpo de la página --- */
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Montserrat', sans-serif; /* Usamos la fuente definida en tu link */
-            line-height: 1.6;
-            color: #333;
-            <script>
-    // Función para calcular y establecer la altura del viewport
-    function setViewportHeight() {
-        let vh = window.innerHeight * 0.01;
-        document.documentElement.style.setProperty('--vh', `${vh}px`);
-    }
-
-    // Llama a la función al cargar la página
-    setViewportHeight();
-
-    // Vuelve a calcular y establecer la altura cuando la ventana cambie de tamaño
-    window.addEventListener('resize', setViewportHeight);
-    window.addEventListener('orientationchange', setViewportHeight); // Para cambios de orientación en móvil
-</script>
-        }
-
-        /* --- Header & Hero Section --- */
-
-        /* Estilos generales para el header (hero section) */
+        /* Header & Hero Section */
         .hero {
-            position: relative; /* FUNDAMENTAL: Este contenedor es el ancla para el logo posicionado absolutamente */
+            position: relative;
             width: 100%;
-            height: 100vh; /* Altura de la sección hero (ajusta según necesites, por ejemplo, 80vh o un valor fijo) */
+            height: 100vh;
+            height: var(--vh, 100vh);
             display: flex;
             flex-direction: column;
-            justify-content: center; /* Centra el contenido principal del hero verticalmente */
-            align-items: center; /* Centra el contenido principal del hero horizontalmente */
-            overflow: hidden; /* Para asegurar que la imagen de fondo no se desborde */
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
             text-align: center;
-            color: #fff; /* Color del texto sobre la imagen de fondo (para el h1 y p) */
-            padding-top: 50px; /* Espacio superior dentro del hero para que el logo tenga "aire" y el contenido principal no lo tape */
-            box-sizing: border-box; /* Incluye el padding en el cálculo de la altura total del hero */
+            color: var(--white);
+            padding-top: 50px;
+            box-sizing: border-box;
         }
 
-        /* Estilos de la imagen de fondo del hero */
         .hero-background-image {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Asegura que la imagen de fondo cubra todo el espacio sin distorsionarse */
-            z-index: -1; /* Envía la imagen de fondo detrás del contenido y del logo */
-            filter: brightness(0.6); /* Oscurece la imagen para que el texto sea más legible */
+            object-fit: cover;
+            z-index: -1;
+            filter: brightness(0.6);
         }
 
-        /* Contenedor del logo: Posicionamiento y tamaño */
         .logo-header {
-            position: absolute; /* POSICIONAMIENTO ABSOLUTO: Para colocarlo en un lugar específico dentro de su padre (hero) */
-            top: 20px; /* MODIFICADO: Distancia desde la parte superior del .hero (más cerca del borde) */
-            left: 20px; /* MODIFICADO: Distancia desde la parte izquierda del .hero (más cerca del borde) */
-            z-index: 999; /* Asegura que el logo esté SIEMPRE por encima de otros elementos */
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 999;
         }
 
-        /* Estilos para el enlace que envuelve el logo (si aplica) */
         .logo-header a {
-            display: block; /* Hace que toda el área del enlace sea clicable */
-            line-height: 1; /* Elimina cualquier espacio extra que pueda añadir el enlace */
+            display: block;
+            line-height: 1;
         }
 
-        /* Estilos para la imagen del logo */
         .logo-header img {
-            height: 180px;      /* MODIFICADO: Hace el logo más grande. Ajusta este valor si necesitas un tamaño diferente. */
-            width: auto;        /* Mantiene la proporción original del logo */
-            max-width: 350px;   /* Un ancho máximo para evitar que sea excesivamente grande en pantallas muy grandes */
-            display: block;     /* Elimina cualquier espacio adicional debajo de la imagen */
+            height: 200px;
+            width: auto;
+            max-width: 400px;
+            display: block;
         }
 
-        /* Estilos para el contenido principal del hero (título, subtítulo, párrafo, botones) */
         .hero-content {
-            position: relative; /* Asegura que este contenido esté por encima de la imagen de fondo */
+            position: relative;
             z-index: 1;
-            max-width: 800px; /* Limita el ancho del contenido para una mejor lectura */
-            padding: 0 20px; /* Relleno lateral */
-            box-sizing: border-box; /* Incluye el padding en el cálculo del ancho total */
+            max-width: 800px;
+            padding: 0 20px;
+            box-sizing: border-box;
+            text-align: center;
         }
 
         .hero-content h1 {
             font-size: 4em;
             margin-bottom: 15px;
+            text-align: center;
         }
 
         .hero-content h2 {
-            font-size: 2.5em; /* Tamaño del subtítulo */
+            font-size: 2.5em;
             margin-bottom: 25px;
-            color: #0a7040; /* Color verde específico para el subtítulo "Café verde de especialidad" */
+            color: var(--primary-color);
+            text-align: center;
         }
 
         .hero-content p {
             font-size: 1.2em;
             line-height: 1.6;
             margin-bottom: 30px;
+            text-align: center;
         }
 
-        /* Estilos de botones (adaptados de tus estilos previos si los tienes) */
         .btn {
             display: inline-block;
             padding: 12px 25px;
@@ -168,39 +116,39 @@
             font-weight: bold;
             margin: 0 10px;
             transition: background-color 0.3s ease, color 0.3s ease;
+            text-align: center;
         }
 
         .btn-primary {
-            background-color: var(--primary-color, #4CAF50); /* Usa tu color principal o un verde por defecto */
-            color: #fff;
-            border: 2px solid var(--primary-color, #4CAF50);
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: 2px solid var(--primary-color);
         }
 
         .btn-primary:hover {
-            background-color: transparent;
-            color: var(--primary-color, #4CAF50);
+            background-color: #085d32;
+            border-color: #085d32;
         }
 
         .btn-secondary {
             background-color: transparent;
-            color: #fff;
-            border: 2px solid #fff;
+            color: var(--white);
+            border: 2px solid var(--white);
         }
 
         .btn-secondary:hover {
-            background-color: #fff;
-            color: var(--primary-color, #4CAF50);
+            background-color: var(--white);
+            color: var(--primary-color);
         }
 
-        /* Media Queries para responsividad (ajustes para pantallas más pequeñas) */
         @media (max-width: 768px) {
-            .logo-header { /* CORREGIDO: Añadido el punto para que sea un selector de clase */
-                top: 15px;      /* Ajuste para móviles, un poco más cerca del borde */
-                left: 15px;     /* Ajuste para móviles */
+            .logo-header {
+                top: 15px;
+                left: 15px;
             }
-            .logo-header img { /* CORREGIDO: Añadido el punto para que sea un selector de clase */
-                height: 90px;   /* Tamaño para móviles, más pequeño que en escritorio pero más grande que el original */
-                max-width: 180px; /* Ancho máximo para móviles */
+            .logo-header img {
+                height: 120px;
+                max-width: 250px;
             }
             .hero-content h1 {
                 font-size: 3em;
@@ -225,26 +173,27 @@
                 font-size: 1.5em;
             }
             .hero-content .btn {
-                display: block; /* Apila los botones en pantallas muy pequeñas */
+                display: block;
                 margin: 10px auto;
-                width: 80%; /* Ancho completo para botones apilados */
+                width: 80%;
             }
         }
-    
+
         /* Why Choose Us / ¿Por qué elegirnos? */
         .section-why-choose-us {
             background-color: var(--white);
             padding: 60px 0;
-            text-align: center;
+            text-align: left;
         }
 
         .section-why-choose-us h2, .section-aportando-excelencia h2, .section-variedades h2, .section-certificaciones h2, .section-services h2 {
             font-size: 2.5em;
             color: var(--primary-color);
             margin-bottom: 60px;
-            text-align: center;
+            text-align: left;
         }
-        .section-why-choose-us h2 span, .section-services h2 span{
+
+        .section-why-choose-us h2 span, .section-services h2 span {
             color: var(--text-color);
         }
 
@@ -271,7 +220,7 @@
         }
 
         .why-choose-us-item .icon {
-            background-color: #f9f9f9; /* Light background for icon */
+            background-color: #f9f9f9;
             border-radius: 50%;
             width: 60px;
             height: 60px;
@@ -281,24 +230,26 @@
             margin-bottom: 20px;
             font-size: 2em;
             color: var(--primary-color);
-            box-shadow: inset 0 0 0 2px var(--primary-color); /* Outline */
+            box-shadow: inset 0 0 0 2px var(--primary-color);
         }
-        .why-choose-us-item:nth-child(1) .icon { background-color: #fff4e5; border-color: #ff9800; color: #ff9800; } /* Orange */
-        .why-choose-us-item:nth-child(2) .icon { background-color: #e6ffe6; border-color: var(--primary-color); color: var(--primary-color); } /* Green */
-        .why-choose-us-item:nth-child(3) .icon { background-color: #e0f2f7; border-color: #2196f3; color: #2196f3; } /* Blue */
-        .why-choose-us-item:nth-child(4) .icon { background-color: #f3e5f5; border-color: #9c27b0; color: #9c27b0; } /* Purple */
 
+        .why-choose-us-item:nth-child(1) .icon { background-color: #fff4e5; border-color: #ff9800; color: #ff9800; }
+        .why-choose-us-item:nth-child(2) .icon { background-color: #e6ffe6; border-color: var(--primary-color); color: var(--primary-color); }
+        .why-choose-us-item:nth-child(3) .icon { background-color: #e0f2f7; border-color: #2196f3; color: #2196f3; }
+        .why-choose-us-item:nth-child(4) .icon { background-color: #f3e5f5; border-color: #9c27b0; color: #9c27b0; }
 
         .why-choose-us-item h3 {
             font-size: 1.4em;
             margin-top: 0;
             margin-bottom: 10px;
             color: var(--text-color);
+            text-align: left;
         }
 
         .why-choose-us-item p {
             font-size: 0.95em;
             color: var(--light-text-color);
+            text-align: left;
         }
 
         .stats-bar {
@@ -307,10 +258,11 @@
             gap: 50px;
             margin-top: 60px;
             flex-wrap: wrap;
+            text-align: left;
         }
 
         .stat-item {
-            text-align: center;
+            text-align: left;
         }
 
         .stat-item strong {
@@ -318,143 +270,144 @@
             font-size: 2.5em;
             color: var(--primary-color);
             font-weight: 700;
+            text-align: left;
         }
 
         .stat-item span {
             font-size: 1em;
             color: var(--light-text-color);
+            text-align: left;
         }
 
         /* Aportando la excelencia colombiana */
-       /* Estilos para la sección principal */
-.section-aportando-excelencia {
-    background-color: var(--secondary-color); /* Color de fondo de la sección */
-    padding: 80px 0; /* Relleno superior e inferior */
-}
+        .section-aportando-excelencia {
+            background-color: var(--secondary-color);
+            padding: 80px 0;
+            text-align: left;
+        }
 
-/* Contenedor Flex para texto e imagen */
-.excellence-content {
-    display: flex; /* Habilita Flexbox */
-    align-items: center; /* Alinea los elementos (texto e imagen) verticalmente al centro */
-    gap: 50px; /* Espacio entre el texto y la imagen */
-    flex-wrap: wrap; /* Permite que los elementos se envuelvan a la siguiente línea en pantallas pequeñas */
-}
+        .excellence-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
 
-/* Columna de texto (ahora incluye el título H2) */
-.excellence-text {
-    flex: 1; /* Permite que el texto ocupe el espacio disponible */
-    min-width: 400px; /* Ancho mínimo para la columna de texto */
-    max-width: 55%; /* El texto ocupará hasta el 55% del ancho disponible */
-}
+        .excellence-text {
+            flex: 1;
+            min-width: 400px;
+            max-width: 55%;
+            text-align: left;
+        }
 
-.excellence-text h2 {
-    text-align: left; /* Alinea el título a la izquierda */
-    margin-bottom: 30px; /* Espacio debajo del título */
-    color: var(--heading-color); /* Utiliza tu variable para el color de los títulos */
-    font-size: 2.5em; /* Tamaño de fuente del título */
-}
+        .excellence-text h2 {
+            text-align: left;
+            margin-bottom: 30px;
+            color: var(--text-color);
+            font-size: 2.5em;
+        }
 
-.excellence-text p {
-    margin-bottom: 20px; /* Espacio debajo de los párrafos */
-    color: var(--light-text-color); /* Color del texto de los párrafos */
-    line-height: 1.6;
-}
+        .excellence-text p {
+            margin-bottom: 20px;
+            color: var(--light-text-color);
+            line-height: 1.6;
+            text-align: left;
+        }
 
-/* Contenedor de la imagen */
-.excellence-image {
-    flex: 1; /* Permite que la imagen ocupe el espacio disponible */
-    min-width: 300px; /* Ancho mínimo para la columna de la imagen */
-    max-width: 40%; /* La imagen ocupará hasta el 40% del ancho disponible */
-    text-align: center; /* Centra la imagen si es más pequeña que su contenedor */
-}
+        .excellence-image {
+            flex: 1;
+            min-width: 300px;
+            max-width: 40%;
+            text-align: left;
+        }
 
-.excellence-image img {
-    max-width: 100%; /* Asegura que la imagen no desborde su contenedor */
-    height: auto; /* Mantiene la proporción de la imagen */
-    border-radius: 10px; /* Bordes redondeados */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-}
+        .excellence-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
 
-/* Contenedor de las estadísticas (Más de 15 años, 100%, Más de 500) */
-.excellence-stats {
-    display: flex;
-    justify-content: flex-start; /* Alinea las estadísticas a la izquierda */
-    gap: 40px; /* Espacio entre los ítems de estadística */
-    margin-top: 30px; /* Espacio superior */
-    flex-wrap: wrap; /* Permite que los ítems se envuelvan en varias líneas */
-}
+        .excellence-stats {
+            display: flex;
+            justify-content: flex-start;
+            gap: 40px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+            text-align: left;
+        }
 
-/* Estilos para cada ítem individual de estadística */
-.excellence-stat-item {
-    display: flex;
-    flex-direction: column; /* Apila el icono, el número y el texto */
-    align-items: flex-start; /* Alinea el contenido del ítem a la izquierda */
-    gap: 5px; /* Espacio entre los elementos del ítem */
-}
+        .excellence-stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 5px;
+            text-align: left;
+        }
 
-.excellence-stat-item .icon {
-    font-size: 2.5em; /* Tamaño del icono */
-    /* Los colores específicos ya están definidos y se mantendrán */
-}
-/* Colores específicos para los iconos de las estadísticas */
-.excellence-stat-item:nth-child(1) .icon { color: #ff9800; } /* Naranja */
-.excellence-stat-item:nth-child(2) .icon { color: var(--primary-color); } /* Color principal (verde oscuro, por ejemplo) */
-.excellence-stat-item:nth-child(3) .icon { color: #ff9800; } /* Naranja */
+        .excellence-stat-item .icon {
+            font-size: 2.5em;
+        }
 
+        .excellence-stat-item:nth-child(1) .icon { color: #ff9800; }
+        .excellence-stat-item:nth-child(2) .icon { color: var(--primary-color); }
+        .excellence-stat-item:nth-child(3) .icon { color: #ff9800; }
 
-.excellence-stat-item strong {
-    font-size: 1.8em; /* Tamaño del número grande */
-    color: var(--text-color); /* Color del número */
-    font-weight: bold;
-}
+        .excellence-stat-item strong {
+            font-size: 1.8em;
+            color: var(--text-color);
+            font-weight: bold;
+            text-align: left;
+        }
 
-.excellence-stat-item span {
-    font-size: 0.9em; /* Tamaño del texto descriptivo */
-    color: var(--light-text-color); /* Color del texto descriptivo */
-}
+        .excellence-stat-item span {
+            font-size: 0.9em;
+            color: var(--light-text-color);
+            text-align: left;
+        }
 
-/* Media Queries para responsividad: el contenido se apilará en pantallas más pequeñas */
-@media (max-width: 992px) { /* Para pantallas de tablet y menores */
-    .excellence-content {
-        flex-direction: column; /* Apila el texto y la imagen verticalmente */
-        align-items: center; /* Centra los elementos apilados */
-        gap: 30px; /* Ajusta el espacio */
-    }
-    .excellence-text,
-    .excellence-image {
-        max-width: 100%; /* Ocupan todo el ancho disponible */
-        min-width: auto; /* Reinicia el min-width */
-        text-align: center; /* Centra el texto y la imagen cuando están apilados */
-    }
-    .excellence-text h2,
-    .excellence-text p {
-        text-align: center; /* Centra el título y párrafos en pantallas pequeñas */
-    }
-    .excellence-stats {
-        justify-content: center; /* Centra las estadísticas cuando están apiladas */
-    }
-    .excellence-stat-item {
-        align-items: center; /* Centra los elementos dentro de cada estadística */
-    }
-}
+        @media (max-width: 992px) {
+            .excellence-content {
+                flex-direction: column;
+                align-items: center;
+                gap: 30px;
+            }
+            .excellence-text,
+            .excellence-image {
+                max-width: 100%;
+                min-width: auto;
+                text-align: center;
+            }
+            .excellence-text h2,
+            .excellence-text p {
+                text-align: center;
+            }
+            .excellence-stats {
+                justify-content: center;
+            }
+            .excellence-stat-item {
+                align-items: center;
+            }
+        }
 
-@media (max-width: 576px) { /* Para pantallas de móvil */
-    .section-aportando-excelencia {
-        padding: 50px 0; /* Menos relleno en móviles */
-    }
-    .excellence-text h2 {
-        font-size: 2em; /* Título más pequeño en móviles */
-    }
-    .excellence-stats {
-        flex-direction: column; /* Apila las estadísticas si hay muy poco espacio */
-        gap: 20px;
-    }
-}
+        @media (max-width: 576px) {
+            .section-aportando-excelencia {
+                padding: 50px 0;
+            }
+            .excellence-text h2 {
+                font-size: 2em;
+            }
+            .excellence-stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
 
         /* Nuestras variedades colombianas */
         .section-variedades {
             padding: 80px 0;
             background-color: var(--white);
+            text-align: left;
         }
 
         .varieties-grid {
@@ -471,7 +424,7 @@
             overflow: hidden;
             width: calc(25% - 30px);
             min-width: 280px;
-            text-align: center;
+            text-align: left;
         }
 
         .variety-card img {
@@ -489,12 +442,14 @@
             font-size: 1.5em;
             margin-top: 0;
             color: var(--text-color);
+            text-align: left;
         }
 
         .variety-content p {
             font-size: 0.9em;
             color: var(--light-text-color);
             margin-bottom: 15px;
+            text-align: left;
         }
 
         .variety-details {
@@ -504,10 +459,12 @@
             margin-top: 15px;
             font-size: 0.9em;
             color: var(--light-text-color);
+            text-align: left;
         }
 
         .variety-details div strong {
             color: var(--text-color);
+            text-align: left;
         }
 
         .characteristics ul {
@@ -522,6 +479,7 @@
             margin-bottom: 5px;
             font-size: 0.9em;
             color: var(--light-text-color);
+            text-align: left;
         }
 
         .characteristics ul li::before {
@@ -534,170 +492,164 @@
         }
 
         /* Nuestras Certificaciones */
-      /* Estilos generales de la sección de certificaciones */
-.section-certificaciones {
-    background-color: var(--secondary-color); /* Color de fondo definido por tu variable */
-    padding: 80px 0; /* Relleno superior e inferior */
-    text-align: center; /* Centra el título y el párrafo principal */
-}
+        .section-certificaciones {
+            background-color: var(--secondary-color);
+            padding: 80px 0;
+            text-align: left;
+        }
 
-/* AÑADIDO: Estilos para el título principal de la sección */
-.section-certificaciones h2 {
-    font-size: 3em; /* Tamaño de fuente para el título principal de la sección */
-    color: var(--heading-color, #333); /* Color del título, usando tu variable o un valor por defecto */
-    margin-bottom: 20px; /* Espacio debajo del título */
-    text-align: center; /* Asegura que el título esté centrado */
-}
+        .section-certificaciones h2 {
+            font-size: 3em;
+            color: var(--text-color);
+            margin-bottom: 20px;
+            text-align: left;
+        }
 
-/* AÑADIDO: Estilos para el párrafo introductorio de la sección */
-.section-certificaciones p {
-    font-size: 1.1em; /* Tamaño de fuente para el párrafo */
-    color: var(--light-text-color); /* Color del texto del párrafo */
-    margin-top: 0; /* Asegura que no haya margen superior si se añadió uno negativo en HTML */
-    margin-bottom: 60px; /* Espacio debajo del párrafo antes de las tarjetas de certificación */
-    max-width: 800px; /* Limita el ancho del párrafo para mejor legibilidad */
-    margin-left: auto; /* Centra el párrafo dentro de su contenedor */
-    margin-right: auto; /* Centra el párrafo dentro de su contenedor */
-    line-height: 1.6; /* Interlineado para mejor lectura */
-}
+        .section-certificaciones p {
+            font-size: 1.1em;
+            color: var(--light-text-color);
+            margin-top: 0;
+            margin-bottom: 60px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+            text-align: left;
+        }
 
-/* Estilos para el contenedor Flex de las certificaciones */
-.certificaciones-grid {
-    display: flex; /* Habilita Flexbox para colocar los elementos en fila */
-    justify-content: center; /* Centra los recuadros horizontalmente */
-    gap: 30px; /* Espacio entre los recuadros de las certificaciones */
-    flex-wrap: wrap; /* Permite que los recuadros se envuelvan a la siguiente línea en pantallas pequeñas */
-    margin-top: 20px; /* Espacio superior, aunque el párrafo ya tiene margen inferior */
-}
+        .certificaciones-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
 
-/* Estilos para cada recuadro de certificación */
-.certificacion-item {
-    background-color: #ffffff; /* Fondo blanco para los recuadros */
-    border-radius: 10px;
-    padding: 35px; /* Ligeramente más padding para dar más "aire" al contenido */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Sombra un poco más pronunciada */
-    flex: 1; /* Permite que los elementos crezcan y se encojan */
-    min-width: 330px; /* CAMBIADO: Aumentado el ancho mínimo de cada recuadro para acomodar imágenes más grandes */
-    max-width: 48%; /* Aproximadamente la mitad del ancho del contenedor, dejando espacio para el gap */
-    display: flex; /* Flexbox para organizar el contenido dentro del recuadro */
-    flex-direction: column; /* Apila el contenido (título, párrafo, lista, imagen) verticalmente */
-    align-items: flex-start; /* Alinea el contenido a la izquierda */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave al pasar el ratón */
-}
+        .certificacion-item {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 35px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            flex: 1;
+            min-width: 330px;
+            max-width: 48%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: left;
+        }
 
-.certificacion-item:hover {
-    transform: translateY(-8px); /* Levantamiento un poco más pronunciado al pasar el ratón */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Sombra más fuerte al hover */
-}
+        .certificacion-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
 
-/* Estilos para el título H3 dentro de cada recuadro */
-.certificacion-item h3 {
-    font-size: 1.6em; /* Un poco más grande */
-    margin-bottom: 20px; /* Más espacio debajo del título */
-    color: var(--heading-color); /* Utiliza tu variable para el color de los títulos */
-    display: flex; /* Para alinear el icono con el texto del título */
-    align-items: center;
-}
+        .certificacion-item h3 {
+            font-size: 1.6em;
+            margin-bottom: 20px;
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            text-align: left;
+        }
 
-.certificacion-item h3 .certificate-icon {
-    color: #4CAF50; /* Color verde para el icono */
-    margin-right: 15px; /* Más espacio entre el icono y el texto del título */
-    font-size: 1.5em; /* Icono más grande */
-}
+        .certificacion-item h3 .certificate-icon {
+            color: #4CAF50;
+            margin-right: 15px;
+            font-size: 1.5em;
+        }
 
-/* Estilos para el párrafo descriptivo dentro de cada recuadro */
-.certificacion-item p {
-    font-size: 1.05em; /* Ligeramente más grande */
-    line-height: 1.7; /* Mayor interlineado para mejorar la legibilidad */
-    margin-bottom: 20px;
-    color: var(--text-color);
-}
+        .certificacion-item p {
+            font-size: 1.05em;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            color: var(--text-color);
+            text-align: left;
+        }
 
-/* Estilos para la lista (bullet points) */
-.certificacion-item ul {
-    list-style: none; /* Elimina las viñetas predeterminadas del navegador */
-    padding: 0;
-    margin-bottom: 25px; /* Más espacio debajo de la lista */
-    width: 100%;
-}
+        .certificacion-item ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 25px;
+            width: 100%;
+        }
 
-.certificacion-item ul li {
-    font-size: 1em; /* Tamaño de fuente de los bullet points */
-    color: var(--light-text-color);
-    line-height: 1.5; /* Interlineado para los ítems de la lista */
-    margin-bottom: 12px; /* Más espacio entre cada bullet point */
-    display: flex; /* Para alinear el icono con el texto */
-    align-items: flex-start; /* Alinea el icono al inicio de la línea */
-    text-align: left; /* AÑADIDO: Asegura que el texto dentro del li también se alinee a la izquierda */
-}
+        .certificacion-item ul li {
+            font-size: 1em;
+            color: var(--light-text-color);
+            line-height: 1.5;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            text-align: left;
+        }
 
-.certificacion-item ul li .fas.fa-check-circle {
-    color: #4CAF50; /* Color verde para el icono de check */
-    margin-right: 10px; /* Espacio entre el icono y el texto */
-    font-size: 1em; /* Mismo tamaño que el texto para el icono de check */
-    margin-top: 5px; /* Pequeño ajuste vertical para alinear con el texto */
-    flex-shrink: 0; /* Evita que el icono se encoja en líneas largas */
-}
+        .certificacion-item ul li .fas.fa-check-circle {
+            color: #4CAF50;
+            margin-right: 10px;
+            font-size: 1em;
+            margin-top: 5px;
+            flex-shrink: 0;
+        }
 
-/* Contenedor de la imagen dentro de cada recuadro */
-.certificacion-item .image-container {
-    width: 100%;
-    text-align: center;
-    margin-top: auto; /* Empuja el contenedor de la imagen hacia el final del recuadro si el texto es más corto */
-    padding-top: 30px; /* Más espacio entre la lista y la imagen */
-}
+        .certificacion-item .image-container {
+            width: 100%;
+            text-align: center;
+            margin-top: auto;
+            padding-top: 30px;
+        }
 
-.certificacion-item .image-container img {
-    max-width: 250px; /* CAMBIADO: VALOR AUMENTADO PARA AMPLIAR LA IMAGEN */
-    height: auto;
-    display: block; /* Elimina el espacio extra debajo de la imagen */
-    margin: 0 auto; /* Centra la imagen dentro de su contenedor */
-    border: 1px solid rgba(0,0,0,0.05); /* Borde sutil para la imagen */
-    border-radius: 5px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* Sombra suave para la imagen */
-}
+        .certificacion-item .image-container img {
+            max-width: 250px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border: 1px solid rgba(0,0,0,0.05);
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
 
-/* Media Queries para responsividad (ajustes para pantallas más pequeñas) */
-@media (max-width: 768px) {
-    /* Ajustes para el título y párrafo principal de la sección en móviles */
-    .section-certificaciones h2 {
-        font-size: 2.5em; /* Tamaño de título más pequeño en móviles */
-    }
-    .section-certificaciones p {
-        font-size: 1em;
-        margin-bottom: 40px; /* Menos espacio en móviles */
-    }
+        @media (max-width: 768px) {
+            .section-certificaciones h2 {
+                font-size: 2.5em;
+            }
+            .section-certificaciones p {
+                font-size: 1em;
+                margin-bottom: 40px;
+            }
+            .certificaciones-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+            .certificacion-item {
+                max-width: 90%;
+                padding: 30px;
+            }
+            .certificacion-item h3 {
+                font-size: 1.4em;
+            }
+            .certificacion-item p,
+            .certificacion-item ul li {
+                font-size: 1em;
+            }
+            .certificacion-item .image-container img {
+                max-width: 200px;
+            }
+        }
 
-    .certificaciones-grid {
-        flex-direction: column; /* Apila los recuadros verticalmente en pantallas pequeñas */
-        align-items: center;
-    }
-    .certificacion-item {
-        max-width: 90%; /* Ocupa casi todo el ancho disponible */
-        padding: 30px; /* Ajustar padding si es necesario en móvil */
-    }
-    .certificacion-item h3 {
-        font-size: 1.4em;
-    }
-    .certificacion-item p,
-    .certificacion-item ul li {
-        font-size: 1em;
-    }
-    .certificacion-item .image-container img {
-        max-width: 200px; /* CAMBIADO: Ajustar tamaño de imagen en móvil para que no sea demasiado grande */
-    }
-}
         /* Nuestros Servicios */
         .section-services {
             background-color: var(--white);
             padding: 80px 0;
-            text-align: center;
+            text-align: left;
         }
 
         .services-intro {
             max-width: 800px;
             margin: 0 auto 60px;
             color: var(--light-text-color);
+            text-align: left;
         }
 
         .services-grid {
@@ -718,6 +670,7 @@
             font-size: 1.4em;
             color: var(--text-color);
             margin-bottom: 15px;
+            text-align: left;
         }
 
         .service-card h3 .icon {
@@ -725,6 +678,7 @@
             color: var(--primary-color);
             margin-right: 10px;
         }
+
         .service-card:nth-child(1) h3 .icon { color: #ff9800; }
         .service-card:nth-child(2) h3 .icon { color: #2196f3; }
         .service-card:nth-child(3) h3 .icon { color: #e91e63; }
@@ -740,6 +694,7 @@
             padding-left: 25px;
             margin-bottom: 10px;
             color: var(--light-text-color);
+            text-align: left;
         }
 
         .service-card ul li::before {
@@ -752,30 +707,31 @@
 
         /* Call to Action */
         .cta-section {
-            background-color: #ff9800; /* Original orange color, or change to green if preferred */
-            background-color: var(--primary-color); /* Changed to green */
+            background-color: var(--primary-color);
             color: var(--white);
             padding: 60px 0;
-            text-align: center;
+            text-align: left;
         }
 
         .cta-section h2 {
             font-size: 2em;
             margin-bottom: 30px;
             color: var(--white);
+            text-align: center;
         }
 
         /* Contact Section */
         .contact-section {
             padding: 80px 0;
             background-color: var(--secondary-color);
-            text-align: center;
+            text-align: left;
         }
 
         .contact-section h2 {
             font-size: 2.5em;
             color: var(--primary-color);
             margin-bottom: 60px;
+            text-align: left;
         }
 
         .contact-form-container {
@@ -799,6 +755,7 @@
 
         .contact-info div {
             margin-bottom: 25px;
+            text-align: left;
         }
 
         .contact-info .icon {
@@ -813,22 +770,26 @@
             color: var(--light-text-color);
             display: inline-block;
             vertical-align: middle;
+            text-align: left;
         }
 
         .contact-info strong {
             display: block;
             color: var(--text-color);
             margin-top: 5px;
+            text-align: left;
         }
 
         .contact-office-hours {
             margin-top: 30px;
+            text-align: left;
         }
 
         .contact-office-hours h3 {
             font-size: 1.2em;
             color: var(--text-color);
             margin-bottom: 15px;
+            text-align: left;
         }
 
         .contact-office-hours ul {
@@ -839,6 +800,7 @@
         .contact-office-hours ul li {
             margin-bottom: 8px;
             color: var(--light-text-color);
+            text-align: left;
         }
 
         .contact-form {
@@ -847,11 +809,13 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
+            text-align: left;
         }
 
         .form-group {
             margin-bottom: 15px;
             width: 100%;
+            text-align: left;
         }
 
         .form-group.full-width {
@@ -863,6 +827,7 @@
             margin-bottom: 5px;
             font-weight: 600;
             color: var(--text-color);
+            text-align: left;
         }
 
         .form-group input,
@@ -874,6 +839,7 @@
             border-radius: 5px;
             font-family: 'Montserrat', sans-serif;
             font-size: 1em;
+            text-align: left;
         }
 
         .form-group textarea {
@@ -892,6 +858,7 @@
             font-weight: 600;
             cursor: pointer;
             transition: background-color 0.3s ease;
+            text-align: center;
         }
 
         .contact-form button:hover {
@@ -900,10 +867,11 @@
 
         /* Footer */
         .footer {
-            background-color: #2c3e50; /* Dark blue/gray */
+            background-color: #2c3e50;
             color: var(--white);
             padding: 60px 0 20px;
             font-size: 0.9em;
+            text-align: left;
         }
 
         .footer-content {
@@ -917,12 +885,14 @@
             flex: 1;
             min-width: 200px;
             margin-bottom: 20px;
+            text-align: left;
         }
 
         .footer-column h4 {
             font-size: 1.2em;
             margin-bottom: 20px;
             color: var(--primary-color);
+            text-align: left;
         }
 
         .footer-column ul {
@@ -932,12 +902,14 @@
 
         .footer-column ul li {
             margin-bottom: 10px;
+            text-align: left;
         }
 
         .footer-column ul li a {
             color: var(--white);
             text-decoration: none;
             transition: color 0.3s ease;
+            text-align: left;
         }
 
         .footer-column ul li a:hover {
@@ -947,6 +919,7 @@
         .footer-contact-info p {
             margin-bottom: 10px;
             color: #ccc;
+            text-align: left;
         }
 
         .footer-contact-info .icon {
@@ -968,6 +941,7 @@
             text-decoration: none;
             margin: 0 15px;
             transition: color 0.3s ease;
+            text-align: center;
         }
 
         .footer-bottom nav a:hover {
@@ -976,6 +950,7 @@
 
         .social-icons {
             margin-top: 20px;
+            text-align: center;
         }
 
         .social-icons a {
@@ -1048,110 +1023,17 @@
                 text-align: center;
             }
         }
-        .hero {
-    position: relative; /* Contenedor para la imagen de fondo posicionada absolutamente */
-    width: 100%;
-    height: 100vh; /* Hace que el hero ocupe toda la altura de la ventana (viewport height) */
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Centra el contenido verticalmente */
-    align-items: center; /* Centra el contenido horizontalmente */
-    color: #ffffff; /* Color de texto blanco para que contraste con la imagen */
-    text-align: center;
-    overflow: hidden; /* Asegura que la imagen no se salga del contenedor */
-}
-
-.hero-background-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Cubre todo el área sin distorsionar la imagen */
-    z-index: 1; /* Coloca la imagen detrás de los otros elementos */
-}
-
-.logo-header {
-    position: relative; /* Asegura que el logo esté por encima de la imagen de fondo */
-    z-index: 2;
-    /* Puedes añadir aquí estilos para el tamaño y posición del logo si es necesario */
-}
-
-.logo-header img {
-    max-width: 150px; /* Ajusta el tamaño del logo si es muy grande */
-    height: auto;
-}
-
-.hero-content {
-    position: relative; /* Asegura que el contenido esté por encima de la imagen de fondo */
-    z-index: 2;
-    padding: 20px; /* Espaciado interno para el contenido */
-    max-width: 800px; /* Limita el ancho del texto para mejor legibilidad */
-    margin-top: -50px; /* Ajusta la posición vertical del contenido si es necesario */
-}
-
-.hero-content h1 {
-    font-size: 3.5em; /* Tamaño del título principal */
-    margin-bottom: 10px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra para mejor legibilidad */
-}
-
-.hero-content h2 {
-    font-size: 2em; /* Tamaño del subtítulo */
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-}
-
-.hero-content p {
-    font-size: 1.1em;
-    line-height: 1.6;
-    margin-bottom: 30px;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
-}
-
-.btn {
-    display: inline-block;
-    padding: 12px 25px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-}
-
-.btn-primary {
-    background-color: #e67e22; /* Color de botón principal (naranja) */
-    color: white;
-    border: none;
-    margin-right: 15px;
-}
-
-.btn-primary:hover {
-    background-color: #d35400;
-}
-
-.btn-secondary {
-    background-color: rgba(255, 255, 255, 0.2); /* Botón transparente con texto blanco */
-    color: white;
-    border: 2px solid white;
-}
-
-.btn-secondary:hover {
-    background-color: rgba(255, 255, 255, 0.4);
-}
-        
-  <style>
-    /* Asegúrate de que tus estilos CSS estén aquí o enlazados a un archivo .css */
-</style>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    </style>
+</head>
+<body>
 
 <header class="hero">
     <img src="Portada.jpg" alt="Fondo de cafeto" class="hero-background-image">
-    
     <div class="logo-header">
-        <a href="index.html" aria-label="Volver al inicio"> <img src="Logo-3.png" alt="Green Diamond Logo">
+        <a href="index.html" aria-label="Volver al inicio">
+            <img src="Logo-3.png" alt="Green Diamond Logo">
         </a>
     </div>
-    
     <div class="hero-content">
         <h1>Colombiano Premium</h1>
         <h2>Café verde de especialidad</h2>
@@ -1161,14 +1043,14 @@
     </div>
 </header>
 
-   <section class="section-aportando-excelencia">
+<section class="section-aportando-excelencia">
     <div class="container">
         <div class="excellence-content">
             <div class="excellence-text">
                 <h2>Aportando la excelencia colombiana al tostador</h2>
                 <p>Nos especializamos en el abastecimiento de granos de café verde de especialidad colombiano de primera calidad con trazabilidad completa y sin productos químicos. Nuestras relaciones directas con los agricultores colombianos aseguran que reciba café verde de la más alta calidad mientras apoya las prácticas agrícolas sostenibles.</p>
-                <p>Las plantaciones de gran altitud de Tolima junto con sus suelos volcánicos,aportan una mineralidad única que hace de este café un producto premium. Se seleccionan cuidadosamente una a una las cerezas que ya están maduras con el método de "hand-picking". Así nos aseguramos de tener una consistencia en la calidad del producto. Se escogen solo las mejores variedades: Bourbon, Geisha, Castillo y Caturra.</p>
-
+                <p>Las plantaciones de gran altitud de Tolima junto con sus suelos volcánicos aportan una mineralidad única que hace de este café un producto premium. Se seleccionan cuidadosamente una a una las cerezas que ya están maduras con el método de "hand-picking". Así nos aseguramos de tener una consistencia en la calidad del producto. Se escogen solo las mejores variedades: Bourbon, Geisha, Castillo y Caturra.</p>
+            </div>
             <div class="excellence-image">
                 <img src="Mujer.png" alt="Mujer en cafeto">
             </div>
@@ -1176,134 +1058,134 @@
     </div>
 </section>
 
-    <section class="section-variedades" id="varieties">
-        <div class="container">
-            <h2>Nuestras variedades colombianas</h2>
-            <p style="text-align: center; margin-bottom: 60px; color: var(--light-text-color);">Cada variedad se selecciona cuidadosamente de altitudes y regiones específicas para garantizar un desarrollo óptimo del sabor y la calidad de la copa.</p>
-            <div class="varieties-grid">
-                <div class="variety-card">
-                    <img src="Bourbon.jpg" alt="Bourbon Coffee Beans">
-                    <div class="variety-content">
-                        <h3>Bourbon</h3>
-                        <p>Variedad clásica con sabores dulces y complejos y acidez equilibrada.</p>
-                        <div class="variety-details">
-                            <div><strong>Altitud:</strong> 1.200-1.800m</div>
-                            <div><strong>Proceso:</strong> Lavado</div>
-                        </div>
-                        <div class="characteristics">
-                            <ul>
-                                <li>Dulces notas de chocolate</li>
-                                <li>Acidez brillante</li>
-                                <li>Cuerpo completo</li>
-                            </ul>
-                        </div>
+<section class="section-variedades" id="varieties">
+    <div class="container">
+        <h2>Nuestras variedades colombianas</h2>
+        <p style="margin-bottom: 60px; color: var(--light-text-color);">Cada variedad se selecciona cuidadosamente de altitudes y regiones específicas para garantizar un desarrollo óptimo del sabor y la calidad de la copa.</p>
+        <div class="varieties-grid">
+            <div class="variety-card">
+                <img src="Bourbon.jpg" alt="Bourbon Coffee Beans">
+                <div class="variety-content">
+                    <h3>Bourbon</h3>
+                    <p>Variedad clásica con sabores dulces y complejos y acidez equilibrada.</p>
+                    <div class="variety-details">
+                        <div><strong>Altitud:</strong> 1.200-1.800m</div>
+                        <div><strong>Proceso:</strong> Lavado</div>
+                    </div>
+                    <div class="characteristics">
+                        <ul>
+                            <li>Dulces notas de chocolate</li>
+                            <li>Acidez brillante</li>
+                            <li>Cuerpo completo</li>
+                        </ul>
                     </div>
                 </div>
-                <div class="variety-card">
-                    <img src="Geisha_2.jpg" alt="Geisha Coffee Beans">
-                    <div class="variety-content">
-                        <h3>Geisha</h3>
-                        <p>Variedad rara con aromáticos florales y calidad excepcional de la taza.</p>
-                        <div class="variety-details">
-                            <div><strong>Altitud:</strong> 1.500-2.000m</div>
-                            <div><strong>Proceso:</strong> Natural/Lavado</div>
-                        </div>
-                        <div class="characteristics">
-                            <ul>
-                                <li>Aromáticas florales</li>
-                                <li>Cuerpo parecido al té</li>
-                                <li>Notas de jazmín</li>
-                            </ul>
-                        </div>
+            </div>
+            <div class="variety-card">
+                <img src="Geisha_2.jpg" alt="Geisha Coffee Beans">
+                <div class="variety-content">
+                    <h3>Geisha</h3>
+                    <p>Variedad rara con aromáticos florales y calidad excepcional de la taza.</p>
+                    <div class="variety-details">
+                        <div><strong>Altitud:</strong> 1.500-2.000m</div>
+                        <div><strong>Proceso:</strong> Natural/Lavado</div>
+                    </div>
+                    <div class="characteristics">
+                        <ul>
+                            <li>Aromáticas florales</li>
+                            <li>Cuerpo parecido al té</li>
+                            <li>Notas de jazmín</li>
+                        </ul>
                     </div>
                 </div>
-                <div class="variety-card">
-                    <img src="Castillo.jpg" alt="Castillo Coffee Beans">
-                    <div class="variety-content">
-                        <h3>Castillo</h3>
-                        <p>Variedad resistente a enfermedades con calidad y rendimiento consistentes.</p>
-                        <div class="variety-details">
-                            <div><strong>Altitud:</strong> 1.000-1.600m</div>
-                            <div><strong>Proceso:</strong> Lavado</div>
-                        </div>
-                        <div class="characteristics">
-                            <ul>
-                                <li>Dulzurra de caramelo</li>
-                                <li>Cuerpo medio</li>
-                                <li>Notas de cítricos</li>
-                            </ul>
-                        </div>
+            </div>
+            <div class="variety-card">
+                <img src="Castillo.jpg" alt="Castillo Coffee Beans">
+                <div class="variety-content">
+                    <h3>Castillo</h3>
+                    <p>Variedad resistente a enfermedades con calidad y rendimiento consistentes.</p>
+                    <div class="variety-details">
+                        <div><strong>Altitud:</strong> 1.000-1.600m</div>
+                        <div><strong>Proceso:</strong> Lavado</div>
+                    </div>
+                    <div class="characteristics">
+                        <ul>
+                            <li>Dulzurra de caramelo</li>
+                            <li>Cuerpo medio</li>
+                            <li>Notas de cítricos</li>
+                        </ul>
                     </div>
                 </div>
-                <div class="variety-card">
-                    <img src="Caturra.jpg" alt="Caturra Coffee Beans">
-                    <div class="variety-content">
-                        <h3>Caturra</h3>
-                        <p>Variedad compacta con acidez brillante y perfil de copa limpio.</p>
-                        <div class="variety-details">
-                            <div><strong>Altitud:</strong> 1.200-1.700m</div>
-                            <div><strong>Proceso:</strong> Lavado</div>
-                        </div>
-                        <div class="characteristics">
-                            <ul>
-                                <li>Acidez brillante</li>
-                                <li>Acabado limpio</li>
-                                <li>Notas afrutadas</li>
-                            </ul>
-                        </div>
+            </div>
+            <div class="variety-card">
+                <img src="Caturra.jpg" alt="Caturra Coffee Beans">
+                <div class="variety-content">
+                    <h3>Caturra</h3>
+                    <p>Variedad compacta con acidez brillante y perfil de copa limpio.</p>
+                    <div class="variety-details">
+                        <div><strong>Altitud:</strong> 1.200-1.700m</div>
+                        <div><strong>Proceso:</strong> Lavado</div>
+                    </div>
+                    <div class="characteristics">
+                        <ul>
+                            <li>Acidez brillante</li>
+                            <li>Acabado limpio</li>
+                            <li>Notas afrutadas</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    
- <section class="section-why-choose-us">
-        <div class="container">
-            <h2><span>¿Por qué</span> elegirnos?</h2>
-            <p style="margin-top: -30px; margin-bottom: 60px; font-size: 1.1em; color: var(--light-text-color);">Nuestro compromiso con la excelencia y enfoque único de la importación de café nos distingue en la industria.</p>
-            <div class="why-choose-us-grid">
-                <div class="why-choose-us-item">
-                    <div class="icon"><i class="fas fa-seedling"></i></div>
-                    <h3>Selección de la mejor calidad</h3>
-                    <p>Seleccionamos a mano solo los mejores granos de café que cumplen con nuestros estrictos estándares de calidad. Cada lote es ocupado y calificado por nuestro equipo de expertos.</p>
-                </div>
-                <div class="why-choose-us-item">
-                    <div class="icon"><i class="fas fa-leaf"></i></div>
-                    <h3>Trazabilidad completa</h3>
-                    <p>Desde la granja hasta su tostador, proporcionamos total transparencia. Sepa exactamente de dónde viene su café y quién lo procitó.</p>
-                </div>
-                <div class="why-choose-us-item">
-                    <div class="icon"><i class="fas fa-users-cog"></i></div>
-                    <h3>Facilitación de procesos</h3>
-                    <p>Nos encargamos de toda la logística compleja, el papeleo y los procedimientos de importación para que pueda centrarse en lo que mejor hace: tostar café excepcional.</p>
-                </div>
-                <div class="why-choose-us-item">
-                    <div class="icon"><i class="fas fa-truck"></i></div>
-                    <h3>Cadena de suministro confiable</h3>
-                    <p>Nuestras relaciones establecidas con los agricultores colombianos garantizan un suministro y disponibilidad consistentes durante todo el año.</p>
-                </div>
+    </div>
+</section>
+
+<section class="section-why-choose-us">
+    <div class="container">
+        <h2><span>¿Por qué</span> elegirnos?</h2>
+        <p style="margin-bottom: 60px; font-size: 1.1em; color: var(--light-text-color);">Nuestro compromiso con la excelencia y enfoque único de la importación de café nos distingue en la industria.</p>
+        <div class="why-choose-us-grid">
+            <div class="why-choose-us-item">
+                <div class="icon"><i class="fas fa-seedling"></i></div>
+                <h3>Selección de la mejor calidad</h3>
+                <p>Seleccionamos a mano solo los mejores granos de café que cumplen con nuestros estrictos estándares de calidad. Cada lote es ocupado y calificado por nuestro equipo de expertos.</p>
             </div>
-            <div class="stats-bar">
-                <div class="stat-item">
-                    <strong>24/7</strong>
-                    <span>Atención al cliente</span>
-                </div>
-                <div class="stat-item">
-                    <strong>100%</strong>
-                    <span>Garantía de calidad</span>
-                </div>
-                <div class="stat-item">
-                    <strong>48 horas</strong>
-                    <span>Tiempo de respuesta</span>
-                </div>
+            <div class="why-choose-us-item">
+                <div class="icon"><i class="fas fa-leaf"></i></div>
+                <h3>Trazabilidad completa</h3>
+                <p>Desde la granja hasta su tostador, proporcionamos total transparencia. Sepa exactamente de dónde viene su café y quién lo procitó.</p>
+            </div>
+            <div class="why-choose-us-item">
+                <div class="icon"><i class="fas fa-users-cog"></i></div>
+                <h3>Facilitación de procesos</h3>
+                <p>Nos encargamos de toda la logística compleja, el papeleo y los procedimientos de importación para que pueda centrarse en lo que mejor hace: tostar café excepcional.</p>
+            </div>
+            <div class="why-choose-us-item">
+                <div class="icon"><i class="fas fa-truck"></i></div>
+                <h3>Cadena de suministro confiable</h3>
+                <p>Nuestras relaciones establecidas con los agricultores colombianos garantizan un suministro y disponibilidad consistentes durante todo el año.</p>
             </div>
         </div>
-    </section>
-  <section class="section-certificaciones">
+        <div class="stats-bar">
+            <div class="stat-item">
+                <strong>24/7</strong>
+                <span>Atención al cliente</span>
+            </div>
+            <div class="stat-item">
+                <strong>100%</strong>
+                <span>Garantía de calidad</span>
+            </div>
+            <div class="stat-item">
+                <strong>48 horas</strong>
+                <span>Tiempo de respuesta</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-certificaciones">
     <div class="container">
         <h2>Nuestras certificaciones</h2>
-        <p style="margin-top: -30px; margin-bottom: 60px; font-size: 1.1em; color: var(--light-text-color);">La calidad y la sostenibilidad están en el centro de todo lo que hacemos. Nuestras certificaciones garantizan los más altos estándares para usted y el medio ambiente.</p>
-        
+        <p style="margin-bottom: 60px; font-size: 1.1em; color: var(--light-text-color);">La calidad y la sostenibilidad están en el centro de todo lo que hacemos. Nuestras certificaciones garantizan los más altos estándares para usted y el medio ambiente.</p>
         <div class="certificaciones-grid">
             <div class="certificacion-item">
                 <h3><span class="certificate-icon"><i class="fas fa-seedling"></i></span> Certificación de Negocios Ecológicos</h3>
@@ -1317,7 +1199,6 @@
                     <img src="Ecologicos.jpg" alt="Certificación de negocios ecológicos">
                 </div>
             </div>
-            
             <div class="certificacion-item">
                 <h3><span class="certificate-icon"><i class="fas fa-flask"></i></span> Certificación de Productos Químicos Cero</h3>
                 <p>Ofrecemos café cultivado con la máxima pureza, garantizando que esté completamente libre de sustancias químicas desde la cosecha hasta la exportación, protegiendo su salud y el ecosistema.</p>
@@ -1334,188 +1215,185 @@
     </div>
 </section>
 
-    <section class="section-services">
-        <div class="container">
-            <h2>NUESTROS <span>SERVICIOS</span></h2>
-            <p class="services-intro">Desde el abastecimiento hasta la entrega, manejamos todos los aspectos del proceso de importación de café para que pueda concentrarse en tostar café excepcional.</p>
-            <div class="services-grid">
-                <div class="service-card">
-                    <h3><span class="icon"><i class="fas fa-boxes"></i></span> Importación y logística</h3>
-                    <p>Gestión completa de la importación desde los puertos colombianos a su tostadoría</p>
-                    <ul>
-                        <li>Despacho de aduana</li>
-                        <li>Coordinación de envíos</li>
-                        <li>Gestión de almacenes</li>
-                        <li>Gestión de seguros</li>
-                    </ul>
-                </div>
-                <div class="service-card">
-                    <h3><span class="icon"><i class="fas fa-check-circle"></i></span> Control de calidad</h3>
-                    <p>Rigurosas pruebas de calidad y servicios de ventoso para cada lote</p>
-                    <ul>
-                        <li>Cupitas previas al envío</li>
-                        <li>Pruebas de humedad</li>
-                        <li>Evaluación de calificación</li>
-                        <li>Aprobación de la muestra</li>
-                    </ul>
-                </div>
-                <div class="service-card">
-                    <h3><span class="icon"><i class="fas fa-file-alt"></i></span> Documentación</h3>
-                    <p>Completar el papeleo y el manejo de la certificación</p>
-                    <ul>
-                        <li>Certificados de exportación</li>
-                        <li>Documentos fitosanitarios</li>
-                        <li>Informes de calidad</li>
-                        <li>Registros de trazabilidad</li>
-                    </ul>
-                </div>
-                <div class="service-card">
-                    <h3><span class="icon"><i class="fas fa-dolly"></i></span> Distribución</h3>
-                    <p>Opciones de distribución flexibles para satisfacer sus necesidades</p>
-                    <ul>
-                        <li>Envío directo</li>
-                        <li>Cargas consolidadas</li>
-                        <li>Soluciones de almacenamiento</li>
-                        <li>Entregas programadas</li>
-                    </ul>
-                </div>
+<section class="section-services">
+    <div class="container">
+        <h2>NUESTROS <span>SERVICIOS</span></h2>
+        <p class="services-intro">Desde el abastecimiento hasta la entrega, manejamos todos los aspectos del proceso de importación de café para que pueda concentrarse en tostar café excepcional.</p>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3><span class="icon"><i class="fas fa-boxes"></i></span> Importación y logística</h3>
+                <p>Gestión completa de la importación desde los puertos colombianos a su tostadoría</p>
+                <ul>
+                    <li>Despacho de aduana</li>
+                    <li>Coordinación de envíos</li>
+                    <li>Gestión de almacenes</li>
+                    <li>Gestión de seguros</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <h3><span class="icon"><i class="fas fa-check-circle"></i></span> Control de calidad</h3>
+                <p>Rigurosas pruebas de calidad y servicios de ventoso para cada lote</p>
+                <ul>
+                    <li>Cupitas previas al envío</li>
+                    <li>Pruebas de humedad</li>
+                    <li>Evaluación de calificación</li>
+                    <li>Aprobación de la muestra</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <h3><span class="icon"><i class="fas fa-file-alt"></i></span> Documentación</h3>
+                <p>Completar el papeleo y el manejo de la certificación</p>
+                <ul>
+                    <li>Certificados de exportación</li>
+                    <li>Documentos fitosanitarios</li>
+                    <li>Informes de calidad</li>
+                    <li>Registros de trazabilidad</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <h3><span class="icon"><i class="fas fa-dolly"></i></span> Distribución</h3>
+                <p>Opciones de distribución flexibles para satisfacer sus necesidades</p>
+                <ul>
+                    <li>Envío directo</li>
+                    <li>Cargas consolidadas</li>
+                    <li>Soluciones de almacenamiento</li>
+                    <li>Entregas programadas</li>
+                </ul>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section class="cta-section">
-        <div class="container">
-            <h2>¿Listo para obtener café colombiano de primera calidad?</h2>
-            <p>Únase a cientos de tostadores satisfechos que confían en nosotros para sus necesidades de café colombiano. Comience con una muestra gratuita hoy mismo.</p>
-            <a href="#contact" class="btn btn-secondary" style="border-color: var(--white); color: var(--white);">Solicite una muestra gratuita</a>
-            <a href="#contact" class="btn btn-secondary" style="border-color: var(--white); color: var(--white);">Solicitar presupuesto</a>
-        </div>
-    </section>
+<section class="cta-section">
+    <div class="container">
+        <h2>¿Listo para obtener café colombiano de primera calidad?</h2>
+        <p>Únase a cientos de tostadores satisfechos que confían en nosotros para sus necesidades de café colombiano. Comience con una muestra gratuita hoy mismo.</p>
+        <a href="#contact" class="btn btn-secondary" style="border-color: var(--white); color: var(--white);">Solicite una muestra gratuita</a>
+        <a href="#contact" class="btn btn-secondary" style="border-color: var(--white); color: var(--white);">Solicitar presupuesto</a>
+    </div>
+</section>
 
-    <section class="contact-section" id="contact">
-        <div class="container">
-            <h2>Empecemos tu viaje por el café</h2>
-            <p style="margin-top: -30px; margin-bottom: 40px; color: var(--light-text-color);">¿Listo para obtener café colombiano de primera calidad? Ponte en contacto con nuestro equipo para obtener muestras, presupuestos o cualquier pregunta sobre nuestras variedades.</p>
-            <div class="contact-form-container">
-                <div class="contact-info">
-                    <div>
-                        <span class="icon"><i class="fas fa-phone-alt"></i></span> <p>Teléfono</p>
-                        <strong>+34 695616891</strong>
-                        <p>Lun-Vie 8AM-6PM EST</p>
-                    </div>
-                    <div>
-                        <span class="icon"><i class="fas fa-envelope"></i></span> <p>Correo electrónico</p>
-                        <strong>greendiamond.ceo@gmail.com</strong>
-                        <p>Respondemos en 24 horas</p>
-                    </div>
-        
-                    <div class="contact-office-hours">
-                        <h3>Horario de trabajo</h3>
-                        <ul>
-                            <li>Lunes - Viernes: <strong>8:00 AM - 6:00 PM</strong></li>
-                            <li>Sábado: <strong>9:00 AM - 5:00 PM</strong></li>
-                            <li>Domingo: <strong>CERRADO</strong></li>
-                        </ul>
-                    </div>
+<section class="contact-section" id="contact">
+    <div class="container">
+        <h2>Empecemos tu viaje por el café</h2>
+        <p style="margin-bottom: 40px; color: var(--light-text-color);">¿Listo para obtener café colombiano de primera calidad? Ponte en contacto con nuestro equipo para obtener muestras, presupuestos o cualquier pregunta sobre nuestras variedades.</p>
+        <div class="contact-form-container">
+            <div class="contact-info">
+                <div>
+                    <span class="icon"><i class="fas fa-phone-alt"></i></span> <p>Teléfono</p>
+                    <strong>+34 695616891</strong>
+                    <p>Lun-Vie 8AM-6PM EST</p>
                 </div>
-                <form class="contact-form">
-                    <div class="form-group">
-                        <label for="name">Nombre completo *</label>
-                        <input type="text" id="name" name="name" value="Juan Dee" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="company">Empresa *</label>
-                        <input type="text" id="company" name="company" value="Coffee Roasters Inc." required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Correo electrónico *</label>
-                        <input type="email" id="email" name="email" value="John@coffeecompany.com" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Teléfono</label>
-                        <input type="tel" id="phone" name="phone" value="+1 (555) 123-4567">
-                    </div>
-                    <div class="form-group full-width">
-                        <label for="query-type">Tipo de consulta *</label>
-                        <select id="query-type" name="query_type" required>
-                            <option value="solicitar-muestras">Solicitar muestras</option>
-                            <option value="solicitar-presupuesto">Solicitar presupuesto</option>
-                            <option value="otras-preguntas">Otras preguntas</option>
-                        </select>
-                    </div>
-                    <div class="form-group full-width">
-                        <label for="message">Mensaje</label>
-                        <textarea id="message" name="message" placeholder="Cuéntanos sobre tus necesidades de café, variedades preferidas, requisitos de cantidad, etc."></textarea>
-                    </div>
-                    <button type="submit">Enviar mensaje</button>
-                </form>
+                <div>
+                    <span class="icon"><i class="fas fa-envelope"></i></span> <p>Correo electrónico</p>
+                    <strong>greendiamond.ceo@gmail.com</strong>
+                    <p>Respondemos en 24 horas</p>
+                </div>
+                <div class="contact-office-hours">
+                    <h3>Horario de trabajo</h3>
+                    <ul>
+                        <li>Lunes - Viernes: <strong>8:00 AM - 6:00 PM</strong></li>
+                        <li>Sábado: <strong>9:00 AM - 5:00 PM</strong></li>
+                        <li>Domingo: <strong>CERRADO</strong></li>
+                    </ul>
+                </div>
             </div>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Nombre completo *</label>
+                    <input type="text" id="name" name="name" value="Juan Dee" required>
+                </div>
+                <div class="form-group">
+                    <label for="company">Empresa *</label>
+                    <input type="text" id="company" name="company" value="Coffee Roasters Inc." required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo electrónico *</label>
+                    <input type="email" id="email" name="email" value="John@coffeecompany.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Teléfono</label>
+                    <input type="tel" id="phone" name="phone" value="+1 (555) 123-4567">
+                </div>
+                <div class="form-group full-width">
+                    <label for="query-type">Tipo de consulta *</label>
+                    <select id="query-type" name="query_type" required>
+                        <option value="solicitar-muestras">Solicitar muestras</option>
+                        <option value="solicitar-presupuesto">Solicitar presupuesto</option>
+                        <option value="otras-preguntas">Otras preguntas</option>
+                    </select>
+                </div>
+                <div class="form-group full-width">
+                    <label for="message">Mensaje</label>
+                    <textarea id="message" name="message" placeholder="Cuéntanos sobre tus necesidades de café, variedades preferidas, requisitos de cantidad, etc."></textarea>
+                </div>
+                <button type="submit">Enviar mensaje</button>
+            </form>
         </div>
-    </section>
+    </div>
+</section>
 
-    <footer class="footer">
-        <div class="container footer-content">
-            <div class="footer-column footer-contact-info">
-                <h4>Importaciones de café colombiano</h4>
-                <p>Importador de café verde colombiano de primera calidad especializado en variedades Bourbon, Geisha, Castillo y Caturra. Certificado sostenible con trazabilidad completa.</p>
-                <p><span class="icon"><i class="fas fa-phone-alt"></i></span> +34 695616891</p>
-                <p><span class="icon"><i class="fas fa-envelope"></i></span> greendiamond.ceo@gmail.com</p>
-            </div>
-            <div class="footer-column">
-                <h4>EMPRESA</h4>
-                <ul>
-                    <li><a href="#">Sobre nosotros</a></li>
-                    <li><a href="#">Nuestra historia</a></li>
-                    <li><a href="#">Certificaciones</a></li>
-                    <li><a href="#">Carreras profesionales</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>PRODUCTOS</h4>
-                <ul>
-                    <li><a href="#varieties">Bourbon</a></li>
-                    <li><a href="#varieties">Geisha</a></li>
-                    <li><a href="#varieties">Castillo</a></li>
-                    <li><a href="#varieties">Caturra</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>SERVICIOS</h4>
-                <ul>
-                    <li><a href="#services">Servicios de importación</a></li>
-                    <li><a href="#services">Control de calidad</a></li>
-                    <li><a href="#services">Logística</a></li>
-                    <li><a href="#services">Documentación</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>SOPORTE</h4>
-                <ul>
-                    <li><a href="#contact">Contacta con nosotros</a></li>
-                    <li><a href="#">Preguntas frecuentes</a></li>
-                    <li><a href="#">Información de envío</a></li>
-                    <li><a href="#">DEVOLUCIONES</a></li>
-                </ul>
-            </div>
+<footer class="footer">
+    <div class="container footer-content">
+        <div class="footer-column footer-contact-info">
+            <h4>Importaciones de café colombiano</h4>
+            <p>Importador de café verde colombiano de primera calidad especializado en variedades Bourbon, Geisha, Castillo y Caturra. Certificado sostenible con trazabilidad completa.</p>
+            <p><span class="icon"><i class="fas fa-phone-alt"></i></span> +34 695616891</p>
+            <p><span class="icon"><i class="fas fa-envelope"></i></span> greendiamond.ceo@gmail.com</p>
         </div>
-        <div class="container footer-bottom">
-            <p>&copy; 2025 Importaciones de café de especialidad verde colombiano. todos los derechos reservados.</p>
-            <nav>
-                <a href="#">Política de privacidad</a>
-                <a href="#">Condiciones del servicio</a>
-                <a href="#">Política de cookies</a>
-                <a href="#">Mapa del sitio</a>
-            </nav>
-            <div class="social-icons">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-            </div>
+        <div class="footer-column">
+            <h4>EMPRESA</h4>
+            <ul>
+                <li><a href="#">Sobre nosotros</a></li>
+                <li><a href="#">Nuestra historia</a></li>
+                <li><a href="#">Certificaciones</a></li>
+                <li><a href="#">Carreras profesionales</a></li>
+            </ul>
         </div>
-    </footer>
+        <div class="footer-column">
+            <h4>PRODUCTOS</h4>
+            <ul>
+                <li><a href="#varieties">Bourbon</a></li>
+                <li><a href="#varieties">Geisha</a></li>
+                <li><a href="#varieties">Castillo</a></li>
+                <li><a href="#varieties">Caturra</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>SERVICIOS</h4>
+            <ul>
+                <li><a href="#services">Servicios de importación</a></li>
+                <li><a href="#services">Control de calidad</a></li>
+                <li><a href="#services">Logística</a></li>
+                <li><a href="#services">Documentación</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>SOPORTE</h4>
+            <ul>
+                <li><a href="#contact">Contacta con nosotros</a></li>
+                <li><a href="#">Preguntas frecuentes</a></li>
+                <li><a href="#">Información de envío</a></li>
+                <li><a href="#">DEVOLUCIONES</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="container footer-bottom">
+        <p>© 2025 Importaciones de café de especialidad verde colombiano. todos los derechos reservados.</p>
+        <nav>
+            <a href="#">Política de privacidad</a>
+            <a href="#">Condiciones del servicio</a>
+            <a href="#">Política de cookies</a>
+            <a href="#">Mapa del sitio</a>
+        </nav>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </div>
+</footer>
 
 </body>
 </html>
-
-
