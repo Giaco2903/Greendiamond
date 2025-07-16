@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Green Diamond - Café Verde de Especialidad Colombiano</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         :root {
             --primary-color: #0a7040; /* Green */
@@ -375,72 +376,99 @@
             padding: 80px 0;
             text-align: center;
         }
+/* Estilos para el contenedor de las certificaciones */
+.certificaciones-grid {
+    display: flex; /* Habilita Flexbox para colocar los elementos en fila */
+    justify-content: center; /* Centra los elementos horizontalmente */
+    gap: 30px; /* Espacio entre los recuadros de las certificaciones */
+    flex-wrap: wrap; /* Permite que los recuadros se envuelvan a la siguiente línea en pantallas pequeñas */
+    margin-top: 20px; /* Espacio superior si es necesario */
+}
 
-        .certificaciones-grid {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
+/* Estilos para cada recuadro de certificación */
+.certificacion-item {
+    background-color: #ffffff; /* Fondo blanco para los recuadros */
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave para un efecto 3D */
+    flex: 1; /* Permite que los elementos crezcan y se encojan */
+    min-width: 300px; /* Ancho mínimo para que no se compriman demasiado */
+    max-width: 48%; /* Aproximadamente la mitad del ancho del contenedor, dejando espacio para el gap */
+    display: flex; /* Flexbox para organizar el contenido dentro del recuadro */
+    flex-direction: column; /* Apila el contenido (título, párrafo, lista, imagen) verticalmente */
+    align-items: flex-start; /* Alinea el contenido a la izquierda */
+    transition: transform 0.3s ease; /* Efecto suave al pasar el ratón */
+}
 
-        .certificacion-item {
-            background-color: var(--white);
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            padding: 30px;
-            width: calc(50% - 40px);
-            min-width: 300px;
-            text-align: left;
-        }
+.certificacion-item:hover {
+    transform: translateY(-5px); /* Pequeño levantamiento al pasar el ratón */
+}
 
-        .certificacion-item h3 {
-            font-size: 1.5em;
-            color: var(--text-color);
-            margin-bottom: 10px;
-        }
+.certificacion-item h3 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: var(--heading-color); /* Color de los títulos */
+    display: flex; /* Para alinear el icono con el texto del título */
+    align-items: center;
+}
 
-        .certificacion-item h3 .certificate-icon {
-            font-size: 1.2em;
-            color: var(--primary-color);
-            margin-right: 5px;
-        }
+.certificacion-item h3 .certificate-icon {
+    color: #4CAF50; /* Color verde para el icono */
+    margin-right: 10px;
+    font-size: 1.2em;
+}
 
-        .certificacion-item p {
-            color: var(--light-text-color);
-            margin-bottom: 20px;
-        }
+.certificacion-item p {
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
 
-        .certificacion-item ul {
-            list-style: none;
-            padding: 0;
-        }
+.certificacion-item ul {
+    list-style: none; /* Elimina las viñetas predeterminadas de la lista */
+    padding: 0;
+    margin-bottom: 20px;
+    width: 100%; /* Asegura que la lista ocupe el ancho completo */
+}
 
-        .certificacion-item ul li {
-            position: relative;
-            padding-left: 25px;
-            margin-bottom: 10px;
-            color: var(--light-text-color);
-        }
+.certificacion-item ul li {
+    font-size: 0.95em;
+    color: var(--light-text-color);
+    margin-bottom: 8px;
+    display: flex; /* Para alinear el icono de check con el texto */
+    align-items: center;
+}
 
-        .certificacion-item ul li::before {
-            content: '✔';
-            color: var(--primary-color);
-            position: absolute;
-            left: 0;
-            font-size: 1.2em;
-        }
+.certificacion-item ul li .fas.fa-check-circle {
+    color: #4CAF50; /* Color verde para el icono de check */
+    margin-right: 8px;
+}
 
-        .certificacion-item .image-container {
-            margin-top: 30px;
-            text-align: center;
-        }
+.certificacion-item .image-container {
+    width: 100%;
+    text-align: center;
+    margin-top: auto; /* Empuja el contenedor de la imagen hacia abajo para alinearse */
+    padding-top: 20px; /* Espacio entre la lista y la imagen */
+}
 
-        .certificacion-item .image-container img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
+.certificacion-item .image-container img {
+    max-width: 150px; /* Ajusta el tamaño de las imágenes de certificación */
+    height: auto;
+    display: block; /* Elimina el espacio extra debajo de la imagen */
+    margin: 0 auto; /* Centra la imagen dentro de su contenedor */
+}
+
+/* Media query para pantallas más pequeñas (opcional, para responsividad) */
+@media (max-width: 768px) {
+    .certificaciones-grid {
+        flex-direction: column; /* Apila los recuadros verticalmente en pantallas pequeñas */
+        align-items: center;
+    }
+    .certificacion-item {
+        max-width: 90%; /* Ocupa casi todo el ancho disponible */
+    }
+}
 
         /* Nuestros Servicios */
         .section-services {
@@ -993,7 +1021,7 @@
                     </div>
                 </div>
                 <div class="variety-card">
-                    <img src="Geisha.jpeg" alt="Geisha Coffee Beans">
+                    <img src="Geisha_2.jpg" alt="Geisha Coffee Beans">
                     <div class="variety-content">
                         <h3>Geisha</h3>
                         <p>Variedad rara con aromáticos florales y calidad excepcional de la taza.</p>
