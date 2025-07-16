@@ -216,77 +216,130 @@
         }
 
         /* Aportando la excelencia colombiana */
-        .section-aportando-excelencia {
-            background-color: var(--secondary-color);
-            padding: 80px 0;
-        }
+       /* Estilos para la sección principal */
+.section-aportando-excelencia {
+    background-color: var(--secondary-color); /* Color de fondo de la sección */
+    padding: 80px 0; /* Relleno superior e inferior */
+}
 
-        .excellence-content {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-            flex-wrap: wrap;
-        }
+/* Contenedor Flex para texto e imagen */
+.excellence-content {
+    display: flex; /* Habilita Flexbox */
+    align-items: center; /* Alinea los elementos (texto e imagen) verticalmente al centro */
+    gap: 50px; /* Espacio entre el texto y la imagen */
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan a la siguiente línea en pantallas pequeñas */
+}
 
-        .excellence-text {
-            flex: 1;
-            min-width: 400px;
-        }
+/* Columna de texto (ahora incluye el título H2) */
+.excellence-text {
+    flex: 1; /* Permite que el texto ocupe el espacio disponible */
+    min-width: 400px; /* Ancho mínimo para la columna de texto */
+    max-width: 55%; /* El texto ocupará hasta el 55% del ancho disponible */
+}
 
-        .excellence-text h2 {
-            text-align: left;
-            margin-bottom: 30px;
-        }
+.excellence-text h2 {
+    text-align: left; /* Alinea el título a la izquierda */
+    margin-bottom: 30px; /* Espacio debajo del título */
+    color: var(--heading-color); /* Utiliza tu variable para el color de los títulos */
+    font-size: 2.5em; /* Tamaño de fuente del título */
+}
 
-        .excellence-text p {
-            margin-bottom: 20px;
-            color: var(--light-text-color);
-        }
+.excellence-text p {
+    margin-bottom: 20px; /* Espacio debajo de los párrafos */
+    color: var(--light-text-color); /* Color del texto de los párrafos */
+    line-height: 1.6;
+}
 
-        .excellence-image {
-            flex: 1;
-            min-width: 300px;
-            text-align: center;
-        }
+/* Contenedor de la imagen */
+.excellence-image {
+    flex: 1; /* Permite que la imagen ocupe el espacio disponible */
+    min-width: 300px; /* Ancho mínimo para la columna de la imagen */
+    max-width: 40%; /* La imagen ocupará hasta el 40% del ancho disponible */
+    text-align: center; /* Centra la imagen si es más pequeña que su contenedor */
+}
 
-        .excellence-image img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
+.excellence-image img {
+    max-width: 100%; /* Asegura que la imagen no desborde su contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
 
-        .excellence-stats {
-            display: flex;
-            gap: 40px;
-            margin-top: 30px;
-            flex-wrap: wrap;
-        }
+/* Contenedor de las estadísticas (Más de 15 años, 100%, Más de 500) */
+.excellence-stats {
+    display: flex;
+    justify-content: flex-start; /* Alinea las estadísticas a la izquierda */
+    gap: 40px; /* Espacio entre los ítems de estadística */
+    margin-top: 30px; /* Espacio superior */
+    flex-wrap: wrap; /* Permite que los ítems se envuelvan en varias líneas */
+}
 
-        .excellence-stat-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+/* Estilos para cada ítem individual de estadística */
+.excellence-stat-item {
+    display: flex;
+    flex-direction: column; /* Apila el icono, el número y el texto */
+    align-items: flex-start; /* Alinea el contenido del ítem a la izquierda */
+    gap: 5px; /* Espacio entre los elementos del ítem */
+}
 
-        .excellence-stat-item .icon {
-            font-size: 2em;
-            color: var(--primary-color);
-        }
-        .excellence-stat-item:nth-child(1) .icon { color: #ff9800; }
-        .excellence-stat-item:nth-child(2) .icon { color: var(--primary-color); }
-        .excellence-stat-item:nth-child(3) .icon { color: #ff9800; }
+.excellence-stat-item .icon {
+    font-size: 2.5em; /* Tamaño del icono */
+    /* Los colores específicos ya están definidos y se mantendrán */
+}
+/* Colores específicos para los iconos de las estadísticas */
+.excellence-stat-item:nth-child(1) .icon { color: #ff9800; } /* Naranja */
+.excellence-stat-item:nth-child(2) .icon { color: var(--primary-color); } /* Color principal (verde oscuro, por ejemplo) */
+.excellence-stat-item:nth-child(3) .icon { color: #ff9800; } /* Naranja */
 
-        .excellence-stat-item strong {
-            font-size: 1.5em;
-            color: var(--text-color);
-        }
 
-        .excellence-stat-item span {
-            display: block;
-            font-size: 0.9em;
-            color: var(--light-text-color);
-        }
+.excellence-stat-item strong {
+    font-size: 1.8em; /* Tamaño del número grande */
+    color: var(--text-color); /* Color del número */
+    font-weight: bold;
+}
+
+.excellence-stat-item span {
+    font-size: 0.9em; /* Tamaño del texto descriptivo */
+    color: var(--light-text-color); /* Color del texto descriptivo */
+}
+
+/* Media Queries para responsividad: el contenido se apilará en pantallas más pequeñas */
+@media (max-width: 992px) { /* Para pantallas de tablet y menores */
+    .excellence-content {
+        flex-direction: column; /* Apila el texto y la imagen verticalmente */
+        align-items: center; /* Centra los elementos apilados */
+        gap: 30px; /* Ajusta el espacio */
+    }
+    .excellence-text,
+    .excellence-image {
+        max-width: 100%; /* Ocupan todo el ancho disponible */
+        min-width: auto; /* Reinicia el min-width */
+        text-align: center; /* Centra el texto y la imagen cuando están apilados */
+    }
+    .excellence-text h2,
+    .excellence-text p {
+        text-align: center; /* Centra el título y párrafos en pantallas pequeñas */
+    }
+    .excellence-stats {
+        justify-content: center; /* Centra las estadísticas cuando están apiladas */
+    }
+    .excellence-stat-item {
+        align-items: center; /* Centra los elementos dentro de cada estadística */
+    }
+}
+
+@media (max-width: 576px) { /* Para pantallas de móvil */
+    .section-aportando-excelencia {
+        padding: 50px 0; /* Menos relleno en móviles */
+    }
+    .excellence-text h2 {
+        font-size: 2em; /* Título más pequeño en móviles */
+    }
+    .excellence-stats {
+        flex-direction: column; /* Apila las estadísticas si hay muy poco espacio */
+        gap: 20px;
+    }
+}
 
         /* Nuestras variedades colombianas */
         .section-variedades {
@@ -382,84 +435,96 @@
     justify-content: center; /* Centra los elementos horizontalmente */
     gap: 30px; /* Espacio entre los recuadros de las certificaciones */
     flex-wrap: wrap; /* Permite que los recuadros se envuelvan a la siguiente línea en pantallas pequeñas */
-    margin-top: 20px; /* Espacio superior si es necesario */
+    margin-top: 20px; /* Espacio superior */
 }
 
 /* Estilos para cada recuadro de certificación */
 .certificacion-item {
     background-color: #ffffff; /* Fondo blanco para los recuadros */
     border-radius: 10px;
-    padding: 30px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave para un efecto 3D */
+    padding: 35px; /* Ligeramente más padding para dar más "aire" al contenido */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Sombra un poco más pronunciada */
     flex: 1; /* Permite que los elementos crezcan y se encojan */
-    min-width: 300px; /* Ancho mínimo para que no se compriman demasiado */
+    min-width: 320px; /* Aumentar ligeramente el ancho mínimo de cada recuadro */
     max-width: 48%; /* Aproximadamente la mitad del ancho del contenedor, dejando espacio para el gap */
     display: flex; /* Flexbox para organizar el contenido dentro del recuadro */
     flex-direction: column; /* Apila el contenido (título, párrafo, lista, imagen) verticalmente */
     align-items: flex-start; /* Alinea el contenido a la izquierda */
-    transition: transform 0.3s ease; /* Efecto suave al pasar el ratón */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave al pasar el ratón */
 }
 
 .certificacion-item:hover {
-    transform: translateY(-5px); /* Pequeño levantamiento al pasar el ratón */
+    transform: translateY(-8px); /* Levantamiento un poco más pronunciado al pasar el ratón */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Sombra más fuerte al hover */
 }
 
+/* Estilos para el título H3 dentro de cada recuadro */
 .certificacion-item h3 {
-    font-size: 1.5em;
-    margin-bottom: 15px;
-    color: var(--heading-color); /* Color de los títulos */
+    font-size: 1.6em; /* Un poco más grande */
+    margin-bottom: 20px; /* Más espacio debajo del título */
+    color: var(--heading-color); /* Utiliza tu variable para el color de los títulos */
     display: flex; /* Para alinear el icono con el texto del título */
     align-items: center;
 }
 
 .certificacion-item h3 .certificate-icon {
     color: #4CAF50; /* Color verde para el icono */
-    margin-right: 10px;
-    font-size: 1.2em;
+    margin-right: 15px; /* Más espacio entre el icono y el texto del título */
+    font-size: 1.5em; /* Icono más grande */
 }
 
+/* Estilos para el párrafo descriptivo dentro de cada recuadro */
 .certificacion-item p {
-    font-size: 1em;
-    line-height: 1.6;
-    margin-bottom: 15px;
+    font-size: 1.05em; /* Ligeramente más grande */
+    line-height: 1.7; /* Mayor interlineado para mejorar la legibilidad */
+    margin-bottom: 20px;
     color: var(--text-color);
 }
 
+/* Estilos para la lista (bullet points) */
 .certificacion-item ul {
-    list-style: none; /* Elimina las viñetas predeterminadas de la lista */
+    list-style: none; /* Elimina las viñetas predeterminadas del navegador */
     padding: 0;
-    margin-bottom: 20px;
-    width: 100%; /* Asegura que la lista ocupe el ancho completo */
+    margin-bottom: 25px; /* Más espacio debajo de la lista */
+    width: 100%; 
 }
 
 .certificacion-item ul li {
-    font-size: 0.95em;
+    font-size: 1em; /* Tamaño de fuente de los bullet points */
     color: var(--light-text-color);
-    margin-bottom: 8px;
-    display: flex; /* Para alinear el icono de check con el texto */
-    align-items: center;
+    line-height: 1.5; /* Interlineado para los ítems de la lista */
+    margin-bottom: 12px; /* Más espacio entre cada bullet point */
+    display: flex; /* Para alinear el icono con el texto */
+    align-items: flex-start; /* Alinea el icono al inicio de la línea */
 }
 
 .certificacion-item ul li .fas.fa-check-circle {
     color: #4CAF50; /* Color verde para el icono de check */
-    margin-right: 8px;
+    margin-right: 10px; /* Espacio entre el icono y el texto */
+    font-size: 1em; /* Mismo tamaño que el texto para el icono de check */
+    margin-top: 5px; /* Pequeño ajuste vertical para alinear con el texto */
+    flex-shrink: 0; /* Evita que el icono se encoja en líneas largas */
 }
 
+/* Contenedor de la imagen dentro de cada recuadro */
 .certificacion-item .image-container {
     width: 100%;
     text-align: center;
-    margin-top: auto; /* Empuja el contenedor de la imagen hacia abajo para alinearse */
-    padding-top: 20px; /* Espacio entre la lista y la imagen */
+    margin-top: auto; /* Empuja el contenedor de la imagen hacia el final del recuadro si el texto es más corto */
+    padding-top: 30px; /* Más espacio entre la lista y la imagen */
 }
 
 .certificacion-item .image-container img {
-    max-width: 150px; /* Ajusta el tamaño de las imágenes de certificación */
+    max-width: 220px; /* <-- VALOR AJUSTADO PARA AMPLIAR LA IMAGEN */
     height: auto;
     display: block; /* Elimina el espacio extra debajo de la imagen */
     margin: 0 auto; /* Centra la imagen dentro de su contenedor */
+    border: 1px solid rgba(0,0,0,0.05); /* Borde sutil para la imagen */
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* Sombra suave para la imagen */
 }
 
-/* Media query para pantallas más pequeñas (opcional, para responsividad) */
+/* Media Queries para responsividad */
 @media (max-width: 768px) {
     .certificaciones-grid {
         flex-direction: column; /* Apila los recuadros verticalmente en pantallas pequeñas */
@@ -467,9 +532,19 @@
     }
     .certificacion-item {
         max-width: 90%; /* Ocupa casi todo el ancho disponible */
+        padding: 30px; /* Ajustar padding si es necesario en móvil */
+    }
+    .certificacion-item h3 {
+        font-size: 1.4em;
+    }
+    .certificacion-item p,
+    .certificacion-item ul li {
+        font-size: 1em;
+    }
+    .certificacion-item .image-container img {
+        max-width: 180px; /* Ajustar tamaño de imagen en móvil si es muy grande */
     }
 }
-
         /* Nuestros Servicios */
         .section-services {
             background-color: var(--white);
@@ -927,7 +1002,7 @@
     <img src="Portada.jpg" alt="Fondo de cafeto" class="hero-background-image"> 
     
     <div class="logo-header">
-        <img src="Logo_3.png" alt="Green Diamond Logo"> 
+        <img src="Logo-3.png" alt="Green Diamond Logo"> 
     </div>
     
     <div class="hero-content">
@@ -982,20 +1057,20 @@
         </div>
     </section>
 
-    <section class="section-aportando-excelencia">
-        <div class="container">
-            <div class="excellence-content">
-                <div class="excellence-text">
-                    <h2>Aportando la excelencia colombiana a su tostador</h2>
-                    <p>Nos especializamos en el abastecimiento de granos de café verde colombiano de primera calidad con trazabilidad completa y sin productos químicos. Nuestras relaciones directas con los agricultores colombianos aseguran que reciba los granos de café de la más alta calidad mientras apoya las prácticas agrícolas sostenibles.</p>
-                    <p>Desde las plantaciones de gran altitud de Tolima, aprovechando los suelos volcánicos que le dan una mineralidad única, seleccionamos cuidadosamente solo las mejores variedades: Bourbon, Geisha, Castillo y Caturra.</p>
-                   
-                <div class="excellence-image">
-                    <img src="Mujer.png" alt="Agricultora de café colombiana">
-                </div>
+   <section class="section-aportando-excelencia">
+    <div class="container">
+        <div class="excellence-content">
+            <div class="excellence-text">
+                <h2>Aportando la excelencia colombiana al tostador</h2>
+                <p>Nos especializamos en el abastecimiento de granos de café verde colombiano de primera calidad con trazabilidad completa y sin productos químicos. Nuestras relaciones directas con los agricultores colombianos aseguran que reciba frijoles de la más alta calidad mientras apoya las prácticas agrícolas sostenibles.</p>
+                <p>Las plantaciones de gran altitud de Tolima junto con sus suelos volcánicos,aportan una mineralidad única que hace de este caé un producto premium. Se seleccionan cuidadosamente una a una las cerezas que ya están maduras con el método de "hand-picking". Así nos aseguramos de tener una consistencia en la calidad del producto. Se escogen solo las mejores variedades: Bourbon, Geisha, Castillo y Caturra.</p>
+
+            <div class="excellence-image">
+                <img src="mujer-cafeto.jpg" alt="Mujer en cafeto">
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <section class="section-variedades" id="varieties">
         <div class="container">
@@ -1078,38 +1153,40 @@
         </div>
     </section>
 
-    <section class="section-certificaciones">
-        <div class="container">
-            <h2>Nuestras certificaciones</h2>
-            <p style="margin-top: -30px; margin-bottom: 60px; font-size: 1.1em; color: var(--light-text-color);">La calidad y la sostenibilidad están en el centro de todo lo que hacemos. Nuestras certificaciones garantizan los más altos estándares para usted y el medio ambiente.</p>
-            <div class="certificaciones-grid">
-                <div class="certificacion-item">
-                    <h3><span class="certificate-icon"><i class="fas fa-seedling"></i></span> Certificación de negocios ecológicos</h3>
-                    <p>Prácticas comerciales sostenibles certificadas con responsabilidad ambiental</p>
-                    <ul>
-                        <li>Abastecimiento sostenible</li>
-                        <li>Envío neutro en carbono</li>
-                        <li>Embalaje ecológico</li>
-                    </ul>
-                    <div class="image-container">
-                        <img src="Ecologicos.jpg" alt="Certificación de negocios ecológicos">
-                    </div>
+  <section class="section-certificaciones">
+    <div class="container">
+        <h2>Nuestras certificaciones</h2>
+        <p style="margin-top: -30px; margin-bottom: 60px; font-size: 1.1em; color: var(--light-text-color);">La calidad y la sostenibilidad están en el centro de todo lo que hacemos. Nuestras certificaciones garantizan los más altos estándares para usted y el medio ambiente.</p>
+        
+        <div class="certificaciones-grid">
+            <div class="certificacion-item">
+                <h3><span class="certificate-icon"><i class="fas fa-seedling"></i></span> Certificación de Negocios Ecológicos</h3>
+                <p>Comprometidos con el planeta, nuestras prácticas están certificadas para asegurar una total responsabilidad ambiental en cada fase del negocio, desde el cultivo hasta la entrega.</p>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> Abastecimiento sostenible y ético de todos los recursos.</li>
+                    <li><i class="fas fa-check-circle"></i> Envío neutro en carbono para minimizar nuestra huella ambiental.</li>
+                    <li><i class="fas fa-check-circle"></i> Uso exclusivo de embalaje ecológico y reciclable.</li>
+                </ul>
+                <div class="image-container">
+                    <img src="Ecologicos.jpg" alt="Certificación de negocios ecológicos">
                 </div>
-                <div class="certificacion-item">
-                    <h3><span class="certificate-icon"><i class="fas fa-flask"></i></span> Certificación de productos químicos cero</h3>
-                    <p>Producción de café completamente libre de productos químicos desde la granja hasta la exportación</p>
-                    <ul>
-                        <li>Sin pesticidas</li>
-                        <li>Sin herbicidas</li>
-                        <li>Sin fertilizantes sintéticos</li>
-                    </ul>
-                    <div class="image-container">
-                        <img src="Quimicos.png" alt="Certificación de productos químicos cero">
-                    </div>
+            </div>
+            
+            <div class="certificacion-item">
+                <h3><span class="certificate-icon"><i class="fas fa-flask"></i></span> Certificación de Productos Químicos Cero</h3>
+                <p>Ofrecemos café cultivado con la máxima pureza, garantizando que esté completamente libre de sustancias químicas desde la cosecha hasta la exportación, protegiendo su salud y el ecosistema.</p>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> Cultivo sin uso de pesticidas dañinos.</li>
+                    <li><i class="fas fa-check-circle"></i> Eliminación completa de herbicidas en todo el proceso de producción.</li>
+                    <li><i class="fas fa-check-circle"></i> Sin adición de fertilizantes sintéticos.</li>
+                </ul>
+                <div class="image-container">
+                    <img src="Quimicos.png" alt="Certificación de productos químicos cero">
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <section class="section-services">
         <div class="container">
@@ -1177,19 +1254,15 @@
                 <div class="contact-info">
                     <div>
                         <span class="icon"><i class="fas fa-phone-alt"></i></span> <p>Teléfono</p>
-                        <strong>+1 (555) 123-4567</strong>
+                        <strong>+34 695616891</strong>
                         <p>Lun-Vie 8AM-6PM EST</p>
                     </div>
                     <div>
                         <span class="icon"><i class="fas fa-envelope"></i></span> <p>Correo electrónico</p>
-                        <strong>Orders@colombiancoffee.com</strong>
+                        <strong>greendiamond.ceo@gmail.com</strong>
                         <p>Respondemos en 24 horas</p>
                     </div>
-                    <div>
-                        <span class="icon"><i class="fas fa-map-marker-alt"></i></span> <p>Oficina</p>
-                        <strong>123 Coffee Street, Miami, Florida 33101</strong>
-                        <p>Visite nuestro laboratorio de ventosas.</p>
-                    </div>
+        
                     <div class="contact-office-hours">
                         <h3>Horario de trabajo</h3>
                         <ul>
