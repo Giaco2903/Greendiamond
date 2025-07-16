@@ -30,236 +30,165 @@
             padding: 20px;
         }
 
-/* --- Reseteo básico para el cuerpo de la página --- */
-/* Es fundamental que el <body> no tenga márgenes o paddings predeterminados que puedan desplazar todo */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif; /* Puedes reemplazar esto con tu fuente principal */
-    line-height: 1.6;
-    color: #333;
-}
+        /* --- Reseteo básico para el cuerpo de la página --- */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif; /* Usamos la fuente definida en tu link */
+            line-height: 1.6;
+            color: #333;
+        }
 
-/* --- Header & Hero Section --- */
+        /* --- Header & Hero Section --- */
 
-/* Estilos generales para el header (hero section) */
-.hero {
-    position: relative; /* FUNDAMENTAL: Este contenedor es el ancla para el logo posicionado absolutamente */
-    width: 100%;
-    height: 100vh; /* Altura de la sección hero (ajusta según necesites, por ejemplo, 80vh o un valor fijo) */
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Centra el contenido principal del hero verticalmente */
-    align-items: center; /* Centra el contenido principal del hero horizontalmente */
-    overflow: hidden; /* Para asegurar que la imagen de fondo no se desborde */
-    text-align: center;
-    color: #fff; /* Color del texto sobre la imagen de fondo (para el h1 y p) */
-    padding-top: 50px; /* AÑADIDO: Espacio superior dentro del hero para que el logo tenga "aire" y el contenido principal no lo tape */
-    box-sizing: border-box; /* AÑADIDO: Incluye el padding en el cálculo de la altura total del hero */
-}
+        /* Estilos generales para el header (hero section) */
+        .hero {
+            position: relative; /* FUNDAMENTAL: Este contenedor es el ancla para el logo posicionado absolutamente */
+            width: 100%;
+            height: 100vh; /* Altura de la sección hero (ajusta según necesites, por ejemplo, 80vh o un valor fijo) */
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Centra el contenido principal del hero verticalmente */
+            align-items: center; /* Centra el contenido principal del hero horizontalmente */
+            overflow: hidden; /* Para asegurar que la imagen de fondo no se desborde */
+            text-align: center;
+            color: #fff; /* Color del texto sobre la imagen de fondo (para el h1 y p) */
+            padding-top: 50px; /* Espacio superior dentro del hero para que el logo tenga "aire" y el contenido principal no lo tape */
+            box-sizing: border-box; /* Incluye el padding en el cálculo de la altura total del hero */
+        }
 
-/* Estilos de la imagen de fondo del hero */
-.hero-background-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Asegura que la imagen de fondo cubra todo el espacio sin distorsionarse */
-    z-index: -1; /* Envía la imagen de fondo detrás del contenido y del logo */
-    filter: brightness(0.6); /* Oscurece la imagen para que el texto sea más legible */
-}
+        /* Estilos de la imagen de fondo del hero */
+        .hero-background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Asegura que la imagen de fondo cubra todo el espacio sin distorsionarse */
+            z-index: -1; /* Envía la imagen de fondo detrás del contenido y del logo */
+            filter: brightness(0.6); /* Oscurece la imagen para que el texto sea más legible */
+        }
 
-/* Contenedor del logo: Posicionamiento y tamaño */
-.logo-header {
-    position: absolute; /* POSICIONAMIENTO ABSOLUTO: Para colocarlo en un lugar específico dentro de su padre (hero) */
-    top: 30px; /* Distancia desde la parte superior del .hero */
-    left: 50px; /* Distancia desde la parte izquierda del .hero */
-    z-index: 999; /* CAMBIADO: Aumentado el z-index significativamente para asegurar que el logo esté SIEMPRE por encima de todo */
-}
+        /* Contenedor del logo: Posicionamiento y tamaño */
+        .logo-header {
+            position: absolute; /* POSICIONAMIENTO ABSOLUTO: Para colocarlo en un lugar específico dentro de su padre (hero) */
+            top: 20px; /* MODIFICADO: Distancia desde la parte superior del .hero (más cerca del borde) */
+            left: 20px; /* MODIFICADO: Distancia desde la parte izquierda del .hero (más cerca del borde) */
+            z-index: 999; /* Asegura que el logo esté SIEMPRE por encima de otros elementos */
+        }
 
-/* Estilos para el enlace que envuelve el logo (si aplica) */
-.logo-header a {
-    display: block; /* Hace que toda el área del enlace sea clicable */
-    line-height: 1; /* Elimina cualquier espacio extra que pueda añadir el enlace */
-}
+        /* Estilos para el enlace que envuelve el logo (si aplica) */
+        .logo-header a {
+            display: block; /* Hace que toda el área del enlace sea clicable */
+            line-height: 1; /* Elimina cualquier espacio extra que pueda añadir el enlace */
+        }
 
-/* Estilos para la imagen del logo */
-.logo-header img {
-    height: 120px; /* CAMBIADO: Aumentado el tamaño del logo para que sea más grande */
-    width: auto; /* Mantiene la proporción de la imagen */
-    max-width: 250px; /* AÑADIDO: Limita el ancho máximo del logo para pantallas muy grandes, ajusta si es necesario */
-    display: block; /* Elimina cualquier espacio no deseado debajo de la imagen */
-}
+        /* Estilos para la imagen del logo */
+        .logo-header img {
+            height: 180px;      /* MODIFICADO: Hace el logo más grande. Ajusta este valor si necesitas un tamaño diferente. */
+            width: auto;        /* Mantiene la proporción original del logo */
+            max-width: 350px;   /* Un ancho máximo para evitar que sea excesivamente grande en pantallas muy grandes */
+            display: block;     /* Elimina cualquier espacio adicional debajo de la imagen */
+        }
 
-/* Estilos para el contenido principal del hero (título, subtítulo, párrafo, botones) */
-.hero-content {
-    position: relative; /* Asegura que este contenido esté por encima de la imagen de fondo */
-    z-index: 1;
-    max-width: 800px; /* Limita el ancho del contenido para una mejor lectura */
-    padding: 0 20px; /* Relleno lateral */
-    box-sizing: border-box; /* AÑADIDO: Incluye el padding en el cálculo del ancho total */
-}
+        /* Estilos para el contenido principal del hero (título, subtítulo, párrafo, botones) */
+        .hero-content {
+            position: relative; /* Asegura que este contenido esté por encima de la imagen de fondo */
+            z-index: 1;
+            max-width: 800px; /* Limita el ancho del contenido para una mejor lectura */
+            padding: 0 20px; /* Relleno lateral */
+            box-sizing: border-box; /* Incluye el padding en el cálculo del ancho total */
+        }
 
-.hero-content h1 {
-    font-size: 4em;
-    margin-bottom: 15px;
-}
+        .hero-content h1 {
+            font-size: 4em;
+            margin-bottom: 15px;
+        }
 
-.hero-content h2 {
-    font-size: 2.5em; /* Tamaño del subtítulo */
-    margin-bottom: 25px;
-    color: #0a7040; /* CAMBIADO: Color verde específico para el subtítulo "Café verde de especialidad" */
-}
+        .hero-content h2 {
+            font-size: 2.5em; /* Tamaño del subtítulo */
+            margin-bottom: 25px;
+            color: #0a7040; /* Color verde específico para el subtítulo "Café verde de especialidad" */
+        }
 
-.hero-content p {
-    font-size: 1.2em;
-    line-height: 1.6;
-    margin-bottom: 30px;
-}
+        .hero-content p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
 
-/* Estilos de botones (adaptados de tus estilos previos si los tienes) */
-.btn {
-    display: inline-block;
-    padding: 12px 25px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    margin: 0 10px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
+        /* Estilos de botones (adaptados de tus estilos previos si los tienes) */
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 10px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
 
-.btn-primary {
-    background-color: var(--primary-color, #4CAF50); /* Usa tu color principal o un verde por defecto */
-    color: #fff;
-    border: 2px solid var(--primary-color, #4CAF50);
-}
+        .btn-primary {
+            background-color: var(--primary-color, #4CAF50); /* Usa tu color principal o un verde por defecto */
+            color: #fff;
+            border: 2px solid var(--primary-color, #4CAF50);
+        }
 
-.btn-primary:hover {
-    background-color: transparent;
-    color: var(--primary-color, #4CAF50);
-}
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--primary-color, #4CAF50);
+        }
 
-.btn-secondary {
-    background-color: transparent;
-    color: #fff;
-    border: 2px solid #fff;
-}
+        .btn-secondary {
+            background-color: transparent;
+            color: #fff;
+            border: 2px solid #fff;
+        }
 
-.btn-secondary:hover {
-    background-color: #fff;
-    color: var(--primary-color, #4CAF50);
-}
+        .btn-secondary:hover {
+            background-color: #fff;
+            color: var(--primary-color, #4CAF50);
+        }
 
-/* Media Queries para responsividad (ajustes para pantallas más pequeñas) */
-@media (max-width: 768px) {
-    .logo-header {
-        top: 20px; /* Ajusta la posición superior en móvil */
-        left: 20px; /* Ajusta la posición izquierda en móvil */
-    }
-    .logo-header img {
-        height: 80px; /* CAMBIADO: Reduce el tamaño del logo en dispositivos móviles */
-        max-width: 150px; /* AÑADIDO: Limita el ancho en móvil */
-    }
-    .hero-content h1 {
-        font-size: 3em;
-    }
-    .hero-content h2 {
-        font-size: 1.8em;
-    }
-    .hero-content p {
-        font-size: 1em;
-    }
-    .btn {
-        padding: 10px 20px;
-        margin: 5px;
-    }
-}
+        /* Media Queries para responsividad (ajustes para pantallas más pequeñas) */
+        @media (max-width: 768px) {
+            .logo-header { /* CORREGIDO: Añadido el punto para que sea un selector de clase */
+                top: 15px;      /* Ajuste para móviles, un poco más cerca del borde */
+                left: 15px;     /* Ajuste para móviles */
+            }
+            .logo-header img { /* CORREGIDO: Añadido el punto para que sea un selector de clase */
+                height: 90px;   /* Tamaño para móviles, más pequeño que en escritorio pero más grande que el original */
+                max-width: 180px; /* Ancho máximo para móviles */
+            }
+            .hero-content h1 {
+                font-size: 3em;
+            }
+            .hero-content h2 {
+                font-size: 1.8em;
+            }
+            .hero-content p {
+                font-size: 1em;
+            }
+            .btn {
+                padding: 10px 20px;
+                margin: 5px;
+            }
+        }
 
-@media (max-width: 480px) {
-    .hero-content h1 {
-        font-size: 2.5em;
-    }
-    .hero-content h2 {
-        font-size: 1.5em;
-    }
-    .hero-content .btn {
-        display: block; /* Apila los botones en pantallas muy pequeñas */
-        margin: 10px auto;
-        width: 80%; /* Ancho completo para botones apilados */
-    }
-}
-
-/* Estilos de botones (adaptados de tus estilos previos si los tienes) */
-.btn {
-    display: inline-block;
-    padding: 12px 25px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    margin: 0 10px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.btn-primary {
-    background-color: var(--primary-color, #4CAF50); /* Usa tu color principal o un verde por defecto */
-    color: #fff;
-    border: 2px solid var(--primary-color, #4CAF50);
-}
-
-.btn-primary:hover {
-    background-color: transparent;
-    color: var(--primary-color, #4CAF50);
-}
-
-.btn-secondary {
-    background-color: transparent;
-    color: #fff;
-    border: 2px solid #fff;
-}
-
-.btn-secondary:hover {
-    background-color: #fff;
-    color: var(--primary-color, #4CAF50);
-}
-
-/* Media Queries para responsividad (ajustes para pantallas más pequeñas) */
-@media (max-width: 768px) {
-    .logo-header {
-        top: 20px; /* Ajusta la posición superior en móvil */
-        left: 20px; /* Ajusta la posición izquierda en móvil */
-    }
-    .logo-header img {
-        height: 70px; /* Reduce el tamaño del logo en dispositivos móviles */
-    }
-    .hero-content h1 {
-        font-size: 3em;
-    }
-    .hero-content h2 {
-        font-size: 1.8em;
-    }
-    .hero-content p {
-        font-size: 1em;
-    }
-    .btn {
-        padding: 10px 20px;
-        margin: 5px;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-content h1 {
-        font-size: 2.5em;
-    }
-    .hero-content h2 {
-        font-size: 1.5em;
-    }
-    .hero-content .btn {
-        display: block; /* Apila los botones en pantallas muy pequeñas */
-        margin: 10px auto;
-        width: 80%; /* Ancho completo para botones apilados */
-    }
-}
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2.5em;
+            }
+            .hero-content h2 {
+                font-size: 1.5em;
+            }
+            .hero-content .btn {
+                display: block; /* Apila los botones en pantallas muy pequeñas */
+                margin: 10px auto;
+                width: 80%; /* Ancho completo para botones apilados */
+            }
+        }
+    
         /* Why Choose Us / ¿Por qué elegirnos? */
         .section-why-choose-us {
             background-color: var(--white);
