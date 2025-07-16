@@ -30,19 +30,32 @@
             padding: 20px;
         }
 
-        /* Header & Hero Section */
-       /* Estilos generales para el header (hero section) */
+  /* --- Reseteo básico para el cuerpo de la página --- */
+/* Es fundamental que el <body> no tenga márgenes o paddings predeterminados que puedan desplazar todo */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif; /* Puedes reemplazar esto con tu fuente principal */
+    line-height: 1.6;
+    color: #333;
+}
+
+/* --- Header & Hero Section --- */
+
+/* Estilos generales para el header (hero section) */
 .hero {
-    position: relative; /* IMPORANTE: Necesario para que el logo posicionado absolutamente se posicione con respecto a este header */
+    position: relative; /* FUNDAMENTAL: Este contenedor es el ancla para el logo posicionado absolutamente */
     width: 100%;
-    height: 100vh; /* Altura de la sección hero (ajusta según necesites) */
+    height: 100vh; /* Altura de la sección hero (ajusta según necesites, por ejemplo, 80vh o un valor fijo) */
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: center; /* Centra el contenido principal del hero verticalmente */
+    align-items: center; /* Centra el contenido principal del hero horizontalmente */
     overflow: hidden; /* Para asegurar que la imagen de fondo no se desborde */
     text-align: center;
-    color: #fff; /* Color del texto que se superpone a la imagen de fondo */
+    color: #fff; /* Color del texto sobre la imagen de fondo */
+    padding-top: 50px; /* AÑADIDO: Espacio superior dentro del hero para que el logo no se pegue al borde y el contenido no lo tape */
+    box-sizing: border-box; /* AÑADIDO: Incluye el padding en el cálculo de la altura total del hero */
 }
 
 /* Estilos de la imagen de fondo del hero */
@@ -54,22 +67,28 @@
     height: 100%;
     object-fit: cover; /* Asegura que la imagen de fondo cubra todo el espacio sin distorsionarse */
     z-index: -1; /* Envía la imagen de fondo detrás del contenido y del logo */
-    filter: brightness(0.6); /* Oscurece la imagen para que el texto sea más legible sobre ella */
+    filter: brightness(0.6); /* Oscurece la imagen para que el texto sea más legible */
 }
 
-/* Contenedor del logo: Posicionamiento */
+/* Contenedor del logo: Posicionamiento y tamaño */
 .logo-header {
-    position: absolute; /* Posicionamiento absoluto respecto a .hero */
-    top: 30px; /* Distancia desde la parte superior de la sección hero */
-    left: 50px; /* Distancia desde la parte izquierda de la sección hero */
-    z-index: 10; /* Asegura que el logo esté por encima de todo lo demás */
+    position: absolute; /* POSICIONAMIENTO ABSOLUTO: Para colocarlo en un lugar específico dentro de su padre (hero) */
+    top: 30px; /* Distancia desde la parte superior del .hero */
+    left: 50px; /* Distancia desde la parte izquierda del .hero */
+    z-index: 100; /* CAMBIADO: Aumentado el z-index para asegurar que el logo esté por encima de todos los demás elementos */
 }
 
-/* Imagen del logo: Tamaño */
+/* Estilos para el enlace que envuelve el logo (si aplica) */
+.logo-header a {
+    display: block; /* Hace que toda el área del enlace sea clicable */
+    line-height: 1; /* Elimina cualquier espacio extra que pueda añadir el enlace */
+}
+
+/* Estilos para la imagen del logo */
 .logo-header img {
     height: 100px; /* <-- TAMAÑO DEL LOGO: Ajusta este valor para hacerlo más grande o pequeño */
-    width: auto; /* Mantiene la proporción original de la imagen */
-    max-width: 200px; /* Limita el ancho máximo para pantallas muy grandes, puedes ajustar si es necesario */
+    width: auto; /* Mantiene la proporción de la imagen */
+    max-width: 200px; /* Limita el ancho máximo del logo para pantallas muy grandes */
     display: block; /* Elimina cualquier espacio no deseado debajo de la imagen */
 }
 
@@ -79,20 +98,21 @@
     z-index: 1;
     max-width: 800px; /* Limita el ancho del contenido para una mejor lectura */
     padding: 0 20px; /* Relleno lateral */
+    box-sizing: border-box; /* AÑADIDO: Incluye el padding en el cálculo del ancho total */
 }
 
 .hero-content h1 {
-    font-size: 4em; /* Tamaño del título principal */
+    font-size: 4em;
     margin-bottom: 15px;
 }
 
 .hero-content h2 {
-    font-size: 2.5em; /* Tamaño del subtítulo */
+    font-size: 2.5em;
     margin-bottom: 25px;
 }
 
 .hero-content p {
-    font-size: 1.2em; /* Tamaño del párrafo */
+    font-size: 1.2em;
     line-height: 1.6;
     margin-bottom: 30px;
 }
@@ -1074,6 +1094,7 @@
 .btn-secondary:hover {
     background-color: rgba(255, 255, 255, 0.4);
 }
+        
   <style>
     /* Asegúrate de que tus estilos CSS estén aquí o enlazados a un archivo .css */
 </style>
@@ -1083,7 +1104,7 @@
     <img src="Portada.jpg" alt="Fondo de cafeto" class="hero-background-image">
     
     <div class="logo-header">
-        <a href="index.html" aria-label="Volver al inicio"> <img src="Logo-3.png" alt="Green Diamond Logo"> 
+        <a href="index.html" aria-label="Volver al inicio"> <img src="Logo-3.png" alt="Green Diamond Logo">
         </a>
     </div>
     
