@@ -31,96 +31,142 @@
         }
 
         /* Header & Hero Section */
-        .hero {
-            background-image: url('https://via.placeholder.com/1920x600?text=Fondo+de+montañas+de+café+colombiano'); /* Placeholder for a relevant image */
-            background-size: cover;
-            background-position: center;
-            color: var(--white);
-            text-align: center;
-            padding: 100px 20px;
-            position: relative;
-        }
+       /* Estilos generales para el header (hero section) */
+.hero {
+    position: relative; /* IMPORANTE: Necesario para que el logo posicionado absolutamente se posicione con respecto a este header */
+    width: 100%;
+    height: 100vh; /* Altura de la sección hero (ajusta según necesites) */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Para asegurar que la imagen de fondo no se desborde */
+    text-align: center;
+    color: #fff; /* Color del texto que se superpone a la imagen de fondo */
+}
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.4); /* Dark overlay */
-        }
+/* Estilos de la imagen de fondo del hero */
+.hero-background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que la imagen de fondo cubra todo el espacio sin distorsionarse */
+    z-index: -1; /* Envía la imagen de fondo detrás del contenido y del logo */
+    filter: brightness(0.6); /* Oscurece la imagen para que el texto sea más legible sobre ella */
+}
 
-        .hero-content {
-            position: relative;
-            z-index: 1;
-        }
+/* Contenedor del logo: Posicionamiento */
+.logo-header {
+    position: absolute; /* Posicionamiento absoluto respecto a .hero */
+    top: 30px; /* Distancia desde la parte superior de la sección hero */
+    left: 50px; /* Distancia desde la parte izquierda de la sección hero */
+    z-index: 10; /* Asegura que el logo esté por encima de todo lo demás */
+}
 
-        .hero h1 {
-            font-size: 3.5em;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
+/* Imagen del logo: Tamaño */
+.logo-header img {
+    height: 100px; /* <-- TAMAÑO DEL LOGO: Ajusta este valor para hacerlo más grande o pequeño */
+    width: auto; /* Mantiene la proporción original de la imagen */
+    max-width: 200px; /* Limita el ancho máximo para pantallas muy grandes, puedes ajustar si es necesario */
+    display: block; /* Elimina cualquier espacio no deseado debajo de la imagen */
+}
 
-        .hero h2 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            color: var(--primary-color); /* Green for 'Café verde' */
-            font-weight: 700;
-        }
+/* Estilos para el contenido principal del hero (título, subtítulo, párrafo, botones) */
+.hero-content {
+    position: relative; /* Asegura que este contenido esté por encima de la imagen de fondo */
+    z-index: 1;
+    max-width: 800px; /* Limita el ancho del contenido para una mejor lectura */
+    padding: 0 20px; /* Relleno lateral */
+}
 
-        .hero p {
-            font-size: 1.2em;
-            margin-bottom: 40px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+.hero-content h1 {
+    font-size: 4em; /* Tamaño del título principal */
+    margin-bottom: 15px;
+}
 
-        .btn {
-            display: inline-block;
-            padding: 15px 30px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background-color 0.3s ease;
-            margin: 0 10px;
-        }
+.hero-content h2 {
+    font-size: 2.5em; /* Tamaño del subtítulo */
+    margin-bottom: 25px;
+}
 
-        .btn-primary {
-            background-color: var(--primary-color);
-            color: var(--white);
-            border: 2px solid var(--primary-color);
-        }
+.hero-content p {
+    font-size: 1.2em; /* Tamaño del párrafo */
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
 
-        .btn-primary:hover {
-            background-color: #085d32; /* Darker green */
-            border-color: #085d32;
-        }
+/* Estilos de botones (adaptados de tus estilos previos si los tienes) */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
 
-        .btn-secondary {
-            background-color: transparent;
-            color: var(--white);
-            border: 2px solid var(--white);
-        }
+.btn-primary {
+    background-color: var(--primary-color, #4CAF50); /* Usa tu color principal o un verde por defecto */
+    color: #fff;
+    border: 2px solid var(--primary-color, #4CAF50);
+}
 
-        .btn-secondary:hover {
-            background-color: var(--white);
-            color: var(--primary-color);
-        }
+.btn-primary:hover {
+    background-color: transparent;
+    color: var(--primary-color, #4CAF50);
+}
 
-        .logo-header {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            z-index: 2;
-        }
+.btn-secondary {
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+}
 
-        .logo-header img {
-            height: 60px; /* Adjust as needed */
-            filter: drop-shadow(0 0 5px rgba(0,0,0,0.5));
-        }
+.btn-secondary:hover {
+    background-color: #fff;
+    color: var(--primary-color, #4CAF50);
+}
 
+/* Media Queries para responsividad (ajustes para pantallas más pequeñas) */
+@media (max-width: 768px) {
+    .logo-header {
+        top: 20px; /* Ajusta la posición superior en móvil */
+        left: 20px; /* Ajusta la posición izquierda en móvil */
+    }
+    .logo-header img {
+        height: 70px; /* Reduce el tamaño del logo en dispositivos móviles */
+    }
+    .hero-content h1 {
+        font-size: 3em;
+    }
+    .hero-content h2 {
+        font-size: 1.8em;
+    }
+    .hero-content p {
+        font-size: 1em;
+    }
+    .btn {
+        padding: 10px 20px;
+        margin: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2.5em;
+    }
+    .hero-content h2 {
+        font-size: 1.5em;
+    }
+    .hero-content .btn {
+        display: block; /* Apila los botones en pantallas muy pequeñas */
+        margin: 10px auto;
+        width: 80%; /* Ancho completo para botones apilados */
+    }
+}
         /* Why Choose Us / ¿Por qué elegirnos? */
         .section-why-choose-us {
             background-color: var(--white);
@@ -424,18 +470,40 @@
         }
 
         /* Nuestras Certificaciones */
-        .section-certificaciones {
-            background-color: var(--secondary-color);
-            padding: 80px 0;
-            text-align: center;
-        }
-/* Estilos para el contenedor de las certificaciones */
+      /* Estilos generales de la sección de certificaciones */
+.section-certificaciones {
+    background-color: var(--secondary-color); /* Color de fondo definido por tu variable */
+    padding: 80px 0; /* Relleno superior e inferior */
+    text-align: center; /* Centra el título y el párrafo principal */
+}
+
+/* AÑADIDO: Estilos para el título principal de la sección */
+.section-certificaciones h2 {
+    font-size: 3em; /* Tamaño de fuente para el título principal de la sección */
+    color: var(--heading-color, #333); /* Color del título, usando tu variable o un valor por defecto */
+    margin-bottom: 20px; /* Espacio debajo del título */
+    text-align: center; /* Asegura que el título esté centrado */
+}
+
+/* AÑADIDO: Estilos para el párrafo introductorio de la sección */
+.section-certificaciones p {
+    font-size: 1.1em; /* Tamaño de fuente para el párrafo */
+    color: var(--light-text-color); /* Color del texto del párrafo */
+    margin-top: 0; /* Asegura que no haya margen superior si se añadió uno negativo en HTML */
+    margin-bottom: 60px; /* Espacio debajo del párrafo antes de las tarjetas de certificación */
+    max-width: 800px; /* Limita el ancho del párrafo para mejor legibilidad */
+    margin-left: auto; /* Centra el párrafo dentro de su contenedor */
+    margin-right: auto; /* Centra el párrafo dentro de su contenedor */
+    line-height: 1.6; /* Interlineado para mejor lectura */
+}
+
+/* Estilos para el contenedor Flex de las certificaciones */
 .certificaciones-grid {
     display: flex; /* Habilita Flexbox para colocar los elementos en fila */
-    justify-content: center; /* Centra los elementos horizontalmente */
+    justify-content: center; /* Centra los recuadros horizontalmente */
     gap: 30px; /* Espacio entre los recuadros de las certificaciones */
     flex-wrap: wrap; /* Permite que los recuadros se envuelvan a la siguiente línea en pantallas pequeñas */
-    margin-top: 20px; /* Espacio superior */
+    margin-top: 20px; /* Espacio superior, aunque el párrafo ya tiene margen inferior */
 }
 
 /* Estilos para cada recuadro de certificación */
@@ -445,7 +513,7 @@
     padding: 35px; /* Ligeramente más padding para dar más "aire" al contenido */
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Sombra un poco más pronunciada */
     flex: 1; /* Permite que los elementos crezcan y se encojan */
-    min-width: 320px; /* Aumentar ligeramente el ancho mínimo de cada recuadro */
+    min-width: 330px; /* CAMBIADO: Aumentado el ancho mínimo de cada recuadro para acomodar imágenes más grandes */
     max-width: 48%; /* Aproximadamente la mitad del ancho del contenedor, dejando espacio para el gap */
     display: flex; /* Flexbox para organizar el contenido dentro del recuadro */
     flex-direction: column; /* Apila el contenido (título, párrafo, lista, imagen) verticalmente */
@@ -486,7 +554,7 @@
     list-style: none; /* Elimina las viñetas predeterminadas del navegador */
     padding: 0;
     margin-bottom: 25px; /* Más espacio debajo de la lista */
-    width: 100%; 
+    width: 100%;
 }
 
 .certificacion-item ul li {
@@ -496,6 +564,7 @@
     margin-bottom: 12px; /* Más espacio entre cada bullet point */
     display: flex; /* Para alinear el icono con el texto */
     align-items: flex-start; /* Alinea el icono al inicio de la línea */
+    text-align: left; /* AÑADIDO: Asegura que el texto dentro del li también se alinee a la izquierda */
 }
 
 .certificacion-item ul li .fas.fa-check-circle {
@@ -515,7 +584,7 @@
 }
 
 .certificacion-item .image-container img {
-    max-width: 220px; /* <-- VALOR AJUSTADO PARA AMPLIAR LA IMAGEN */
+    max-width: 250px; /* CAMBIADO: VALOR AUMENTADO PARA AMPLIAR LA IMAGEN */
     height: auto;
     display: block; /* Elimina el espacio extra debajo de la imagen */
     margin: 0 auto; /* Centra la imagen dentro de su contenedor */
@@ -524,8 +593,17 @@
     box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* Sombra suave para la imagen */
 }
 
-/* Media Queries para responsividad */
+/* Media Queries para responsividad (ajustes para pantallas más pequeñas) */
 @media (max-width: 768px) {
+    /* Ajustes para el título y párrafo principal de la sección en móviles */
+    .section-certificaciones h2 {
+        font-size: 2.5em; /* Tamaño de título más pequeño en móviles */
+    }
+    .section-certificaciones p {
+        font-size: 1em;
+        margin-bottom: 40px; /* Menos espacio en móviles */
+    }
+
     .certificaciones-grid {
         flex-direction: column; /* Apila los recuadros verticalmente en pantallas pequeñas */
         align-items: center;
@@ -542,7 +620,7 @@
         font-size: 1em;
     }
     .certificacion-item .image-container img {
-        max-width: 180px; /* Ajustar tamaño de imagen en móvil si es muy grande */
+        max-width: 200px; /* CAMBIADO: Ajustar tamaño de imagen en móvil para que no sea demasiado grande */
     }
 }
         /* Nuestros Servicios */
@@ -996,13 +1074,17 @@
 .btn-secondary:hover {
     background-color: rgba(255, 255, 255, 0.4);
 }
-    </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* Asegúrate de que tus estilos CSS estén aquí o enlazados a un archivo .css */
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 <header class="hero">
-    <img src="Portada.jpg" alt="Fondo de cafeto" class="hero-background-image"> 
+    <img src="Portada.jpg" alt="Fondo de cafeto" class="hero-background-image">
     
     <div class="logo-header">
-        <img src="Logo-3.png" alt="Green Diamond Logo"> 
+        <a href="index.html" aria-label="Volver al inicio"> <img src="Logo-3.png" alt="Green Diamond Logo"> 
+        </a>
     </div>
     
     <div class="hero-content">
@@ -1062,11 +1144,11 @@
         <div class="excellence-content">
             <div class="excellence-text">
                 <h2>Aportando la excelencia colombiana al tostador</h2>
-                <p>Nos especializamos en el abastecimiento de granos de café verde colombiano de primera calidad con trazabilidad completa y sin productos químicos. Nuestras relaciones directas con los agricultores colombianos aseguran que reciba frijoles de la más alta calidad mientras apoya las prácticas agrícolas sostenibles.</p>
-                <p>Las plantaciones de gran altitud de Tolima junto con sus suelos volcánicos,aportan una mineralidad única que hace de este caé un producto premium. Se seleccionan cuidadosamente una a una las cerezas que ya están maduras con el método de "hand-picking". Así nos aseguramos de tener una consistencia en la calidad del producto. Se escogen solo las mejores variedades: Bourbon, Geisha, Castillo y Caturra.</p>
+                <p>Nos especializamos en el abastecimiento de granos de café verde de especialidad colombiano de primera calidad con trazabilidad completa y sin productos químicos. Nuestras relaciones directas con los agricultores colombianos aseguran que reciba café verde de la más alta calidad mientras apoya las prácticas agrícolas sostenibles.</p>
+                <p>Las plantaciones de gran altitud de Tolima junto con sus suelos volcánicos,aportan una mineralidad única que hace de este café un producto premium. Se seleccionan cuidadosamente una a una las cerezas que ya están maduras con el método de "hand-picking". Así nos aseguramos de tener una consistencia en la calidad del producto. Se escogen solo las mejores variedades: Bourbon, Geisha, Castillo y Caturra.</p>
 
             <div class="excellence-image">
-                <img src="mujer-cafeto.jpg" alt="Mujer en cafeto">
+                <img src="Mujer.png" alt="Mujer en cafeto">
             </div>
         </div>
     </div>
