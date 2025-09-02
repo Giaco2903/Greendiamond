@@ -10,6 +10,9 @@
             position: relative;
             height: 100vh;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .hero-background-image {
             position: absolute;
@@ -19,7 +22,7 @@
             height: 100%;
             object-fit: cover;
             z-index: 0;
-            filter: brightness(0.7); /* Ajusta el brillo para que el texto sea legible */
+            filter: brightness(0.5); /* Oscurece la imagen para que el texto destaque */
         }
         .logo-header {
             position: absolute;
@@ -36,29 +39,34 @@
             z-index: 1;
             text-align: center;
             color: white;
-            padding: 20vh 20px 0;
+            padding: 0 20px;
             max-width: 800px;
-            margin: 0 auto;
         }
         .hero-content h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
+            font-weight: 800;
             margin-bottom: 1rem;
+            line-height: 1.2;
         }
         .hero-content h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #D1FAE5; /* Verde claro para contraste */
         }
         .hero-content p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
         }
         .btn {
             display: inline-block;
-            padding: 10px 20px;
+            padding: 12px 24px;
             margin: 0 10px;
             text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background-color 0.3s;
         }
         .btn-primary {
             background-color: #15803D;
@@ -89,7 +97,7 @@
             <h2>Valor en cada grano</h2>
             <p>Abastecimiento de las mejores variedades de café colombiano con trazabilidad completa y cero productos químicos. Desde la finca hasta tu tostador.</p>
             <a href="#contact" class="btn btn-primary">Solicitar muestra</a>
-            <a href="#varieties" class="btn btn-secondary">Ver nuestro catálogo</a>
+            <a href="#products" class="btn btn-secondary">Ver nuestro catálogo</a>
         </div>
     </header>
 
