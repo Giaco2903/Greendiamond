@@ -5,8 +5,94 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Green Diamond - Tienda Online</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .hero {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .hero-background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            filter: brightness(0.7); /* Ajusta el brillo para que el texto sea legible */
+        }
+        .logo-header {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 1;
+        }
+        .logo-header img {
+            max-height: 100px;
+            width: auto;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: white;
+            padding: 20vh 20px 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .hero-content h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 0 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .btn-primary {
+            background-color: #15803D;
+            color: white;
+        }
+        .btn-primary:hover {
+            background-color: #14532D;
+        }
+        .btn-secondary {
+            background-color: #F59E0B;
+            color: white;
+        }
+        .btn-secondary:hover {
+            background-color: #D97706;
+        }
+    </style>
 </head>
 <body class="bg-gray-50 font-sans">
+    <header class="hero">
+        <img src="Portada.jpg" alt="Fondo de cafeto" class="hero-background-image">
+        <div class="logo-header">
+            <a href="index.html" aria-label="Volver al inicio">
+                <img src="Logo-3.png" alt="Green Diamond Logo">
+            </a>
+        </div>
+        <div class="hero-content">
+            <h1>Café verde de especialidad</h1>
+            <h2>Valor en cada grano</h2>
+            <p>Abastecimiento de las mejores variedades de café colombiano con trazabilidad completa y cero productos químicos. Desde la finca hasta tu tostador.</p>
+            <a href="#contact" class="btn btn-primary">Solicitar muestra</a>
+            <a href="#varieties" class="btn btn-secondary">Ver nuestro catálogo</a>
+        </div>
+    </header>
+
     <!-- Navbar with Tabs -->
     <nav class="bg-green-800 text-white p-4 sticky top-0 shadow-md">
         <div class="container mx-auto flex justify-between items-center">
@@ -252,7 +338,14 @@
 
     <!-- Footer -->
     <footer class="bg-green-800 text-white py-4 text-center">
-        <p>&copy; 2025 Green Diamond S.L. Todos los derechos reservados.</p>
+        <div class="container mx-auto">
+            <a href="#about" class="mx-2 hover:underline">Sobre Nosotros</a>
+            <a href="#products" class="mx-2 hover:underline">Compra Café Verde</a>
+            <a href="#auction" class="mx-2 hover:underline">Subasta</a>
+            <a href="#cart" class="mx-2 hover:underline">Carrito</a>
+            <a href="#contact" class="mx-2 hover:underline">Contacto</a>
+        </div>
+        <p class="mt-2">&copy; 2025 Green Diamond S.L. Todos los derechos reservados.</p>
     </footer>
 
     <script>
