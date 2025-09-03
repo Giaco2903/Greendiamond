@@ -6,84 +6,85 @@
     <title>Green Diamond - Tienda Online</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        .hero {
-            position: relative;
-            height: 100vh;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start; /* Ajustado para alinear a la izquierda */
-        }
-        .hero-background-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 0;
-            filter: brightness(0.5); /* Oscurece la imagen para que el texto destaque */
-        }
-        .logo-header {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            z-index: 1;
-        }
-        .logo-header img {
-            max-height: 150px; /* Logo más grande */
-            width: auto;
-            transform: scale(1.2); /* Escala ligeramente el logo */
-        }
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            text-align: center;
-            color: white;
-            padding: 0 20px;
-            max-width: 800px;
-            margin-left: 200px; /* Espacio para no tapar el logo */
-        }
-        .hero-content h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-        .hero-content h2 {
-            font-size: 2.5rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            color: #D1FAE5; /* Verde claro para contraste */
-        }
-        .hero-content p {
-            font-size: 1.25rem;
-            margin-bottom: 2.5rem;
-            line-height: 1.6;
-        }
-        .btn {
-            display: inline-block;
-            padding: 12px 24px;
-            margin: 0 10px;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: background-color 0.3s;
-        }
-        .btn-primary {
-            background-color: #15803D;
-            color: white;
-        }
-        .btn-primary:hover {
-            background-color: #14532D;
-        }
-        .btn-secondary {
-            background-color: #F59E0B;
-            color: white;
-        }
-        .btn-secondary:hover {
-            background-color: #D97706;
-        }
+       .hero {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Cambia a center para centrar el contenido */
+}
+.hero-background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    filter: brightness(0.5); /* Oscurece la imagen para que el texto destaque */
+}
+.logo-header {
+    position: absolute;
+    top: 20px;
+    left: 20px; /* Asegura que esté en la esquina superior izquierda */
+    z-index: 1;
+}
+.logo-header img {
+    max-height: 150px; /* Mantén el tamaño, pero asegúrate de que sea proporcional */
+    width: auto; /* Permite que el ancho se ajuste proporcionalmente */
+    height: auto; /* Asegura proporción */
+    transform: scale(1.0); /* Reduce el escalado para mantener proporciones naturales */
+}
+.hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center; /* Asegura que el texto dentro esté centrado */
+    color: white;
+    padding: 0 20px;
+    max-width: 800px;
+    margin-left: 0; /* Elimina el margen izquierdo para centrar */
+}
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+.hero-content h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #D1FAE5; /* Verde claro para contraste */
+}
+.hero-content p {
+    font-size: 1.25rem;
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+}
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    margin: 0 10px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+.btn-primary {
+    background-color: #15803D;
+    color: white;
+}
+.btn-primary:hover {
+    background-color: #14532D;
+}
+.btn-secondary {
+    background-color: #F59E0B;
+    color: white;
+}
+.btn-secondary:hover {
+    background-color: #D97706;
+}
     </style>
 </head>
 <body class="bg-gray-50 font-sans">
@@ -110,8 +111,7 @@
             <h1>Café verde de especialidad</h1>
             <h2>Valor en cada grano</h2>
             <p>Abastecimiento de las mejores variedades de café con trazabilidad completa. Desde la finca hasta tu tostador.</p>
-            <a href="#contact" class="btn btn-primary">Solicitar muestra</a>
-            <a href="#products" class="btn btn-secondary">Ver nuestro catálogo</a>
+          
         </div>
     </header>
 
@@ -298,7 +298,7 @@
                             <th class="p-4">Precio</th>
                             <th class="p-4">Cantidad</th>
                             <th class="p-4">Subtotal</th>
-                            <th class="p-4">Acciones</th>
+                           
                         </tr>
                     </thead>
                     <tbody id="cart-items">
