@@ -12,7 +12,7 @@
             overflow: hidden;
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start; /* Ajustado para alinear a la izquierda */
         }
         .hero-background-image {
             position: absolute;
@@ -31,8 +31,9 @@
             z-index: 1;
         }
         .logo-header img {
-            max-height: 100px;
+            max-height: 150px; /* Logo más grande */
             width: auto;
+            transform: scale(1.2); /* Escala ligeramente el logo */
         }
         .hero-content {
             position: relative;
@@ -41,6 +42,7 @@
             color: white;
             padding: 0 20px;
             max-width: 800px;
+            margin-left: 200px; /* Espacio para no tapar el logo */
         }
         .hero-content h1 {
             font-size: 3.5rem;
@@ -86,41 +88,39 @@
 </head>
 <body class="bg-gray-50 font-sans">
     <header class="hero">
-    <img src="Portada.jpg" alt="Fondo de cafeto" class="hero-background-image">
-
-    <!-- Navbar con logo y menú dentro del header -->
-    <nav class="absolute top-0 left-0 w-full bg-transparent text-white p-4 z-10">
-        <div class="container mx-auto flex justify-between items-center">
-            <!-- Logo en lugar del texto -->
-            <a href="index.html" aria-label="Volver al inicio">
-                <img src="Logo-3.png" alt="Green Diamond Logo" class="h-12">
-            </a>
-            <div class="space-x-4">
-                <button onclick="showTab('about')" class="hover:underline tab-link active">Sobre Nosotros</button>
-                <button onclick="showTab('products')" class="hover:underline tab-link">Compra Café Verde</button>
-                <button onclick="showTab('auction')" class="hover:underline tab-link">Subasta</button>
-                <button onclick="showTab('cart')" class="hover:underline tab-link">Carrito (<span id="cart-count">0</span>)</button>
-                <button onclick="showTab('contact')" class="hover:underline tab-link">Contacto</button>
+        <img src="Portada.jpg" alt="Fondo de cafeto" class="hero-background-image">
+        <!-- Navbar con logo y menú dentro del header -->
+        <nav class="absolute top-0 left-0 w-full bg-transparent text-white p-4 z-10">
+            <div class="container mx-auto flex justify-between items-center">
+                <!-- Logo en lugar del texto -->
+                <a href="index.html" aria-label="Volver al inicio">
+                    <img src="Logo-3.png" alt="Green Diamond Logo" class="h-12">
+                </a>
+                <div class="space-x-4">
+                    <button onclick="showTab('about')" class="hover:underline tab-link">Sobre Nosotros</button>
+                    <button onclick="showTab('products')" class="hover:underline tab-link">Compra Café Verde</button>
+                    <button onclick="showTab('auction')" class="hover:underline tab-link">Subasta</button>
+                    <button onclick="showTab('cart')" class="hover:underline tab-link">Carrito (<span id="cart-count">0</span>)</button>
+                    <button onclick="showTab('contact')" class="hover:underline tab-link">Contacto</button>
+                </div>
             </div>
+        </nav>
+        <!-- Contenido central del hero -->
+        <div class="hero-content">
+            <h1>Café verde de especialidad</h1>
+            <h2>Valor en cada grano</h2>
+            <p>Abastecimiento de las mejores variedades de café con trazabilidad completa. Desde la finca hasta tu tostador.</p>
+            <a href="#contact" class="btn btn-primary">Solicitar muestra</a>
+            <a href="#products" class="btn btn-secondary">Ver nuestro catálogo</a>
         </div>
-    </nav>
-
-    <!-- Contenido central del hero -->
-    <div class="hero-content">
-        <h1>Café verde de especialidad</h1>
-        <h2>Valor en cada grano</h2>
-        <p>Abastecimiento de las mejores variedades de café con trazabilidad completa. Desde la finca hasta tu tostador.</p>
-        
-    </div>
-</header>
-
+    </header>
 
     <!-- Navbar with Tabs -->
-    <nav class="bg-green-800 text-white p-4 sticky top-0 shadow-md">
+    <nav class="bg-green-800 text-white p-4 sticky top-0 shadow-md z-20">
         <div class="container mx-auto flex justify-between items-center">
             <h1 class="text-2xl font-bold">Green Diamond</h1>
             <div>
-                <button onclick="showTab('about')" class="mx-2 hover:underline tab-link active">Sobre Nosotros</button>
+                <button onclick="showTab('about')" class="mx-2 hover:underline tab-link">Sobre Nosotros</button>
                 <button onclick="showTab('products')" class="mx-2 hover:underline tab-link">Compra Café Verde</button>
                 <button onclick="showTab('auction')" class="mx-2 hover:underline tab-link">Subasta</button>
                 <button onclick="showTab('cart')" class="mx-2 hover:underline tab-link">Carrito (<span id="cart-count">0</span>)</button>
@@ -350,9 +350,8 @@
                     <button type="submit" class="bg-green-800 text-white px-6 py-2 rounded-full font-semibold hover:bg-green-900 w-full">Enviar</button>
                 </div>
                 <div class="mt-6 text-center text-gray-600">
-                    <p><strong>Green Diamond S.L.</strong></p>
-                    <p>Calle Esteve Terrades 1, Espacios 309-311, 08860, Castelldefels (Barcelona, España)</p>
-                    <p>Email: info@greendiamond.com | Teléfono: (+34) 936363947</p>
+                    <p><strong>Green Diamond.</strong></p>
+                    <p>Email: greendiamond.ceo@gmail.com | Teléfono: (+34)695 616 891</p>
                 </div>
             </div>
         </section>
@@ -367,15 +366,25 @@
             <a href="#cart" class="mx-2 hover:underline">Carrito</a>
             <a href="#contact" class="mx-2 hover:underline">Contacto</a>
         </div>
-        <p class="mt-2">&copy; 2025 Green Diamond S.L. Todos los derechos reservados.</p>
+        <p class="mt-2">&copy; 2025 Green Diamond. Todos los derechos reservados.</p>
     </footer>
 
     <script>
         // Tab Functionality
         function showTab(tabId) {
-            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.add('hidden'));
-            document.getElementById(`${tabId}-tab`).classList.remove('hidden');
-            document.querySelectorAll('.tab-link').forEach(link => link.classList.remove('active'));
+            // Ocultar todas las pestañas
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.add('hidden');
+            });
+            // Mostrar la pestaña seleccionada
+            const selectedTab = document.getElementById(`${tabId}-tab`);
+            selectedTab.classList.remove('hidden');
+            // Desplazamiento suave a la sección
+            selectedTab.scrollIntoView({ behavior: 'smooth' });
+            // Actualizar clase active en los botones
+            document.querySelectorAll('.tab-link').forEach(link => {
+                link.classList.remove('active');
+            });
             event.target.classList.add('active');
         }
 
