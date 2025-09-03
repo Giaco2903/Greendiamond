@@ -133,13 +133,13 @@
 </div>
     </section>
 
- <section id="products-tab" class="tab-content hidden">
+<section id="products-tab" class="tab-content hidden">
     <h2 class="text-3xl font-bold text-center mb-8 text-green-600">Tienda de café verde</h2>
     <p class="text-center mb-6">Explora nuestro catálogo de café verde y descubre una cuidadosa selección de los mejores granos provenientes de los orígenes con los que trabajamos.</p>
     <div class="flex flex-col lg:flex-row gap-8">
-        <aside class="w-full lg:w-1/4 bg-yellow-100 p-4 rounded-lg mb-8"> <!-- Añadido mb-8 para espaciado inferior -->
+        <aside class="w-full lg:w-1/4 bg-yellow-100 p-4 rounded-lg mb-8 min-h-0 h-auto"> <!-- Ajustado h-auto y min-h-0 -->
             <h3 class="text-xl font-bold mb-4">Filtros</h3>
-            <div class="space-y-4">
+            <div class="space-y-2"> <!-- Cambiado space-y-4 por space-y-2 para menos espacio vertical -->
                 <div>
                     <label class="block text-sm font-medium">Buscar Café</label>
                     <input type="text" id="search-input" class="mt-1 p-2 w-full border rounded-md bg-white" placeholder="BUSCAR CAFÉ">
@@ -212,7 +212,7 @@
                 </div>
             </div>
         </aside>
-        <div class="w-full lg:w-3/4 mb-12"> <!-- Añadido mb-12 para espaciado inferior -->
+        <div class="w-full lg:w-3/4 mb-12">
             <div class="mb-6 flex justify-between items-center">
                 <h3 class="text-xl font-bold">Varietales Disponibles</h3>
                 <div class="flex items-center space-x-4">
