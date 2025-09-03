@@ -26,15 +26,15 @@
 }
 .logo-header {
     position: absolute;
-    top: 20px;
-    left: 20px; /* Asegura que esté en la esquina superior izquierda */
+    top: 10px; /* Reduce el top para pegarlo más arriba */
+    left: 10px; /* Reduce el left para pegarlo más a la izquierda */
     z-index: 1;
 }
 .logo-header img {
-    max-height: 150px; /* Mantén el tamaño, pero asegúrate de que sea proporcional */
-    width: auto; /* Permite que el ancho se ajuste proporcionalmente */
-    height: auto; /* Asegura proporción */
-    transform: scale(1.0); /* Reduce el escalado para mantener proporciones naturales */
+    max-height: 150px;
+    width: auto;
+    transform: none; /* Elimina el escalado para mantener proporciones naturales */
+}
 }
 .hero-content {
     position: relative;
@@ -97,7 +97,7 @@
                 <a href="index.html" aria-label="Volver al inicio">
                     <img src="Logo-3.png" alt="Green Diamond Logo" class="h-12">
                 </a>
-                <div class="space-x-4">
+                <div class="space-x-8">
                     <button onclick="showTab('about')" class="hover:underline tab-link">Sobre Nosotros</button>
                     <button onclick="showTab('products')" class="hover:underline tab-link">Compra Café Verde</button>
                     <button onclick="showTab('auction')" class="hover:underline tab-link">Subasta</button>
