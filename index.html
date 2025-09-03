@@ -110,28 +110,104 @@
 </header>
 
     <div id="tab-contents" class="container mx-auto py-12">
-        <section id="about-tab" class="tab-content">
-            <h2 class="text-3xl font-bold text-center mb-8">Nuestra Pasión por el Café</h2>
-            <p class="text-lg max-w-2xl mx-auto mb-6">Nos especializamos en el abastecimiento de granos de café verde de especialidad de primera calidad con trazabilidad completa. Nuestras relaciones directas con los agricultores aseguran que reciba café verde de la más alta calidad mientras apoya las prácticas agrícolas sostenibles</p>
-            <p class="text-lg max-w-2xl mx-auto">Nuestras gamas, reflejan la diversidad y riqueza de las regiones cafeteras del mundo.</p>
-            
-      <section>
-    <div class="mt-12">
-        <h3 class="text-3xl font-bold mb-6 text-center">NUESTRA MISIÓN</h3>
-        <p class="text-xl max-w-2xl mx-auto mb-12">Trabajamos con excelencia para ayudar a los tostadores a centrarse en su expertise y maximizar sus ingresos, contribuyendo a llevar el alma del café premium desde sus orígenes hasta el corazón de sus tostadores.</p>
-
-        <h3 class="text-3xl font-bold mb-6 text-center">NUESTROS VALORES</h3>
-        <div class="flex flex-col justify-start gap-4 text-center max-w-md mx-auto mb-12">
-            <span class="bg-green-200 px-4 py-2 rounded-full text-lg">CALIDAD EXCELSA</span>
-            <span class="bg-green-200 px-4 py-2 rounded-full text-lg">SOSTENIBILIDAD</span>
-            <span class="bg-green-200 px-4 py-2 rounded-full text-lg">PROFESIONALIDAD</span>
-            <span class="bg-green-200 px-4 py-2 rounded-full text-lg">INTEGRIDAD</span>
-        </div>
-
-        <h3 class="text-3xl font-bold mb-6 text-center">NUESTRA VISIÓN</h3>
-        <p class="text-xl max-w-2xl mx-auto">Cultivar un presente más consciente y sostenible a través de la formación y las buenas prácticas con todos nuestros stakeholders.</p>
-    </div>
-</section>
+        <section id="products-tab" class="tab-content hidden">
+            <h2 class="text-3xl font-bold text-center mb-8 text-green-600">Tienda de café verde</h2>
+            <p class="text-center mb-6">Explora nuestro catálogo de café verde y descubre una cuidadosa selección de los mejores granos provenientes de los orígenes con los que trabajamos.</p>
+            <div class="flex flex-col lg:flex-row gap-8">
+              <aside class="w-full lg:w-1/4 bg-yellow-100 p-4 rounded-lg">
+                <h3 class="text-xl font-bold mb-4">Filtros</h3>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium">Buscar Café</label>
+                        <input type="text" id="search-input" class="mt-1 p-2 w-full border rounded-md bg-white" placeholder="BUSCAR CAFÉ">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium">Situación</label>
+                        <select id="filter-status" class="mt-1 p-2 w-full border rounded-md bg-white">
+                            <option value="" disabled selected>Seleccione una opción</option>
+                            <option value="En almacén">En almacén</option>
+                            <option value="Embarcado">Embarcado</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium">Origen</label>
+                        <select id="filter-origin" class="mt-1 p-2 w-full border rounded-md bg-white">
+                            <option value="">Todos</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium">Región Cafetera</label>
+                        <select id="filter-region" class="mt-1 p-2 w-full border rounded-md bg-white">
+                            <option value="">Todos</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium">Gama</label>
+                        <select id="filter-gama" class="mt-1 p-2 w-full border rounded-md bg-white">
+                            <option value="">Todos</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium">Proceso</label>
+                        <select id="filter-process" class="mt-1 p-2 w-full border rounded-md bg-white">
+                            <option value="">Todos</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium">Tipo de Proceso</label>
+                        <select id="filter-process-type" class="mt-1 p-2 w-full border rounded-md bg-white">
+                            <option value="">Todos</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium">Perfil</label>
+                        <select id="filter-profile" class="mt-1 p-2 w-full border rounded-md bg-white">
+                            <option value="">Todos</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium">Descriptor Clave</label>
+                        <select id="filter-descriptor" class="mt-1 p-2 w-full border rounded-md bg-white">
+                            <option value="">Todos</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium">Certificaciones</label>
+                        <select id="filter-certifications" class="mt-1 p-2 w-full border rounded-md bg-white">
+                            <option value="">Todos</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium">Peso Envase</label>
+                        <select id="filter-package-weight" class="mt-1 p-2 w-full border rounded-md bg-white">
+                            <option value="">Todos</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium">Precio Especial</label>
+                        <select id="filter-special-price" class="mt-1 p-2 w-full border rounded-md bg-white">
+                            <option value="">Todos</option>
+                        </select>
+                    </div>
+                </div>
+              </aside>
+              <div class="w-full lg:w-3/4">
+                <div class="mb-6 flex justify-between items-center">
+                    <h3 class="text-xl font-bold">Varietales Disponibles</h3>
+                    <div>
+                        <label for="sort-select" class="text-sm font-medium">Ordenar por:</label>
+                        <select id="sort-select" class="p-2 border rounded-md bg-white">
+                            <option value="name-asc">Nombre (A-Z)</option>
+                            <option value="name-desc">Nombre (Z-A)</option>
+                            <option value="score-desc">Puntuación (Mayor a Menor)</option>
+                            <option value="score-asc">Puntuación (Menor a Mayor)</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="product-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    </div>
+              </div>
+            </div>
         </section>
 
         <section id="products-tab" class="tab-content hidden">
