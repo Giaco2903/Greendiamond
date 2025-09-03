@@ -31,9 +31,9 @@
     z-index: 1;
 }
 .logo-header img {
-    max-height: 150px; /* Mantén el tamaño, pero asegúrate de que sea proporcional */
+    max-height: 100px; /* Mantén el tamaño, pero asegúrate de que sea proporcional */
     width: auto; /* Permite que el ancho se ajuste proporcionalmente */
-    transform: scale(1.2);
+    transform: scale(1.0);
 }
 .hero-content {
     position: relative;
@@ -90,17 +90,17 @@
    <header class="hero">
     <img src="Portada.jpg" alt="Fondo de cafeto" class="hero-background-image">
     <!-- Navbar con logo y menú dentro del header -->
-    <nav class="absolute top-0 left-0 w-full bg-transparent text-white p-4 z-10">
-        <div class="flex w-full justify-end items-center"> <!-- Cambia container mx-auto por flex w-full -->
-            <div class="space-x-12">
-                <button onclick="showTab('about')" class="hover:underline tab-link">Sobre Nosotros</button>
-                <button onclick="showTab('products')" class="hover:underline tab-link">Compra Café Verde</button>
-                <button onclick="showTab('auction')" class="hover:underline tab-link">Subasta</button>
-                <button onclick="showTab('cart')" class="hover:underline tab-link">Carrito (<span id="cart-count">0</span>)</button>
-                <button onclick="showTab('contact')" class="hover:underline tab-link">Contacto</button>
-            </div>
+   <nav class="absolute top-0 left-0 w-full bg-transparent text-white p-4 z-10">
+    <div class="flex w-full justify-end items-center mr-8"> <!-- Agrega mr-8 para margen derecho -->
+        <div class="space-x-12">
+            <button onclick="showTab('about')" class="hover:underline tab-link">Sobre Nosotros</button>
+            <button onclick="showTab('products')" class="hover:underline tab-link">Compra Café Verde</button>
+            <button onclick="showTab('auction')" class="hover:underline tab-link">Subasta</button>
+            <button onclick="showTab('cart')" class="hover:underline tab-link">Carrito (<span id="cart-count">0</span>)</button>
+            <button onclick="showTab('contact')" class="hover:underline tab-link">Contacto</button>
         </div>
-    </nav>
+    </div>
+</nav>
     <!-- Contenedor del logo -->
     <div class="logo-header">
         <img src="Logo-3.png" alt="Green Diamond Logo"> <!-- Asegúrate de que la ruta 'Logo-3.png' sea correcta -->
