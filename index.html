@@ -87,28 +87,31 @@
     </style>
 </head>
 <body class="bg-gray-50 font-sans">
-    <header class="hero">
-        <img src="Portada.jpg" alt="Fondo de cafeto" class="hero-background-image">
-        <!-- Navbar con logo y menú dentro del header -->
-        <nav class="absolute top-0 left-0 w-full bg-transparent text-white p-4 z-10">
-    <div class="container mx-auto flex justify-end items-center"> <!-- Cambia justify-between por justify-end -->
-        <div class="space-x-12"> <!-- Mantiene el espaciado horizontal -->
-            <button onclick="showTab('about')" class="hover:underline tab-link">Sobre Nosotros</button>
-            <button onclick="showTab('products')" class="hover:underline tab-link">Compra Café Verde</button>
-            <button onclick="showTab('auction')" class="hover:underline tab-link">Subasta</button>
-            <button onclick="showTab('cart')" class="hover:underline tab-link">Carrito (<span id="cart-count">0</span>)</button>
-            <button onclick="showTab('contact')" class="hover:underline tab-link">Contacto</button>
+   <header class="hero">
+    <img src="Portada.jpg" alt="Fondo de cafeto" class="hero-background-image">
+    <!-- Navbar con logo y menú dentro del header -->
+    <nav class="absolute top-0 left-0 w-full bg-transparent text-white p-4 z-10">
+        <div class="flex w-full justify-end items-center"> <!-- Cambia container mx-auto por flex w-full -->
+            <div class="space-x-12">
+                <button onclick="showTab('about')" class="hover:underline tab-link">Sobre Nosotros</button>
+                <button onclick="showTab('products')" class="hover:underline tab-link">Compra Café Verde</button>
+                <button onclick="showTab('auction')" class="hover:underline tab-link">Subasta</button>
+                <button onclick="showTab('cart')" class="hover:underline tab-link">Carrito (<span id="cart-count">0</span>)</button>
+                <button onclick="showTab('contact')" class="hover:underline tab-link">Contacto</button>
+            </div>
         </div>
+    </nav>
+    <!-- Contenedor del logo -->
+    <div class="logo-header">
+        <img src="Logo-3.png" alt="Green Diamond Logo"> <!-- Asegúrate de que la ruta 'Logo-3.png' sea correcta -->
     </div>
-</nav>
-        <!-- Contenido central del hero -->
-        <div class="hero-content">
-            <h1>Café verde de especialidad</h1>
-            <h2>Valor en cada grano</h2>
-            <p>Abastecimiento de las mejores variedades de café con trazabilidad completa. Desde la finca hasta tu tostador.</p>
-           
-        </div>
-    </header>
+    <!-- Contenido central del hero -->
+    <div class="hero-content">
+        <h1>Café verde de especialidad</h1>
+        <h2>Valor en cada grano</h2>
+        <p>Abastecimiento de las mejores variedades de café con trazabilidad completa. Desde la finca hasta tu tostador.</p>
+    </div>
+</header>
 
     <!-- Tab Contents -->
     <div id="tab-contents" class="container mx-auto py-12">
