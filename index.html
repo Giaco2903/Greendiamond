@@ -26,15 +26,15 @@
 }
 .logo-header {
     position: absolute;
-    top: 10px; /* Reduce el top para pegarlo más arriba */
-    left: 10px; /* Reduce el left para pegarlo más a la izquierda */
+    top: 20px;
+    left: 20px; /* Asegura que esté en la esquina superior izquierda */
     z-index: 1;
 }
 .logo-header img {
-    max-height: 150px;
-    width: auto;
-    transform: none; /* Elimina el escalado para mantener proporciones naturales */
-}
+    max-height: 150px; /* Mantén el tamaño, pero asegúrate de que sea proporcional */
+    width: auto; /* Permite que el ancho se ajuste proporcionalmente */
+    height: auto; /* Asegura proporción */
+    transform: scale(1.0); /* Reduce el escalado para mantener proporciones naturales */
 }
 .hero-content {
     position: relative;
@@ -111,7 +111,8 @@
             <h1>Café verde de especialidad</h1>
             <h2>Valor en cada grano</h2>
             <p>Abastecimiento de las mejores variedades de café con trazabilidad completa. Desde la finca hasta tu tostador.</p>
-          
+            <a href="#contact" class="btn btn-primary">Solicitar muestra</a>
+            <a href="#products" class="btn btn-secondary">Ver nuestro catálogo</a>
         </div>
     </header>
 
@@ -298,7 +299,7 @@
                             <th class="p-4">Precio</th>
                             <th class="p-4">Cantidad</th>
                             <th class="p-4">Subtotal</th>
-                           
+                            <th class="p-4">Acciones</th>
                         </tr>
                     </thead>
                     <tbody id="cart-items">
