@@ -286,12 +286,12 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Auction Item 1 -->
                 <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <img src="https://via.placeholder.com/300x200?text=Café+Colombia" alt="Café Colombiano" class="w-full h-48 object-cover rounded-md mb-4">
-                    <h3 class="text-xl font-semibold mb-2">Café Verde Colombiano - Huila Supremo</h3>
-                    <p class="text-gray-600 mb-2">Origen: Colombia - Huila</p>
+                    <img src="Geisha_2.jpg" alt="Geisha" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h3 class="text-xl font-semibold mb-2">Café Verde Colombiano - Tolima </h3>
+                    <p class="text-gray-600 mb-2">Origen: Colombia - Tolima</p>
                     <p class="text-gray-600 mb-2">Proceso: Lavado</p>
                     <p class="text-gray-600 mb-2">Puntos: 88.00</p>
-                    <p class="text-gray-600 mb-2">Variedad: Caturra</p>
+                    <p class="text-gray-600 mb-2">Variedad: Geisha</p>
                     <p class="text-gray-600 mb-4">Perfil: Cítrico y Frutal</p>
                     <div class="flex justify-between items-center mb-4">
                         <p class="text-lg font-bold">Puja Actual: $150.00</p>
@@ -302,15 +302,30 @@
                 </div>
                 <!-- Auction Item 2 (New) -->
                 <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <img src="https://via.placeholder.com/300x200?text=Café+Colombia+Antioquia" alt="Café Colombiano Antioquia" class="w-full h-48 object-cover rounded-md mb-4">
-                    <h3 class="text-xl font-semibold mb-2">Café Verde Colombiano - Antioquia Excelso</h3>
-                    <p class="text-gray-600 mb-2">Origen: Colombia - Antioquia</p>
+                    <img src="Bourbon.jpg" alt="Bourbon" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h3 class="text-xl font-semibold mb-2">Café Verde Colombiano - Bourbon rosado</h3>
+                    <p class="text-gray-600 mb-2">Origen: Colombia - Tolima</p>
                     <p class="text-gray-600 mb-2">Proceso: Natural</p>
                     <p class="text-gray-600 mb-2">Puntos: 87.50</p>
-                    <p class="text-gray-600 mb-2">Variedad: Castillo</p>
+                    <p class="text-gray-600 mb-2">Variedad: Bourbon</p>
                     <p class="text-gray-600 mb-4">Perfil: Chocolate y Nueces</p>
                     <div class="flex justify-between items-center mb-4">
                         <p class="text-lg font-bold">Puja Actual: $140.00</p>
+                        <p class="text-sm text-gray-500">Tiempo Restante: <span id="auction-timer-2">48:00:00</span></p>
+                    </div>
+                    <input type="number" id="bid-input-2" placeholder="Tu Puja" class="w-full p-2 border rounded-md mb-4" min="141">
+                    <button onclick="placeBid(2)" class="bg-green-800 text-white px-4 py-2 rounded-full hover:bg-green-900 w-full">Pujar</button>
+                </div>
+                 <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <img src="Castillo.jpg" alt="Castillo" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h3 class="text-xl font-semibold mb-2">Café Verde Colombiano - Castillo</h3>
+                    <p class="text-gray-600 mb-2">Origen: Colombia - Tolima</p>
+                    <p class="text-gray-600 mb-2">Proceso: Lavado</p>
+                    <p class="text-gray-600 mb-2">Puntos: 87</p>
+                    <p class="text-gray-600 mb-2">Variedad: Castillo</p>
+                    <p class="text-gray-600 mb-4">Perfil: Mandarina y Jazmín</p>
+                    <div class="flex justify-between items-center mb-4">
+                        <p class="text-lg font-bold">Puja Actual: $100.00</p>
                         <p class="text-sm text-gray-500">Tiempo Restante: <span id="auction-timer-2">48:00:00</span></p>
                     </div>
                     <input type="number" id="bid-input-2" placeholder="Tu Puja" class="w-full p-2 border rounded-md mb-4" min="141">
@@ -332,7 +347,6 @@
                             <th class="p-4">Precio</th>
                             <th class="p-4">Cantidad</th>
                             <th class="p-4">Subtotal</th>
-                            <th class="p-4">Acciones</th>
                         </tr>
                     </thead>
                     <tbody id="cart-items">
