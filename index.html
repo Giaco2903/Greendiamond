@@ -86,20 +86,35 @@
 </head>
 <body class="bg-gray-50 font-sans">
     <header class="hero">
-        <img src="Portada.jpg" alt="Fondo de cafeto" class="hero-background-image">
-        <div class="logo-header">
+    <img src="Portada.jpg" alt="Fondo de cafeto" class="hero-background-image">
+
+    <!-- Navbar con logo y menú dentro del header -->
+    <nav class="absolute top-0 left-0 w-full bg-transparent text-white p-4 z-10">
+        <div class="container mx-auto flex justify-between items-center">
+            <!-- Logo en lugar del texto -->
             <a href="index.html" aria-label="Volver al inicio">
-                <img src="Logo-3.png" alt="Green Diamond Logo">
+                <img src="Logo-3.png" alt="Green Diamond Logo" class="h-12">
             </a>
+            <div class="space-x-4">
+                <button onclick="showTab('about')" class="hover:underline tab-link active">Sobre Nosotros</button>
+                <button onclick="showTab('products')" class="hover:underline tab-link">Compra Café Verde</button>
+                <button onclick="showTab('auction')" class="hover:underline tab-link">Subasta</button>
+                <button onclick="showTab('cart')" class="hover:underline tab-link">Carrito (<span id="cart-count">0</span>)</button>
+                <button onclick="showTab('contact')" class="hover:underline tab-link">Contacto</button>
+            </div>
         </div>
-        <div class="hero-content">
-            <h1>Café verde de especialidad</h1>
-            <h2>Valor en cada grano</h2>
-            <p>Abastecimiento de las mejores variedades de café colombiano con trazabilidad completa y cero productos químicos. Desde la finca hasta tu tostador.</p>
-            <a href="#contact" class="btn btn-primary">Solicitar muestra</a>
-            <a href="#products" class="btn btn-secondary">Ver nuestro catálogo</a>
-        </div>
-    </header>
+    </nav>
+
+    <!-- Contenido central del hero -->
+    <div class="hero-content">
+        <h1>Café verde de especialidad</h1>
+        <h2>Valor en cada grano</h2>
+        <p>Abastecimiento de las mejores variedades de café colombiano con trazabilidad completa y cero productos químicos. Desde la finca hasta tu tostador.</p>
+        <a href="#" class="btn btn-primary">Solicitar muestra</a>
+        <a href="#" class="btn btn-secondary">Ver nuestro catálogo</a>
+    </div>
+</header>
+
 
     <!-- Navbar with Tabs -->
     <nav class="bg-green-800 text-white p-4 sticky top-0 shadow-md">
