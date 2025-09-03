@@ -109,12 +109,18 @@
     </div>
 </header>
 
-    <div id="tab-contents" class="container mx-auto py-12">
-        <section id="products-tab" class="tab-content hidden">
-            <h2 class="text-3xl font-bold text-center mb-8 text-green-600">Tienda de café verde</h2>
-            <p class="text-center mb-6">Explora nuestro catálogo de café verde y descubre una cuidadosa selección de los mejores granos provenientes de los orígenes con los que trabajamos.</p>
-            <div class="flex flex-col lg:flex-row gap-8">
-              <aside class="w-full lg:w-1/4 bg-yellow-100 p-4 rounded-lg">
+<div id="tab-contents" class="container mx-auto py-12">
+    <section id="about-tab" class="tab-content hidden">
+        <h2 class="text-3xl font-bold text-center mb-8 text-green-600">Sobre Nosotros</h2>
+        <p class="text-center mb-6">En Green Diamond, nos dedicamos a la importación y distribución de café verde de especialidad de alta calidad. Nuestro compromiso es ofrecer a nuestros clientes los mejores granos, con una trazabilidad completa desde la finca hasta su tostador. Creemos que cada grano cuenta una historia de esfuerzo, pasión y dedicación, y nos enorgullece ser el puente que conecta a los productores con los tostadores más exigentes.</p>
+        <p class="text-center text-gray-700">Nuestro catálogo incluye variedades exclusivas, puntuadas por la Specialty Coffee Association (SCA), y perfiles de sabor únicos. Trabajamos directamente con fincas certificadas para asegurar prácticas sostenibles y justas.</p>
+    </section>
+
+    <section id="products-tab" class="tab-content hidden">
+        <h2 class="text-3xl font-bold text-center mb-8 text-green-600">Tienda de café verde</h2>
+        <p class="text-center mb-6">Explora nuestro catálogo de café verde y descubre una cuidadosa selección de los mejores granos provenientes de los orígenes con los que trabajamos.</p>
+        <div class="flex flex-col lg:flex-row gap-8">
+            <aside class="w-full lg:w-1/4 bg-yellow-100 p-4 rounded-lg">
                 <h3 class="text-xl font-bold mb-4">Filtros</h3>
                 <div class="space-y-4">
                     <div>
@@ -124,9 +130,7 @@
                     <div>
                         <label class="block text-sm font-medium">Situación</label>
                         <select id="filter-status" class="mt-1 p-2 w-full border rounded-md bg-white">
-                            <option value="" disabled selected>Seleccione una opción</option>
-                            <option value="En almacén">En almacén</option>
-                            <option value="Embarcado">Embarcado</option>
+                            <option value="">Todos</option>
                         </select>
                     </div>
                     <div>
@@ -190,554 +194,447 @@
                         </select>
                     </div>
                 </div>
-              </aside>
-              <div class="w-full lg:w-3/4">
+            </aside>
+            <div class="w-full lg:w-3/4">
                 <div class="mb-6 flex justify-between items-center">
                     <h3 class="text-xl font-bold">Varietales Disponibles</h3>
-                    <div>
-                        <label for="sort-select" class="text-sm font-medium">Ordenar por:</label>
-                        <select id="sort-select" class="p-2 border rounded-md bg-white">
-                            <option value="name-asc">Nombre (A-Z)</option>
-                            <option value="name-desc">Nombre (Z-A)</option>
-                            <option value="score-desc">Puntuación (Mayor a Menor)</option>
-                            <option value="score-asc">Puntuación (Menor a Mayor)</option>
-                        </select>
+                    <div class="flex items-center space-x-4">
+                        <div id="result-count"></div>
+                        <div>
+                            <label for="sort-select" class="text-sm font-medium">Ordenar por:</label>
+                            <select id="sort-select" class="p-2 border rounded-md bg-white">
+                                <option value="name-asc">Nombre (A-Z)</option>
+                                <option value="name-desc">Nombre (Z-A)</option>
+                                <option value="score-desc">Puntuación (Mayor a Menor)</option>
+                                <option value="score-asc">Puntuación (Menor a Mayor)</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
                 <div id="product-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     </div>
-              </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="products-tab" class="tab-content hidden">
-            <h2 class="text-3xl font-bold text-center mb-8 text-green-600">Tienda de café verde</h2>
-            <p class="text-center mb-6">Explora nuestro catálogo de café verde y descubre una cuidadosa selección de los mejores granos provenientes de los orígenes con los que trabajamos.</p>
-            <div class="flex flex-col lg:flex-row gap-8">
-              <aside class="w-full lg:w-1/4 bg-yellow-100 p-4 rounded-lg">
-    <h3 class="text-xl font-bold mb-4">Filtros</h3>
-    <div class="space-y-4">
-        <div>
-            <label class="block text-sm font-medium">Buscar Café</label>
-            <input type="text" id="search-input" class="mt-1 p-2 w-full border rounded-md bg-white" placeholder="BUSCAR CAFÉ">
-        </div>
-        <div>
-            <label class="block text-sm font-medium">Situación</label>
-            <select id="filter-status" class="mt-1 p-2 w-full border rounded-md bg-white">
-                <option value="" disabled selected>Seleccione una opción</option>
-                <option value="Disponible">Disponible</option>
-                <option value="Próximamente">Próximamente</option>
-                <option value="Agotado">Agotado</option>
-            </select>
-        </div>
-        <div>
-            <label class="block text-sm font-medium">Origen</label>
-            <select id="filter-origin" class="mt-1 p-2 w-full border rounded-md bg-white">
-                <option value="" disabled selected>Seleccione una opción</option>
-                <option value="Colombia">Colombia</option>
-                <option value="Perú">Perú</option>
-                <option value="Etiopía">Etiopía</option>
-                <option value="Guatemala">Guatemala</option>
-                <option value="Brasil">Brasil</option>
-                <option value="Kenia">Kenia</option>
-                <option value="Costa Rica">Costa Rica</option>
-            </select>
-        </div>
-        <div>
-            <label class="block text-sm font-medium">Región Cafetera</label>
-            <select id="filter-region" class="mt-1 p-2 w-full border rounded-md bg-white">
-                <option value="" disabled selected>Seleccione una opción</option>
-                <option value="Huila">Huila</option>
-                <option value="Cajamarca">Cajamarca</option>
-                <option value="Yirgacheffe">Yirgacheffe</option>
-                <option value="Quindío">Quindío</option>
-            </select>
-        </div>
-        <div>
-            <label class="block text-sm font-medium">Gama</label>
-            <select id="filter-gama" class="mt-1 p-2 w-full border rounded-md bg-white">
-                <option value="" disabled selected>Seleccione una opción</option>
-                <option value="Alta">Alta</option>
-                <option value="Media">Media</option>
-                <option value="Baja">Baja</option>
-            </select>
-        </div>
-        <div>
-            <label class="block text-sm font-medium">Proceso</label>
-            <select id="filter-process" class="mt-1 p-2 w-full border rounded-md bg-white">
-                <option value="" disabled selected>Seleccione una opción</option>
-                <option value="Honey">Honey</option>
-                <option value="Lavado">Lavado</option>
-                <option value="Natural">Natural</option>
-                <option value="Fermentación prolongada">Fermentación prolongada</option>
-            </select>
-        </div>
-        <div>
-            <label class="block text-sm font-medium">Perfil</label>
-            <select id="filter-profile" class="mt-1 p-2 w-full border rounded-md bg-white">
-                <option value="" disabled selected>Seleccione una opción</option>
-                <option value="Afrutado">Afrutado</option>
-                <option value="Especiado">Especiado</option>
-                <option value="Floral">Floral</option>
-                <option value="Chocolate">Chocolate</option>
-                <option value="Caramelo">Caramelo</option>
-            </select>
-        </div>
-        <div>
-            <label class="block text-sm font-medium">Descriptor Clave</label>
-            <select id="filter-descriptor" class="mt-1 p-2 w-full border rounded-md bg-white">
-                <option value="" disabled selected>Seleccione una opción</option>
-                <option value="Mandarina y jazmín">Mandarina y jazmín</option>
-                <option value="Chocolate y caramelo">Chocolate y caramelo</option>
-                <option value="Fresa y frutos rojos">Fresa y frutos rojos</option>
-                <option value="Frutos secos y miel">Frutos secos y miel</option>
-            </select>
-        </div>
-        <div>
-            <label class="block text-sm font-medium">Certificaciones</label>
-            <select id="filter-certifications" class="mt-1 p-2 w-full border rounded-md bg-white">
-                <option value="" disabled selected>Seleccione una opción</option>
-                <option value="Rainforest Alliance">Rainforest Alliance</option>
-                <option value="Fairtrade">Fairtrade</option>
-            </select>
-        </div>
-        <div>
-            <label class="block text-sm font-medium">Peso Envase</label>
-            <select id="filter-package-weight" class="mt-1 p-2 w-full border rounded-md bg-white">
-                <option value="" disabled selected>Seleccione una opción</option>
-                <option value="60 kg">60 kg</option>
-                <option value="25 kg">25 kg</option>
-                <option value="12,5 kg">12,5 kg</option>
-            </select>
-        </div>
-    </div>
-</aside>
-
-            <div class="w-full lg:w-3/4">
-    <div class="mb-6">
-        <h3 class="text-xl font-bold mb-4">Varietales Disponibles</h3>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            <div id="product-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            </div>
-        </div>
-    </div>
-</div>  
-            </div>
-        </section>
-
-      <section id="auction-tab" class="tab-content hidden">
-    <h2 class="text-3xl font-bold text-center mb-8">Subasta de Cafés Exclusivos</h2>
-    <p class="text-center mb-6">Participa en nuestras subastas para adquirir variedades únicas de café verde. Ofrece tu puja y lleva a casa granos premium de orígenes selectos.</p>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-        <div class="bg-white p-6 rounded-lg shadow-lg">
-            <img src="Geisha_2.jpg" alt="Geisha" class="w-full h-48 object-cover rounded-md mb-4">
-            <h3 class="text-xl font-semibold mb-2">Café Verde Colombiano - Tolima </h3>
-            <p class="text-gray-600 mb-2">Origen: Colombia - Tolima</p>
-            <p class="text-gray-600 mb-2">Proceso: Lavado</p>
-            <p class="text-gray-600 mb-2">Puntos: 88.00</p>
-            <p class="text-gray-600 mb-2">Variedad: Geisha</p>
-            <p class="text-gray-600 mb-4">Perfil: Cítrico y Frutal</p>
-            <div class="flex justify-between items-center mb-4">
-                <p class="text-lg font-bold">Puja Actual: $150.00</p>
-                <p class="text-sm text-gray-500">Tiempo Restante: <span id="auction-timer-1">24:00:00</span></p>
-            </div>
-            <input type="number" id="bid-input-1" placeholder="Tu Puja" class="w-full p-2 border rounded-md mb-4" min="151">
-            <button onclick="placeBid(1)" class="bg-green-800 text-white px-4 py-2 rounded-full hover:bg-green-900 w-full">Pujar</button>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow-lg">
-            <img src="Bourbon.jpg" alt="Bourbon" class="w-full h-48 object-cover rounded-md mb-4">
-            <h3 class="text-xl font-semibold mb-2">Café Verde Colombiano - Bourbon rosado</h3>
-            <p class="text-gray-600 mb-2">Origen: Colombia - Tolima</p>
-            <p class="text-gray-600 mb-2">Proceso: Natural</p>
-            <p class="text-gray-600 mb-2">Puntos: 87.50</p>
-            <p class="text-gray-600 mb-2">Variedad: Bourbon</p>
-            <p class="text-gray-600 mb-4">Perfil: Chocolate y Nueces</p>
-            <div class="flex justify-between items-center mb-4">
-                <p class="text-lg font-bold">Puja Actual: $140.00</p>
-                <p class="text-sm text-gray-500">Tiempo Restante: <span id="auction-timer-2">48:00:00</span></p>
-            </div>
-            <input type="number" id="bid-input-2" placeholder="Tu Puja" class="w-full p-2 border rounded-md mb-4" min="141">
-            <button onclick="placeBid(2)" class="bg-green-800 text-white px-4 py-2 rounded-full hover:bg-green-900 w-full">Pujar</button>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow-lg">
-            <img src="Castillo.jpg" alt="Castillo" class="w-full h-48 object-cover rounded-md mb-4">
-            <h3 class="text-xl font-semibold mb-2">Café Verde Colombiano - Castillo</h3>
-            <p class="text-gray-600 mb-2">Origen: Colombia - Tolima</p>
-            <p class="text-gray-600 mb-2">Proceso: Lavado</p>
-            <p class="text-gray-600 mb-2">Puntos: 87</p>
-            <p class="text-gray-600 mb-2">Variedad: Castillo</p>
-            <p class="text-gray-600 mb-4">Perfil: Mandarina y Jazmín</p>
-            <div class="flex justify-between items-center mb-4">
-                <p class="text-lg font-bold">Puja Actual: $100.00</p>
-                <p class="text-sm text-gray-500">Tiempo Restante: <span id="auction-timer-2">48:00:00</span></p>
-            </div>
-            <input type="number" id="bid-input-2" placeholder="Tu Puja" class="w-full p-2 border rounded-md mb-4" min="141">
-            <button onclick="placeBid(2)" class="bg-green-800 text-white px-4 py-2 rounded-full hover:bg-green-900 w-full">Pujar</button>
-        </div>
-        </div>
-</section>
-        <section id="cart-tab" class="tab-content hidden">
-            <h2 class="text-3xl font-bold text-center mb-8">Tu Carrito</h2>
-            <div class="bg-white p-6 rounded-lg shadow-md mb-6">
-                <table class="w-full table-auto">
-                    <thead>
-                        <tr class="bg-gray-200 text-left">
-                            <th class="p-4">Imagen</th>
-                            <th class="p-4">Producto</th>
-                            <th class="p-4">Tamaño de Lote</th>
-                            <th class="p-4">Precio/kg</th>
-                            <th class="p-4">Cantidad (lotes)</th>
-                            <th class="p-4">Subtotal</th>
-                            <th class="p-4">Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody id="cart-items">
-                        </tbody>
-                </table>
-            </div>
-            <div class="flex justify-end items-center">
-                <p id="cart-total" class="text-xl font-semibold mr-4">Total: $0.00</p>
-                <button id="checkout-btn" class="bg-green-800 text-white px-6 py-2 rounded-full font-semibold hover:bg-green-900">Finalizar Compra</button>
-            </div>
-            <div class="mt-6 bg-yellow-100 p-4 rounded-lg">
-                <p class="font-bold">Nota:</p>
-                <p>Los envíos se calculan al finalizar la compra. Aplica descuentos por volumen.</p>
-            </div>
-        </section>
-
-        <section id="contact-tab" class="tab-content hidden">
-            <h2 class="text-3xl font-bold text-center mb-8">Contáctanos</h2>
-            <div class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-md">
-                <div id="contact-form">
-                    <div class="mb-4">
-                        <label for="name" class="block text-sm font-medium text-gray-700">Nombre</label>
-                        <input type="text" id="name" class="mt-1 p-2 w-full border rounded-md" required>
-                    </div>
-                    <div class="mb-4">
-                        <label for="email" class="block text-sm font-medium text-gray-700">Correo Electrónico</label>
-                        <input type="email" id="email" class="mt-1 p-2 w-full border rounded-md" required>
-                    </div>
-                    <div class="mb-4">
-                        <label for="message" class="block text-sm font-medium text-gray-700">Mensaje</label>
-                        <textarea id="message" class="mt-1 p-2 w-full border rounded-md" rows="4" required></textarea>
-                    </div>
-                    <button type="submit" class="bg-green-800 text-white px-6 py-2 rounded-full font-semibold hover:bg-green-900 w-full">Enviar</button>
+    <section id="auction-tab" class="tab-content hidden">
+        <h2 class="text-3xl font-bold text-center mb-8">Subasta de Cafés Exclusivos</h2>
+        <p class="text-center mb-6">Participa en nuestras subastas para adquirir variedades únicas de café verde. Ofrece tu puja y lleva a casa granos premium de orígenes selectos.</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <img src="Geisha_2.jpg" alt="Geisha" class="w-full h-48 object-cover rounded-md mb-4">
+                <h3 class="text-xl font-semibold mb-2">Café Verde Colombiano - Tolima </h3>
+                <p class="text-gray-600 mb-2">Origen: Colombia - Tolima</p>
+                <p class="text-gray-600 mb-2">Proceso: Lavado</p>
+                <p class="text-gray-600 mb-2">Puntos: 88.00</p>
+                <p class="text-gray-600 mb-2">Variedad: Geisha</p>
+                <p class="text-gray-600 mb-4">Perfil: Cítrico y Frutal</p>
+                <div class="flex justify-between items-center mb-4">
+                    <p class="text-lg font-bold">Puja Actual: $150.00</p>
+                    <p class="text-sm text-gray-500">Tiempo Restante: <span id="auction-timer-1">24:00:00</span></p>
                 </div>
-                <div class="mt-6 text-center text-gray-600">
-                    <p><strong>Green Diamond.</strong></p>
-                    <p>Email: greendiamond.ceo@gmail.com | Teléfono: (+34)695 616 891</p>
-                </div>
+                <input type="number" id="bid-input-1" placeholder="Tu Puja" class="w-full p-2 border rounded-md mb-4" min="151">
+                <button onclick="placeBid(1)" class="bg-green-800 text-white px-4 py-2 rounded-full hover:bg-green-900 w-full">Pujar</button>
             </div>
-        </section>
-    </div>
-
-    <footer class="bg-green-800 text-white py-4 text-center">
-        <div class="container mx-auto">
-            <a href="#about" class="mx-2 hover:underline">Sobre Nosotros</a>
-            <a href="#products" class="mx-2 hover:underline">Compra Café Verde</a>
-            <a href="#auction" class="mx-2 hover:underline">Subasta</a>
-            <a href="#cart" class="mx-2 hover:underline">Carrito</a>
-            <a href="#contact" class="mx-2 hover:underline">Contacto</a>
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <img src="Bourbon.jpg" alt="Bourbon" class="w-full h-48 object-cover rounded-md mb-4">
+                <h3 class="text-xl font-semibold mb-2">Café Verde Colombiano - Bourbon rosado</h3>
+                <p class="text-gray-600 mb-2">Origen: Colombia - Tolima</p>
+                <p class="text-gray-600 mb-2">Proceso: Natural</p>
+                <p class="text-gray-600 mb-2">Puntos: 87.50</p>
+                <p class="text-gray-600 mb-2">Variedad: Bourbon</p>
+                <p class="text-gray-600 mb-4">Perfil: Chocolate y Nueces</p>
+                <div class="flex justify-between items-center mb-4">
+                    <p class="text-lg font-bold">Puja Actual: $140.00</p>
+                    <p class="text-sm text-gray-500">Tiempo Restante: <span id="auction-timer-2">48:00:00</span></p>
+                </div>
+                <input type="number" id="bid-input-2" placeholder="Tu Puja" class="w-full p-2 border rounded-md mb-4" min="141">
+                <button onclick="placeBid(2)" class="bg-green-800 text-white px-4 py-2 rounded-full hover:bg-green-900 w-full">Pujar</button>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <img src="Castillo.jpg" alt="Castillo" class="w-full h-48 object-cover rounded-md mb-4">
+                <h3 class="text-xl font-semibold mb-2">Café Verde Colombiano - Castillo</h3>
+                <p class="text-gray-600 mb-2">Origen: Colombia - Tolima</p>
+                <p class="text-gray-600 mb-2">Proceso: Lavado</p>
+                <p class="text-gray-600 mb-2">Puntos: 87</p>
+                <p class="text-gray-600 mb-2">Variedad: Castillo</p>
+                <p class="text-gray-600 mb-4">Perfil: Mandarina y Jazmín</p>
+                <div class="flex justify-between items-center mb-4">
+                    <p class="text-lg font-bold">Puja Actual: $100.00</p>
+                    <p class="text-sm text-gray-500">Tiempo Restante: <span id="auction-timer-2">48:00:00</span></p>
+                </div>
+                <input type="number" id="bid-input-2" placeholder="Tu Puja" class="w-full p-2 border rounded-md mb-4" min="141">
+                <button onclick="placeBid(2)" class="bg-green-800 text-white px-4 py-2 rounded-full hover:bg-green-900 w-full">Pujar</button>
+            </div>
         </div>
-        <p class="mt-2">&copy; 2025 Green Diamond. Todos los derechos reservados.</p>
-    </footer>
+    </section>
 
-   <script>
-        // Tab Functionality
-        function showTab(tabId) {
-            // Ocultar todas las pestañas
-            document.querySelectorAll('.tab-content').forEach(tab => {
-                tab.classList.add('hidden');
-            });
-            // Mostrar la pestaña seleccionada
-            const selectedTab = document.getElementById(`${tabId}-tab`);
+    <section id="cart-tab" class="tab-content hidden">
+        <h2 class="text-3xl font-bold text-center mb-8">Tu Carrito</h2>
+        <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+            <table class="w-full table-auto">
+                <thead>
+                    <tr class="bg-gray-200 text-left">
+                        <th class="p-4">Imagen</th>
+                        <th class="p-4">Producto</th>
+                        <th class="p-4">Tamaño de Lote</th>
+                        <th class="p-4">Precio/kg</th>
+                        <th class="p-4">Cantidad (lotes)</th>
+                        <th class="p-4">Subtotal</th>
+                        <th class="p-4">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="cart-items">
+                </tbody>
+            </table>
+        </div>
+        <div class="flex justify-end items-center">
+            <p id="cart-total" class="text-xl font-semibold mr-4">Total: $0.00</p>
+            <button id="checkout-btn" class="bg-green-800 text-white px-6 py-2 rounded-full font-semibold hover:bg-green-900">Finalizar Compra</button>
+        </div>
+        <div class="mt-6 bg-yellow-100 p-4 rounded-lg">
+            <p class="font-bold">Nota:</p>
+            <p>Los envíos se calculan al finalizar la compra. Aplica descuentos por volumen.</p>
+        </div>
+    </section>
+
+    <section id="contact-tab" class="tab-content hidden">
+        <h2 class="text-3xl font-bold text-center mb-8">Contáctanos</h2>
+        <div class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-md">
+            <form id="contact-form">
+                <div class="mb-4">
+                    <label for="name" class="block text-sm font-medium text-gray-700">Nombre</label>
+                    <input type="text" id="name" class="mt-1 p-2 w-full border rounded-md" required>
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block text-sm font-medium text-gray-700">Correo Electrónico</label>
+                    <input type="email" id="email" class="mt-1 p-2 w-full border rounded-md" required>
+                </div>
+                <div class="mb-4">
+                    <label for="message" class="block text-sm font-medium text-gray-700">Mensaje</label>
+                    <textarea id="message" class="mt-1 p-2 w-full border rounded-md" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="bg-green-800 text-white px-6 py-2 rounded-full font-semibold hover:bg-green-900 w-full">Enviar</button>
+            </form>
+            <div class="mt-6 text-center text-gray-600">
+                <p><strong>Green Diamond.</strong></p>
+                <p>Email: greendiamond.ceo@gmail.com | Teléfono: (+34)695 616 891</p>
+            </div>
+        </div>
+    </section>
+</div>
+
+<footer class="bg-green-800 text-white py-4 text-center">
+    <div class="container mx-auto">
+        <a href="#about" class="mx-2 hover:underline tab-link" onclick="showTab('about')">Sobre Nosotros</a>
+        <a href="#products" class="mx-2 hover:underline tab-link" onclick="showTab('products')">Compra Café Verde</a>
+        <a href="#auction" class="mx-2 hover:underline tab-link" onclick="showTab('auction')">Subasta</a>
+        <a href="#cart" class="mx-2 hover:underline tab-link" onclick="showTab('cart')">Carrito</a>
+        <a href="#contact" class="mx-2 hover:underline tab-link" onclick="showTab('contact')">Contacto</a>
+    </div>
+    <p class="mt-2">&copy; 2025 Green Diamond. Todos los derechos reservados.</p>
+</footer>
+
+<script>
+    // Tab Functionality
+    function showTab(tabId) {
+        // Ocultar todas las pestañas
+        document.querySelectorAll('.tab-content').forEach(tab => {
+            tab.classList.add('hidden');
+        });
+        // Mostrar la pestaña seleccionada
+        const selectedTab = document.getElementById(`${tabId}-tab`);
+        if (selectedTab) {
             selectedTab.classList.remove('hidden');
             // Desplazamiento suave a la sección
             selectedTab.scrollIntoView({ behavior: 'smooth' });
-            // Actualizar clase active en los botones
-            document.querySelectorAll('.tab-link').forEach(link => {
-                link.classList.remove('active');
-            });
-            event.target.classList.add('active');
         }
+        // Actualizar clase active en los botones
+        document.querySelectorAll('.tab-link').forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('onclick').includes(`'${tabId}'`)) {
+                link.classList.add('active');
+            }
+        });
+    }
 
-        // Show initial tab
-        showTab('about');
+    // Show initial tab
+    showTab('about');
 
-        // Expanded products data with more fields
-        const products = [
-            { id: 1, name: "Abyssinia", origin: "Etiopía", region: "Guji", gama: "Terras", process: "Natural", processType: "Seco", profile: "Afrutado", descriptor: "Frutas Tropicales", certifications: "Orgánico", packageWeight: "60kg", specialPrice: "Sí", score: 84.00, variety: "Heirloom", taste: "Afrutado", altitude: "1.900-2.200 m.s.n.m.", status: "En almacén", image: "https://via.placeholder.com/300x200?text=Abyssinia", details: "Café con notas intensas de frutas, ideal para espressos.", pricePerKg: 10.00 },
-            { id: 2, name: "Aladfar AGRR", origin: "El Salvador", region: "Apaneca-Ilamatepec", gama: "Constelaciones", process: "Natural", processType: "Anaeróbico", profile: "Afrutado", descriptor: "Bayas", certifications: "Rainforest Alliance", packageWeight: "69kg", specialPrice: "No", score: 88.50, variety: "Bourbon", taste: "Afrutado", altitude: "1.425-1.700 m.s.n.m.", status: "Embarcado", image: "https://via.placeholder.com/300x200?text=Aladfar+AGRR", details: "Proceso anaeróbico que resalta sabores complejos.", pricePerKg: 12.50 },
-            { id: 3, name: "Aladfar FMZ", origin: "El Salvador", region: "Apaneca-Ilamatepec", gama: "Únicos", process: "Natural", processType: "Fermentado", profile: "Floral", descriptor: "Flores Blancas", certifications: "Fair Trade", packageWeight: "60kg", specialPrice: "Sí", score: 87.50, variety: "Caturra Amarillo", taste: "Floral", altitude: "1.425-1.700 m.s.n.m.", status: "Embarcado", new: true, image: "https://via.placeholder.com/300x200?text=Aladfar+FMZ", details: "Variedad rara con perfil floral delicado.", pricePerKg: 15.00 },
-            { id: 4, name: "Terras Ethiopia", origin: "Etiopía", region: "Yirgacheffe", gama: "Terras", process: "Lavado", processType: "Húmedo", profile: "Cítrico", descriptor: "Limón", certifications: "Orgánico", packageWeight: "60kg", specialPrice: "No", score: 86.00, variety: "Heirloom", taste: "Cítrico", altitude: "1.800-2.100 m.s.n.m.", status: "En almacén", image: "https://via.placeholder.com/300x200?text=Terras+Ethiopia", details: "Café lavado con acidez brillante.", pricePerKg: 11.00 },
-            { id: 5, name: "Constelaciones Colombia", origin: "Colombia", region: "Huila", gama: "Constelaciones", process: "Natural", processType: "Seco", profile: "Frutal", descriptor: "Manzana", certifications: "UTZ", packageWeight: "70kg", specialPrice: "Sí", score: 89.00, variety: "Caturra", taste: "Frutal", altitude: "1.500-1.800 m.s.n.m.", status: "Embarcado", new: true, image: "https://via.placeholder.com/300x200?text=Constelaciones+Colombia", details: "Notas dulces y frutales intensas.", pricePerKg: 13.00 },
-        ];
+    // Expanded products data with more fields
+    const products = [
+        { id: 1, name: "Abyssinia", origin: "Etiopía", region: "Guji", gama: "Terras", process: "Natural", processType: "Seco", profile: "Afrutado", descriptor: "Frutas Tropicales", certifications: "Orgánico", packageWeight: "60kg", specialPrice: "Sí", score: 84.00, variety: "Heirloom", taste: "Afrutado", altitude: "1.900-2.200 m.s.n.m.", status: "En almacén", image: "https://via.placeholder.com/300x200?text=Abyssinia", details: "Café con notas intensas de frutas, ideal para espressos.", pricePerKg: 10.00 },
+        { id: 2, name: "Aladfar AGRR", origin: "El Salvador", region: "Apaneca-Ilamatepec", gama: "Constelaciones", process: "Natural", processType: "Anaeróbico", profile: "Afrutado", descriptor: "Bayas", certifications: "Rainforest Alliance", packageWeight: "69kg", specialPrice: "No", score: 88.50, variety: "Bourbon", taste: "Afrutado", altitude: "1.425-1.700 m.s.n.m.", status: "Embarcado", image: "https://via.placeholder.com/300x200?text=Aladfar+AGRR", details: "Proceso anaeróbico que resalta sabores complejos.", pricePerKg: 12.50 },
+        { id: 3, name: "Aladfar FMZ", origin: "El Salvador", region: "Apaneca-Ilamatepec", gama: "Únicos", process: "Natural", processType: "Fermentado", profile: "Floral", descriptor: "Flores Blancas", certifications: "Fair Trade", packageWeight: "60kg", specialPrice: "Sí", score: 87.50, variety: "Caturra Amarillo", taste: "Floral", altitude: "1.425-1.700 m.s.n.m.", status: "Embarcado", new: true, image: "https://via.placeholder.com/300x200?text=Aladfar+FMZ", details: "Variedad rara con perfil floral delicado.", pricePerKg: 15.00 },
+        { id: 4, name: "Terras Ethiopia", origin: "Etiopía", region: "Yirgacheffe", gama: "Terras", process: "Lavado", processType: "Húmedo", profile: "Cítrico", descriptor: "Limón", certifications: "Orgánico", packageWeight: "60kg", specialPrice: "No", score: 86.00, variety: "Heirloom", taste: "Cítrico", altitude: "1.800-2.100 m.s.n.m.", status: "En almacén", image: "https://via.placeholder.com/300x200?text=Terras+Ethiopia", details: "Café lavado con acidez brillante.", pricePerKg: 11.00 },
+        { id: 5, name: "Constelaciones Colombia", origin: "Colombia", region: "Huila", gama: "Constelaciones", process: "Natural", processType: "Seco", profile: "Frutal", descriptor: "Manzana", certifications: "UTZ", packageWeight: "70kg", specialPrice: "Sí", score: 89.00, variety: "Caturra", taste: "Frutal", altitude: "1.500-1.800 m.s.n.m.", status: "Embarcado", new: true, image: "https://via.placeholder.com/300x200?text=Constelaciones+Colombia", details: "Notas dulces y frutales intensas.", pricePerKg: 13.00 },
+    ];
 
-        let cart = [];
+    let cart = [];
 
-        // Get unique values for filters
-        function getUniqueValues(key) {
-            return [...new Set(products.map(p => p[key]).filter(Boolean))];
+    // Get unique values for filters
+    function getUniqueValues(key) {
+        return [...new Set(products.map(p => p[key]).filter(Boolean))];
+    }
+
+    // Populate all filters
+    function populateFilters() {
+        const filters = {
+            'filter-status': 'status',
+            'filter-origin': 'origin',
+            'filter-region': 'region',
+            'filter-gama': 'gama',
+            'filter-process': 'process',
+            'filter-process-type': 'processType',
+            'filter-profile': 'profile',
+            'filter-descriptor': 'descriptor',
+            'filter-certifications': 'certifications',
+            'filter-package-weight': 'packageWeight',
+            'filter-special-price': 'specialPrice'
+        };
+
+        Object.keys(filters).forEach(selectId => {
+            const select = document.getElementById(selectId);
+            const values = getUniqueValues(filters[selectId]);
+            select.innerHTML = '<option value="">Todos</option>' + values.map(v => `<option value="${v}">${v}</option>`).join('');
+        });
+    }
+
+    // Render products with "Leer más" and new purchasing options
+    function renderProducts(filtered) {
+        const productList = document.getElementById('product-list');
+        productList.innerHTML = '';
+        filtered.forEach(product => {
+            const statusColor = product.status === 'En almacén' ? 'bg-green-500' : 'bg-yellow-500';
+            const newBadge = product.new ? '<span class="bg-green-700 text-white text-xs px-2 py-1 rounded ml-2">NUEVO</span>' : '';
+            const nameBgColor = product.name.includes('Abyssinia') ? 'bg-yellow-700' : 'bg-blue-900';
+            const productDiv = document.createElement('div');
+            productDiv.className = 'bg-yellow-100 p-4 rounded-lg shadow-md relative';
+            productDiv.innerHTML = `
+                <div class="absolute top-2 right-2 ${statusColor} text-white text-xs px-2 py-1 rounded">${product.status}${newBadge}</div>
+                <img src="${product.image}" alt="${product.name}" class="w-full h-48 object-cover rounded-md mb-4">
+                <div class="${nameBgColor} text-white text-center py-2 mb-2 rounded">
+                    <h3 class="text-xl font-semibold">${product.name}</h3>
+                    <p>${product.origin} - ${product.region}</p>
+                </div>
+                <p class="text-gray-600"><strong>Proceso:</strong> ${product.process}</p>
+                <p class="text-red-600 font-bold"><strong>Puntuación SCA:</strong> ${product.score} puntos</p>
+                <p class="text-gray-600"><strong>Variedad:</strong> ${product.variety}</p>
+                <p class="text-gray-600"><strong>Perfil:</strong> ⊙ ${product.taste}</p>
+                <p class="text-gray-600"><strong>Altura:</strong> ${product.altitude}</p>
+                <div class="mt-4">
+                    <label for="lot-size-${product.id}" class="block text-sm font-medium text-gray-700">Tamaño del Lote (kg)</label>
+                    <select id="lot-size-${product.id}" class="mt-1 p-2 w-full border rounded-md">
+                        <option value="30">30 kg</option>
+                        <option value="60">60 kg</option>
+                    </select>
+                </div>
+                <div class="mt-2">
+                    <label for="quantity-${product.id}" class="block text-sm font-medium text-gray-700">Cantidad (lotes)</label>
+                    <input type="number" id="quantity-${product.id}" value="1" min="1" max="10000" class="mt-1 p-2 w-full border rounded-md">
+                </div>
+                <div class="mt-4 flex flex-col items-center">
+                    <span class="text-lg font-bold text-green-700">Precio: $${product.pricePerKg.toFixed(2)}/kg</span>
+                    <button onclick="addToCart(${product.id})" class="mt-2 bg-green-800 text-white px-4 py-2 rounded-full hover:bg-green-900 w-full">Añadir al Carrito</button>
+                    <button onclick="readMore(${product.id})" class="mt-2 bg-red-800 text-white px-4 py-2 rounded-full hover:bg-red-900 w-full">Leer más</button>
+                </div>
+            `;
+            productList.appendChild(productDiv);
+        });
+    }
+
+    // Read more function
+    function readMore(productId) {
+        const product = products.find(p => p.id === productId);
+        alert(`Detalles de ${product.name}:\n${product.details}`);
+    }
+
+    // Update result count
+    function updateResultCount(filtered) {
+        const count = filtered.length;
+        document.getElementById('result-count').textContent = `1-${Math.min(filtered.length, 12)} de ${filtered.length} resultados`;
+    }
+
+    // Apply filters (Expanded)
+    function applyFilters() {
+        let filtered = products;
+
+        const search = document.getElementById('search-input').value.toLowerCase();
+        if (search) filtered = filtered.filter(p => p.name.toLowerCase().includes(search) || p.origin.toLowerCase().includes(search));
+
+        const status = document.getElementById('filter-status').value;
+        if (status) filtered = filtered.filter(p => p.status === status);
+
+        const origin = document.getElementById('filter-origin').value;
+        if (origin) filtered = filtered.filter(p => p.origin === origin);
+
+        const region = document.getElementById('filter-region').value;
+        if (region) filtered = filtered.filter(p => p.region === region);
+
+        const gama = document.getElementById('filter-gama').value;
+        if (gama) filtered = filtered.filter(p => p.gama === gama);
+
+        const process = document.getElementById('filter-process').value;
+        if (process) filtered = filtered.filter(p => p.process === process);
+
+        const processType = document.getElementById('filter-process-type').value;
+        if (processType) filtered = filtered.filter(p => p.processType === processType);
+
+        const profile = document.getElementById('filter-profile').value;
+        if (profile) filtered = filtered.filter(p => p.profile === profile);
+
+        const descriptor = document.getElementById('filter-descriptor').value;
+        if (descriptor) filtered = filtered.filter(p => p.descriptor === descriptor);
+
+        const certifications = document.getElementById('filter-certifications').value;
+        if (certifications) filtered = filtered.filter(p => p.certifications === certifications);
+
+        const packageWeight = document.getElementById('filter-package-weight').value;
+        if (packageWeight) filtered = filtered.filter(p => p.packageWeight === packageWeight);
+
+        const specialPrice = document.getElementById('filter-special-price').value;
+        if (specialPrice) filtered = filtered.filter(p => p.specialPrice === specialPrice);
+
+        const sort = document.getElementById('sort-select').value;
+        if (sort === 'name-asc') filtered.sort((a, b) => a.name.localeCompare(b.name));
+        else if (sort === 'name-desc') filtered.sort((a, b) => b.name.localeCompare(a.name));
+        else if (sort === 'score-desc') filtered.sort((a, b) => b.score - a.score);
+        else if (sort === 'score-asc') filtered.sort((a, b) => a.score - b.score);
+
+        renderProducts(filtered);
+        updateResultCount(filtered);
+    }
+
+    // Event listeners
+    document.querySelectorAll('select[id^="filter-"], #sort-select, #search-input').forEach(el => {
+        el.addEventListener('change', applyFilters);
+        el.addEventListener('input', applyFilters);
+    });
+
+    // Initial populate and render
+    populateFilters();
+    applyFilters();
+    
+    // Add to cart function modified to handle lot size and quantity
+    function addToCart(productId) {
+        const product = products.find(p => p.id === productId);
+        const lotSize = document.getElementById(`lot-size-${productId}`).value;
+        const quantity = parseInt(document.getElementById(`quantity-${productId}`).value);
+
+        if (quantity > 0) {
+            const cartItem = cart.find(item => item.id === productId && item.lotSize === parseInt(lotSize));
+
+            if (cartItem) {
+                cartItem.quantity += quantity;
+            } else {
+                cart.push({
+                    ...product,
+                    lotSize: parseInt(lotSize),
+                    quantity: quantity
+                });
+            }
+            updateCart();
+        } else {
+            alert('La cantidad debe ser mayor que 0.');
         }
+    }
 
-        // Populate all filters
-        function populateFilters() {
-            const filters = {
-                'filter-status': 'status',
-                'filter-origin': 'origin',
-                'filter-region': 'region',
-                'filter-gama': 'gama',
-                'filter-process': 'process',
-                'filter-process-type': 'processType',
-                'filter-profile': 'profile',
-                'filter-descriptor': 'descriptor',
-                'filter-certifications': 'certifications',
-                'filter-package-weight': 'packageWeight',
-                'filter-special-price': 'specialPrice'
-            };
+    // Update cart with table rows
+    function updateCart() {
+        const cartItems = document.getElementById('cart-items');
+        const cartCount = document.getElementById('cart-count');
+        const cartTotal = document.getElementById('cart-total');
+        cartItems.innerHTML = '';
+        let total = 0;
+        let itemCount = 0;
 
-            Object.keys(filters).forEach(selectId => {
-                const select = document.getElementById(selectId);
-                const values = getUniqueValues(filters[selectId]);
-                select.innerHTML = '<option value="">Todos</option>' + values.map(v => `<option value="${v}">${v}</option>`).join('');
-            });
-        }
-
-        // Render products with "Leer más" and new purchasing options
-        function renderProducts(filtered) {
-            const productList = document.getElementById('product-list');
-            productList.innerHTML = '';
-            filtered.forEach(product => {
-                const statusColor = product.status === 'En almacén' ? 'bg-green-500' : 'bg-yellow-500';
-                const newBadge = product.new ? '<span class="bg-green-700 text-white text-xs px-2 py-1 rounded ml-2">NUEVO</span>' : '';
-                const nameBgColor = product.name.includes('Abyssinia') ? 'bg-yellow-700' : 'bg-blue-900';
-                const productDiv = document.createElement('div');
-                productDiv.className = 'bg-yellow-100 p-4 rounded-lg shadow-md relative';
-                productDiv.innerHTML = `
-                    <div class="absolute top-2 right-2 ${statusColor} text-white text-xs px-2 py-1 rounded">${product.status}${newBadge}</div>
-                    <img src="${product.image}" alt="${product.name}" class="w-full h-48 object-cover rounded-md mb-4">
-                    <div class="${nameBgColor} text-white text-center py-2 mb-2 rounded">
-                        <h3 class="text-xl font-semibold">${product.name}</h3>
-                        <p>${product.origin} - ${product.region}</p>
-                    </div>
-                    <p class="text-gray-600"><strong>Proceso:</strong> ${product.process}</p>
-                    <p class="text-red-600 font-bold"><strong>Puntuación SCA:</strong> ${product.score} puntos</p>
-                    <p class="text-gray-600"><strong>Variedad:</strong> ${product.variety}</p>
-                    <p class="text-gray-600"><strong>Perfil:</strong> ⊙ ${product.taste}</p>
-                    <p class="text-gray-600"><strong>Altura:</strong> ${product.altitude}</p>
-                    <div class="mt-4">
-                        <label for="lot-size-${product.id}" class="block text-sm font-medium text-gray-700">Tamaño del Lote (kg)</label>
-                        <select id="lot-size-${product.id}" class="mt-1 p-2 w-full border rounded-md">
-                            <option value="30">30 kg</option>
-                            <option value="60">60 kg</option>
-                        </select>
-                    </div>
-                    <div class="mt-2">
-                        <label for="quantity-${product.id}" class="block text-sm font-medium text-gray-700">Cantidad (lotes)</label>
-                        <input type="number" id="quantity-${product.id}" value="1" min="1" max="10000" class="mt-1 p-2 w-full border rounded-md">
-                    </div>
-                    <div class="mt-4 flex flex-col items-center">
-                        <span class="text-lg font-bold text-green-700">Precio: $${product.pricePerKg.toFixed(2)}/kg</span>
-                        <button onclick="addToCart(${product.id})" class="mt-2 bg-green-800 text-white px-4 py-2 rounded-full hover:bg-green-900 w-full">Añadir al Carrito</button>
-                        <button onclick="readMore(${product.id})" class="mt-2 bg-red-800 text-white px-4 py-2 rounded-full hover:bg-red-900 w-full">Leer más</button>
-                    </div>
-                `;
-                productList.appendChild(productDiv);
-            });
-        }
-
-        // Read more function
-        function readMore(productId) {
-            const product = products.find(p => p.id === productId);
-            alert(`Detalles de ${product.name}:\n${product.details}`);
-        }
-
-        // Update result count
-        function updateResultCount(filtered) {
-            const count = filtered.length;
-            document.getElementById('result-count').textContent = `1-${Math.min(12, count)} de 108 resultados`; // Simulating 108 total
-        }
-
-        // Apply filters (Expanded)
-        function applyFilters() {
-            let filtered = products;
-
-            const search = document.getElementById('search-input').value.toLowerCase();
-            if (search) filtered = filtered.filter(p => p.name.toLowerCase().includes(search) || p.origin.toLowerCase().includes(search));
-
-            const status = document.getElementById('filter-status').value;
-            if (status) filtered = filtered.filter(p => p.status === status);
-
-            const origin = document.getElementById('filter-origin').value;
-            if (origin) filtered = filtered.filter(p => p.origin === origin);
-
-            const region = document.getElementById('filter-region').value;
-            if (region) filtered = filtered.filter(p => p.region === region);
-
-            const gama = document.getElementById('filter-gama').value;
-            if (gama) filtered = filtered.filter(p => p.gama === gama);
-
-            const process = document.getElementById('filter-process').value;
-            if (process) filtered = filtered.filter(p => p.process === process);
-
-            const processType = document.getElementById('filter-process-type').value;
-            if (processType) filtered = filtered.filter(p => p.processType === processType);
-
-            const profile = document.getElementById('filter-profile').value;
-            if (profile) filtered = filtered.filter(p => p.profile === profile);
-
-            const descriptor = document.getElementById('filter-descriptor').value;
-            if (descriptor) filtered = filtered.filter(p => p.descriptor === descriptor);
-
-            const certifications = document.getElementById('filter-certifications').value;
-            if (certifications) filtered = filtered.filter(p => p.certifications === certifications);
-
-            const packageWeight = document.getElementById('filter-package-weight').value;
-            if (packageWeight) filtered = filtered.filter(p => p.packageWeight === packageWeight);
-
-            const specialPrice = document.getElementById('filter-special-price').value;
-            if (specialPrice) filtered = filtered.filter(p => p.specialPrice === specialPrice);
-
-            const sort = document.getElementById('sort-select').value;
-            if (sort === 'name-asc') filtered.sort((a, b) => a.name.localeCompare(b.name));
-            else if (sort === 'name-desc') filtered.sort((a, b) => b.name.localeCompare(a.name));
-            else if (sort === 'score-desc') filtered.sort((a, b) => b.score - a.score);
-            else if (sort === 'score-asc') filtered.sort((a, b) => a.score - b.score);
-
-            renderProducts(filtered);
-            updateResultCount(filtered);
-        }
-
-        // Event listeners
-        document.querySelectorAll('select[id^="filter-"], #sort-select, #search-input').forEach(el => {
-            el.addEventListener('change', applyFilters);
-            el.addEventListener('input', applyFilters);
+        cart.forEach(item => {
+            const subtotal = item.pricePerKg * item.lotSize * item.quantity;
+            total += subtotal;
+            itemCount += item.quantity;
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td class="p-4"><img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-cover rounded"></td>
+                <td class="p-4">${item.name}</td>
+                <td class="p-4">${item.lotSize} kg</td>
+                <td class="p-4">$${item.pricePerKg.toFixed(2)}</td>
+                <td class="p-4">${item.quantity}</td>
+                <td class="p-4">$${subtotal.toFixed(2)}</td>
+                <td class="p-4"><button onclick="removeFromCart(${item.id}, ${item.lotSize})" class="text-red-600 hover:underline">Eliminar</button></td>
+            `;
+            cartItems.appendChild(row);
         });
 
-        // Initial populate and render
-        populateFilters();
-        applyFilters();
-        
-        // Add to cart function modified to handle lot size and quantity
-        function addToCart(productId) {
-            const product = products.find(p => p.id === productId);
-            const lotSize = document.getElementById(`lot-size-${productId}`).value;
-            const quantity = parseInt(document.getElementById(`quantity-${productId}`).value);
+        cartCount.textContent = itemCount;
+        cartTotal.textContent = `Total: $${total.toFixed(2)}`;
+    }
 
-            if (quantity > 0) {
-                const cartItem = cart.find(item => item.id === productId && item.lotSize === parseInt(lotSize));
-
-                if (cartItem) {
-                    cartItem.quantity += quantity;
-                } else {
-                    cart.push({
-                        ...product,
-                        lotSize: parseInt(lotSize),
-                        quantity: quantity
-                    });
-                }
-                updateCart();
-            } else {
-                alert('La cantidad debe ser mayor que 0.');
-            }
-        }
-
-        // Update cart with table rows
-        function updateCart() {
-            const cartItems = document.getElementById('cart-items');
-            const cartCount = document.getElementById('cart-count');
-            const cartTotal = document.getElementById('cart-total');
-            cartItems.innerHTML = '';
-            let total = 0;
-            let itemCount = 0;
-
-            cart.forEach(item => {
-                const subtotal = item.pricePerKg * item.lotSize * item.quantity;
-                total += subtotal;
-                itemCount += item.quantity;
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td class="p-4"><img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-cover rounded"></td>
-                    <td class="p-4">${item.name}</td>
-                    <td class="p-4">${item.lotSize} kg</td>
-                    <td class="p-4">$${item.pricePerKg.toFixed(2)}</td>
-                    <td class="p-4">${item.quantity}</td>
-                    <td class="p-4">$${subtotal.toFixed(2)}</td>
-                    <td class="p-4"><button onclick="removeFromCart(${item.id}, ${item.lotSize})" class="text-red-600 hover:underline">Eliminar</button></td>
-                `;
-                cartItems.appendChild(row);
-            });
-
-            cartCount.textContent = itemCount;
-            cartTotal.textContent = `Total: $${total.toFixed(2)}`;
-        }
-
-        // Update quantity (simplified as lot quantities are fixed)
-        function updateQuantity(productId, newQuantity) {
-            const cartItem = cart.find(item => item.id === productId);
-            if (cartItem && newQuantity > 0) {
-                cartItem.quantity = parseInt(newQuantity);
-                updateCart();
-            }
-        }
-
-        // Remove from cart, now also considering lot size
-        function removeFromCart(productId, lotSize) {
-            cart = cart.filter(item => !(item.id === productId && item.lotSize === lotSize));
+    // Update quantity (simplified as lot quantities are fixed)
+    function updateQuantity(productId, newQuantity) {
+        const cartItem = cart.find(item => item.id === productId);
+        if (cartItem && newQuantity > 0) {
+            cartItem.quantity = parseInt(newQuantity);
             updateCart();
         }
+    }
 
-        // Checkout
-        document.getElementById('checkout-btn').addEventListener('click', () => {
-            if (cart.length === 0) {
-                alert('Tu carrito está vacío.');
-            } else {
-                alert('¡Compra finalizada! Gracias por tu pedido.');
-                cart = [];
-                updateCart();
-            }
-        });
+    // Remove from cart, now also considering lot size
+    function removeFromCart(productId, lotSize) {
+        cart = cart.filter(item => !(item.id === productId && item.lotSize === lotSize));
+        updateCart();
+    }
 
-        // Contact form
-        document.getElementById('contact-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-            alert(`Mensaje enviado por ${name} (${email}): ${message}`);
-            e.target.reset();
-        });
-
-        // Auction place bid
-        function placeBid(id) {
-            const bidInput = document.getElementById(`bid-input-${id}`);
-            const bid = bidInput.value;
-            if (bid) {
-                alert(`Puja de $${bid} colocada para el ítem ${id}. ¡Gracias por participar!`);
-                bidInput.value = '';
-            } else {
-                alert('Ingresa una puja válida.');
-            }
+    // Checkout
+    document.getElementById('checkout-btn').addEventListener('click', () => {
+        if (cart.length === 0) {
+            alert('Tu carrito está vacío.');
+        } else {
+            alert('¡Compra finalizada! Gracias por tu pedido.');
+            cart = [];
+            updateCart();
         }
+    });
 
-        // Timers for auctions
-        let time1 = 24 * 3600;
-        setInterval(() => {
-            time1--;
-            const hours = Math.floor(time1 / 3600);
-            const minutes = Math.floor((time1 % 3600) / 60);
-            const seconds = time1 % 60;
-            document.getElementById('auction-timer-1').textContent = `${hours}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-        }, 1000);
+    // Contact form
+    document.getElementById('contact-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+        alert(`Mensaje enviado por ${name} (${email}): ${message}`);
+        e.target.reset();
+    });
 
-        let time2 = 48 * 3600;
-        setInterval(() => {
-            time2--;
-            const hours = Math.floor(time2 / 3600);
-            const minutes = Math.floor((time2 % 3600) / 60);
-            const seconds = time2 % 60;
-            document.getElementById('auction-timer-2').textContent = `${hours}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-        }, 1000);
-    </script>
+    // Auction place bid
+    function placeBid(id) {
+        const bidInput = document.getElementById(`bid-input-${id}`);
+        const bid = bidInput.value;
+        if (bid) {
+            alert(`Puja de $${bid} colocada para el ítem ${id}. ¡Gracias por participar!`);
+            bidInput.value = '';
+        } else {
+            alert('Ingresa una puja válida.');
+        }
+    }
+
+    // Timers for auctions
+    let time1 = 24 * 3600;
+    setInterval(() => {
+        time1--;
+        const hours = Math.floor(time1 / 3600);
+        const minutes = Math.floor((time1 % 3600) / 60);
+        const seconds = time1 % 60;
+        document.getElementById('auction-timer-1').textContent = `${hours}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    }, 1000);
+
+    let time2 = 48 * 3600;
+    setInterval(() => {
+        time2--;
+        const hours = Math.floor(time2 / 3600);
+        const minutes = Math.floor((time2 % 3600) / 60);
+        const seconds = time2 % 60;
+        document.getElementById('auction-timer-2').textContent = `${hours}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    }, 1000);
+</script>
 </body>
 </html>
