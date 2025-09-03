@@ -22,13 +22,13 @@
             height: 100%;
             object-fit: cover;
             z-index: 0;
-            filter: brightness(0.5);
+            filter: brightness(0.5); /* Oscurece la imagen para que el texto destaque */
         }
         .logo-header {
             position: absolute;
             top: 20px;
             left: 20px;
-            z-index: 2;
+            z-index: 1;
         }
         .logo-header img {
             max-height: 100px;
@@ -36,7 +36,7 @@
         }
         .hero-content {
             position: relative;
-            z-index: 2;
+            z-index: 1;
             text-align: center;
             color: white;
             padding: 0 20px;
@@ -52,7 +52,7 @@
             font-size: 2.5rem;
             font-weight: 600;
             margin-bottom: 1.5rem;
-            color: #D1FAE5;
+            color: #D1FAE5; /* Verde claro para contraste */
         }
         .hero-content p {
             font-size: 1.25rem;
@@ -82,43 +82,11 @@
         .btn-secondary:hover {
             background-color: #D97706;
         }
-        .navbar {
-            position: absolute;
-            top: 0;
-            width: 100%;
-            z-index: 2;
-            background-color: rgba(21, 128, 61, 0.9); /* Verde semitransparente */
-        }
-        .tab-content {
-            background-color: #f3f4f6; /* Fondo gris claro para contraste */
-        }
-        #about-tab {
-            background-image: url('Portada.jpg');
-            background-size: cover;
-            background-position: center;
-            padding: 60px 20px;
-            color: white;
-        }
-        #about-tab h2, #about-tab p {
-            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
-        }
     </style>
 </head>
 <body class="bg-gray-50 font-sans">
-    <header class="hero relative">
+    <header class="hero">
         <img src="Portada.jpg" alt="Fondo de cafeto" class="hero-background-image">
-        <nav class="navbar p-4 shadow-md">
-            <div class="container mx-auto flex justify-between items-center">
-                <h1 class="text-2xl font-bold text-white">Green Diamond</h1>
-                <div>
-                    <button onclick="showTabNewWindow('about')" class="mx-2 hover:underline tab-link text-white">Sobre Nosotros</button>
-                    <button onclick="showTabNewWindow('products')" class="mx-2 hover:underline tab-link text-white">Compra Café Verde</button>
-                    <button onclick="showTabNewWindow('auction')" class="mx-2 hover:underline tab-link text-white">Subasta</button>
-                    <button onclick="showTabNewWindow('cart')" class="mx-2 hover:underline tab-link text-white">Carrito (<span id="cart-count">0</span>)</button>
-                    <button onclick="showTabNewWindow('contact')" class="mx-2 hover:underline tab-link text-white">Contacto</button>
-                </div>
-            </div>
-        </nav>
         <div class="logo-header">
             <a href="index.html" aria-label="Volver al inicio">
                 <img src="Logo-3.png" alt="Green Diamond Logo">
@@ -132,6 +100,20 @@
             <a href="#products" class="btn btn-secondary">Ver nuestro catálogo</a>
         </div>
     </header>
+
+    <!-- Navbar with Tabs -->
+    <nav class="bg-green-800 text-white p-4 sticky top-0 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Green Diamond</h1>
+            <div>
+                <button onclick="showTab('about')" class="mx-2 hover:underline tab-link active">Sobre Nosotros</button>
+                <button onclick="showTab('products')" class="mx-2 hover:underline tab-link">Compra Café Verde</button>
+                <button onclick="showTab('auction')" class="mx-2 hover:underline tab-link">Subasta</button>
+                <button onclick="showTab('cart')" class="mx-2 hover:underline tab-link">Carrito (<span id="cart-count">0</span>)</button>
+                <button onclick="showTab('contact')" class="mx-2 hover:underline tab-link">Contacto</button>
+            </div>
+        </div>
+    </nav>
 
     <!-- Tab Contents -->
     <div id="tab-contents" class="container mx-auto py-12">
@@ -375,28 +357,16 @@
     </footer>
 
     <script>
-        // Tab Functionality in new window
-        function showTabNewWindow(tabId) {
-            const newWindow = window.open('', '_blank');
-            newWindow.document.write('<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Green Diamond - ' + tabId.charAt(0).toUpperCase() + tabId.slice(1) + '</title><script src="https://cdn.tailwindcss.com"></script><style>.tab-content { background-color: #f3f4f6; padding: 60px 20px; }</style></head><body class="bg-gray-50 font-sans">');
-            newWindow.document.write('<div class="container mx-auto py-12">');
-            if (tabId === 'about') {
-                newWindow.document.write('<section class="tab-content" style="background-image: url(\'Portada.jpg\'); background-size: cover; background-position: center; color: white; text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);"><h2 class="text-3xl font-bold text-center mb-8">Nuestra Pasión por el Café</h2><p class="text-lg max-w-2xl mx-auto mb-6">Desde 1978, en Green Diamond buscamos la perfección en cada grano. Trabajamos mano a mano con productores para ofrecer cafés de calidad con perfiles únicos, respetando la sostenibilidad y la trazabilidad desde el origen hasta tu taza.</p><p class="text-lg max-w-2xl mx-auto">Nuestras gamas, como Terras, Constelaciones y Únicos, reflejan la diversidad y riqueza de las regiones cafeteras del mundo.</p></section>');
-            } else if (tabId === 'products') {
-                newWindow.document.write('<section class="tab-content"><h2 class="text-3xl font-bold text-center mb-8 text-red-600">Tienda de café verde</h2><p class="text-center mb-6">Explora nuestro catálogo de café verde y descubre una cuidadosa selección de los mejores granos provenientes de los orígenes con los que trabajamos.</p><div class="flex flex-col lg:flex-row gap-8"><aside class="w-full lg:w-1/4 bg-yellow-100 p-4 rounded-lg"><h3 class="text-xl font-bold mb-4">Filtros</h3><div class="space-y-4"><div><label class="block text-sm font-medium">Buscar Café</label><input type="text" id="search-input" class="mt-1 p-2 w-full border rounded-md bg-white" placeholder="BUSCAR CAFÉ"></div><div><label class="block text-sm font-medium">Situación</label><select id="filter-status" class="mt-1 p-2 w-full border rounded-md bg-white"></select></div><div><label class="block text-sm font-medium">Origen</label><select id="filter-origin" class="mt-1 p-2 w-full border rounded-md bg-white"></select></div><div><label class="block text-sm font-medium">Región Cafetera</label><select id="filter-region" class="mt-1 p-2 w-full border rounded-md bg-white"></select></div><div><label class="block text-sm font-medium">Gama</label><select id="filter-gama" class="mt-1 p-2 w-full border rounded-md bg-white"></select></div><div><label class="block text-sm font-medium">Proceso</label><select id="filter-process" class="mt-1 p-2 w-full border rounded-md bg-white"></select></div><div><label class="block text-sm font-medium">Tipo de Proceso</label><select id="filter-process-type" class="mt-1 p-2 w-full border rounded-md bg-white"></select></div><div><label class="block text-sm font-medium">Perfil</label><select id="filter-profile" class="mt-1 p-2 w-full border rounded-md bg-white"></select></div><div><label class="block text-sm font-medium">Descriptor Clave</label><select id="filter-descriptor" class="mt-1 p-2 w-full border rounded-md bg-white"></select></div><div><label class="block text-sm font-medium">Certificaciones</label><select id="filter-certifications" class="mt-1 p-2 w-full border rounded-md bg-white"></select></div><div><label class="block text-sm font-medium">Peso Envase</label><select id="filter-package-weight" class="mt-1 p-2 w-full border rounded-md bg-white"></select></div><div><label class="block text-sm font-medium">Precio Especial</label><select id="filter-special-price" class="mt-1 p-2 w-full border rounded-md bg-white"></select></div></div></aside><div class="w-full lg:w-3/4"><div class="bg-yellow-100 p-4 rounded-lg mb-6"><p class="font-bold">Importante:</p><p>Para realizar la compra y ver los precios de los productos es necesario estar registrado y validado. Disponemos de un Roaster Service para guiarte y asesorarte si lo necesitas.</p></div><div class="mb-6"><h3 class="text-xl font-bold mb-4">Varietals Disponibles</h3><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"><div class="bg-white p-4 rounded-lg shadow-md"><img src="https://via.placeholder.com/300x200?text=Heirloom" alt="Heirloom" class="w-full h-48 object-cover rounded-md mb-2"><h4 class="text-lg font-semibold">Heirloom</h4><p class="text-gray-600">Variedad tradicional de Etiopía, conocida por sus notas afrutadas y complejidad.</p></div><div class="bg-white p-4 rounded-lg shadow-md"><img src="https://via.placeholder.com/300x200?text=Bourbon" alt="Bourbon" class="w-full h-48 object-cover rounded-md mb-2"><h4 class="text-lg font-semibold">Bourbon</h4><p class="text-gray-600">Variedad clásica de El Salvador, con sabores dulces y afrutados.</p></div><div class="bg-white p-4 rounded-lg shadow-md"><img src="https://via.placeholder.com/300x200?text=Caturra+Amarillo" alt="Caturra Amarillo" class="w-full h-48 object-cover rounded-md mb-2"><h4 class="text-lg font-semibold">Caturra Amarillo</h4><p class="text-gray-600">Variedad rara de El Salvador, destaca por su perfil floral y delicado.</p></div><div class="bg-white p-4 rounded-lg shadow-md"><img src="https://via.placeholder.com/300x200?text=Castillo" alt="Castillo" class="w-full h-48 object-cover rounded-md mb-2"><h4 class="text-lg font-semibold">Castillo</h4><p class="text-gray-600">Variedad resistente de Colombia, con notas de chocolate y nueces.</p></div></div></div><div id="product-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div></div></div></section>');
-            } else if (tabId === 'auction') {
-                newWindow.document.write('<section class="tab-content"><h2 class="text-3xl font-bold text-center mb-8">Subasta de Cafés Exclusivos</h2><p class="text-center mb-6">Participa en nuestras subastas para adquirir variedades únicas de café verde. Ofrece tu puja y lleva a casa granos premium de orígenes selectos.</p><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"><div class="bg-white p-6 rounded-lg shadow-lg"><img src="https://via.placeholder.com/300x200?text=Café+Colombia" alt="Café Colombiano" class="w-full h-48 object-cover rounded-md mb-4"><h3 class="text-xl font-semibold mb-2">Café Verde Colombiano - Huila Supremo</h3><p class="text-gray-600 mb-2">Origen: Colombia - Huila</p><p class="text-gray-600 mb-2">Proceso: Lavado</p><p class="text-gray-600 mb-2">Puntos: 88.00</p><p class="text-gray-600 mb-2">Variedad: Caturra</p><p class="text-gray-600 mb-4">Perfil: Cítrico y Frutal</p><div class="flex justify-between items-center mb-4"><p class="text-lg font-bold">Puja Actual: $150.00</p><p class="text-sm text-gray-500">Tiempo Restante: <span>24:00:00</span></p></div><input type="number" placeholder="Tu Puja" class="w-full p-2 border rounded-md mb-4" min="151"><button class="bg-green-800 text-white px-4 py-2 rounded-full hover:bg-green-900 w-full">Pujar</button></div><div class="bg-white p-6 rounded-lg shadow-lg"><img src="https://via.placeholder.com/300x200?text=Café+Colombia+Antioquia" alt="Café Colombiano Antioquia" class="w-full h-48 object-cover rounded-md mb-4"><h3 class="text-xl font-semibold mb-2">Café Verde Colombiano - Antioquia Excelso</h3><p class="text-gray-600 mb-2">Origen: Colombia - Antioquia</p><p class="text-gray-600 mb-2">Proceso: Natural</p><p class="text-gray-600 mb-2">Puntos: 87.50</p><p class="text-gray-600 mb-2">Variedad: Castillo</p><p class="text-gray-600 mb-4">Perfil: Chocolate y Nueces</p><div class="flex justify-between items-center mb-4"><p class="text-lg font-bold">Puja Actual: $140.00</p><p class="text-sm text-gray-500">Tiempo Restante: <span>48:00:00</span></p></div><input type="number" placeholder="Tu Puja" class="w-full p-2 border rounded-md mb-4" min="141"><button class="bg-green-800 text-white px-4 py-2 rounded-full hover:bg-green-900 w-full">Pujar</button></div></div></section>');
-            } else if (tabId === 'cart') {
-                newWindow.document.write('<section class="tab-content"><h2 class="text-3xl font-bold text-center mb-8">Tu Carrito</h2><div class="bg-white p-6 rounded-lg shadow-md mb-6"><table class="w-full table-auto"><thead><tr class="bg-gray-200 text-left"><th class="p-4">Imagen</th><th class="p-4">Producto</th><th class="p-4">Precio</th><th class="p-4">Cantidad</th><th class="p-4">Subtotal</th><th class="p-4">Acciones</th></tr></thead><tbody></tbody></table></div><div class="flex justify-end items-center"><p class="text-xl font-semibold mr-4">Total: $0.00</p><button class="bg-green-800 text-white px-6 py-2 rounded-full font-semibold hover:bg-green-900">Finalizar Compra</button></div><div class="mt-6 bg-yellow-100 p-4 rounded-lg"><p class="font-bold">Nota:</p><p>Los envíos se calculan al finalizar la compra. Aplica descuentos por volumen.</p></div></section>');
-            } else if (tabId === 'contact') {
-                newWindow.document.write('<section class="tab-content"><h2 class="text-3xl font-bold text-center mb-8">Contáctanos</h2><div class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-md"><div><div class="mb-4"><label for="name" class="block text-sm font-medium text-gray-700">Nombre</label><input type="text" id="name" class="mt-1 p-2 w-full border rounded-md" required></div><div class="mb-4"><label for="email" class="block text-sm font-medium text-gray-700">Correo Electrónico</label><input type="email" id="email" class="mt-1 p-2 w-full border rounded-md" required></div><div class="mb-4"><label for="message" class="block text-sm font-medium text-gray-700">Mensaje</label><textarea id="message" class="mt-1 p-2 w-full border rounded-md" rows="4" required></textarea></div><button type="submit" class="bg-green-800 text-white px-6 py-2 rounded-full font-semibold hover:bg-green-900 w-full">Enviar</button></div><div class="mt-6 text-center text-gray-600"><p><strong>Green Diamond S.L.</strong></p><p>Calle Esteve Terrades 1, Espacios 309-311, 08860, Castelldefels (Barcelona, España)</p><p>Email: info@greendiamond.com | Teléfono: (+34) 936363947</p></div></div></section>');
-            }
-            newWindow.document.write('</div><footer class="bg-green-800 text-white py-4 text-center"><div class="container mx-auto"><a href="#" class="mx-2 hover:underline">Sobre Nosotros</a><a href="#" class="mx-2 hover:underline">Compra Café Verde</a><a href="#" class="mx-2 hover:underline">Subasta</a><a href="#" class="mx-2 hover:underline">Carrito</a><a href="#" class="mx-2 hover:underline">Contacto</a></div><p class="mt-2">&copy; 2025 Green Diamond S.L. Todos los derechos reservados.</p></footer></body></html>');
-            newWindow.document.close();
+        // Tab Functionality
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.add('hidden'));
+            document.getElementById(`${tabId}-tab`).classList.remove('hidden');
+            document.querySelectorAll('.tab-link').forEach(link => link.classList.remove('active'));
+            event.target.classList.add('active');
         }
 
-        // Show initial tab in current window
-        showTabNewWindow('about');
+        // Show initial tab
+        showTab('about');
 
         // Expanded products data with more fields
         const products = [
@@ -431,43 +401,39 @@
             };
 
             Object.keys(filters).forEach(selectId => {
-                const select = newWindow.document.getElementById(selectId);
-                if (select) {
-                    const values = getUniqueValues(filters[selectId]);
-                    select.innerHTML = '<option value="">Todos</option>' + values.map(v => `<option value="${v}">${v}</option>`).join('');
-                }
+                const select = document.getElementById(selectId);
+                const values = getUniqueValues(filters[selectId]);
+                select.innerHTML = '<option value="">Todos</option>' + values.map(v => `<option value="${v}">${v}</option>`).join('');
             });
         }
 
         // Render products with "Leer más"
         function renderProducts(filtered) {
-            const productList = newWindow.document.getElementById('product-list');
-            if (productList) {
-                productList.innerHTML = '';
-                filtered.forEach(product => {
-                    const statusColor = product.status === 'En almacén' ? 'bg-green-500' : 'bg-yellow-500';
-                    const newBadge = product.new ? '<span class="bg-green-700 text-white text-xs px-2 py-1 rounded ml-2">NUEVO</span>' : '';
-                    const nameBgColor = product.name.includes('Abyssinia') ? 'bg-yellow-700' : 'bg-blue-900';
-                    const productDiv = newWindow.document.createElement('div');
-                    productDiv.className = 'bg-yellow-100 p-4 rounded-lg shadow-md relative';
-                    productDiv.innerHTML = `
-                        <div class="absolute top-2 right-2 ${statusColor} text-white text-xs px-2 py-1 rounded">${product.status}${newBadge}</div>
-                        <img src="${product.image}" alt="${product.name}" class="w-full h-48 object-cover rounded-md mb-4">
-                        <div class="${nameBgColor} text-white text-center py-2 mb-2 rounded">
-                            <h3 class="text-xl font-semibold">${product.name}</h3>
-                            <p>${product.origin} - ${product.region}</p>
-                        </div>
-                        <p class="text-gray-600">${product.process}</p>
-                        <p class="text-red-600 font-bold">${product.score} puntos</p>
-                        <p class="text-gray-600">${product.variety}</p>
-                        <p class="text-gray-600">⊙ ${product.taste}</p>
-                        <p class="text-gray-600">${product.altitude}</p>
-                        <button onclick="addToCart(${product.id})" class="mt-4 bg-green-800 text-white px-4 py-2 rounded-full hover:bg-green-900">Agregar al Carrito</button>
-                        <button onclick="readMore(${product.id})" class="mt-2 bg-red-800 text-white px-4 py-2 rounded-full hover:bg-red-900 w-full">Leer más</button>
-                    `;
-                    productList.appendChild(productDiv);
-                });
-            }
+            const productList = document.getElementById('product-list');
+            productList.innerHTML = '';
+            filtered.forEach(product => {
+                const statusColor = product.status === 'En almacén' ? 'bg-green-500' : 'bg-yellow-500';
+                const newBadge = product.new ? '<span class="bg-green-700 text-white text-xs px-2 py-1 rounded ml-2">NUEVO</span>' : '';
+                const nameBgColor = product.name.includes('Abyssinia') ? 'bg-yellow-700' : 'bg-blue-900';
+                const productDiv = document.createElement('div');
+                productDiv.className = 'bg-yellow-100 p-4 rounded-lg shadow-md relative';
+                productDiv.innerHTML = `
+                    <div class="absolute top-2 right-2 ${statusColor} text-white text-xs px-2 py-1 rounded">${product.status}${newBadge}</div>
+                    <img src="${product.image}" alt="${product.name}" class="w-full h-48 object-cover rounded-md mb-4">
+                    <div class="${nameBgColor} text-white text-center py-2 mb-2 rounded">
+                        <h3 class="text-xl font-semibold">${product.name}</h3>
+                        <p>${product.origin} - ${product.region}</p>
+                    </div>
+                    <p class="text-gray-600">${product.process}</p>
+                    <p class="text-red-600 font-bold">${product.score} puntos</p>
+                    <p class="text-gray-600">${product.variety}</p>
+                    <p class="text-gray-600">⊙ ${product.taste}</p>
+                    <p class="text-gray-600">${product.altitude}</p>
+                    <button onclick="addToCart(${product.id})" class="mt-4 bg-green-800 text-white px-4 py-2 rounded-full hover:bg-green-900">Agregar al Carrito</button>
+                    <button onclick="readMore(${product.id})" class="mt-2 bg-red-800 text-white px-4 py-2 rounded-full hover:bg-red-900 w-full">Leer más</button>
+                `;
+                productList.appendChild(productDiv);
+            });
         }
 
         // Read more function
@@ -479,51 +445,50 @@
         // Update result count
         function updateResultCount(filtered) {
             const count = filtered.length;
-            const resultCount = newWindow.document.getElementById('result-count');
-            if (resultCount) resultCount.textContent = `1-${Math.min(12, count)} de 108 resultados`;
+            document.getElementById('result-count').textContent = `1-${Math.min(12, count)} de 108 resultados`; // Simulating 108 total
         }
 
         // Apply filters (Expanded)
         function applyFilters() {
             let filtered = products;
 
-            const search = newWindow.document.getElementById('search-input')?.value.toLowerCase() || '';
+            const search = document.getElementById('search-input').value.toLowerCase();
             if (search) filtered = filtered.filter(p => p.name.toLowerCase().includes(search) || p.origin.toLowerCase().includes(search));
 
-            const status = newWindow.document.getElementById('filter-status')?.value;
+            const status = document.getElementById('filter-status').value;
             if (status) filtered = filtered.filter(p => p.status === status);
 
-            const origin = newWindow.document.getElementById('filter-origin')?.value;
+            const origin = document.getElementById('filter-origin').value;
             if (origin) filtered = filtered.filter(p => p.origin === origin);
 
-            const region = newWindow.document.getElementById('filter-region')?.value;
+            const region = document.getElementById('filter-region').value;
             if (region) filtered = filtered.filter(p => p.region === region);
 
-            const gama = newWindow.document.getElementById('filter-gama')?.value;
+            const gama = document.getElementById('filter-gama').value;
             if (gama) filtered = filtered.filter(p => p.gama === gama);
 
-            const process = newWindow.document.getElementById('filter-process')?.value;
+            const process = document.getElementById('filter-process').value;
             if (process) filtered = filtered.filter(p => p.process === process);
 
-            const processType = newWindow.document.getElementById('filter-process-type')?.value;
+            const processType = document.getElementById('filter-process-type').value;
             if (processType) filtered = filtered.filter(p => p.processType === processType);
 
-            const profile = newWindow.document.getElementById('filter-profile')?.value;
+            const profile = document.getElementById('filter-profile').value;
             if (profile) filtered = filtered.filter(p => p.profile === profile);
 
-            const descriptor = newWindow.document.getElementById('filter-descriptor')?.value;
+            const descriptor = document.getElementById('filter-descriptor').value;
             if (descriptor) filtered = filtered.filter(p => p.descriptor === descriptor);
 
-            const certifications = newWindow.document.getElementById('filter-certifications')?.value;
+            const certifications = document.getElementById('filter-certifications').value;
             if (certifications) filtered = filtered.filter(p => p.certifications === certifications);
 
-            const packageWeight = newWindow.document.getElementById('filter-package-weight')?.value;
+            const packageWeight = document.getElementById('filter-package-weight').value;
             if (packageWeight) filtered = filtered.filter(p => p.packageWeight === packageWeight);
 
-            const specialPrice = newWindow.document.getElementById('filter-special-price')?.value;
+            const specialPrice = document.getElementById('filter-special-price').value;
             if (specialPrice) filtered = filtered.filter(p => p.specialPrice === specialPrice);
 
-            const sort = newWindow.document.getElementById('sort-select')?.value;
+            const sort = document.getElementById('sort-select').value;
             if (sort === 'name-asc') filtered.sort((a, b) => a.name.localeCompare(b.name));
             else if (sort === 'name-desc') filtered.sort((a, b) => b.name.localeCompare(a.name));
             else if (sort === 'score-desc') filtered.sort((a, b) => b.score - a.score);
@@ -534,7 +499,7 @@
         }
 
         // Event listeners
-        newWindow.document.querySelectorAll('select[id^="filter-"], #sort-select, #search-input')?.forEach(el => {
+        document.querySelectorAll('select[id^="filter-"], #sort-select, #search-input').forEach(el => {
             el.addEventListener('change', applyFilters);
             el.addEventListener('input', applyFilters);
         });
@@ -557,22 +522,20 @@
 
         // Update cart with table rows
         function updateCart() {
-            const cartItems = newWindow.document.getElementById('cart-items');
-            const cartCount = newWindow.document.getElementById('cart-count');
-            const cartTotal = newWindow.document.getElementById('cart-total');
-            if (cartItems && cartCount && cartTotal) {
-                cartItems.innerHTML = '';
-                let total = 0;
-                let itemCount = 0;
+            const cartItems = document.getElementById('cart-items');
+            const cartCount = document.getElementById('cart-count');
+            const cartTotal = document.getElementById('cart-total');
+            cartItems.innerHTML = '';
+            let total = 0;
+            let itemCount = 0;
 
-                cart.forEach(item => {
-                    const price = item.score * 0.5;
-                    const subtotal = price * item.quantity;
-                    total += subtotal;
-                    itemCount += item.quantity;
-                    const row = newWindow.document.createElement('tr');
-                    row.innerHTML = `
-                     
+            cart.forEach(item => {
+                const price = item.score * 0.5; // Example price
+                const subtotal = price * item.quantity;
+                total += subtotal;
+                itemCount += item.quantity;
+                const row = document.createElement('tr');
+                row.innerHTML = `
                     <td class="p-4"><img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-cover rounded"></td>
                     <td class="p-4">${item.name}</td>
                     <td class="p-4">$${price.toFixed(2)}</td>
@@ -605,7 +568,7 @@
         }
 
         // Checkout
-        newWindow.document.getElementById('checkout-btn')?.addEventListener('click', () => {
+        document.getElementById('checkout-btn').addEventListener('click', () => {
             if (cart.length === 0) {
                 alert('Tu carrito está vacío.');
             } else {
@@ -616,19 +579,19 @@
         });
 
         // Contact form
-        newWindow.document.getElementById('contact-form')?.addEventListener('submit', (e) => {
+        document.getElementById('contact-form').addEventListener('submit', (e) => {
             e.preventDefault();
-            const name = newWindow.document.getElementById('name').value;
-            const email = newWindow.document.getElementById('email').value;
-            const message = newWindow.document.getElementById('message').value;
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
             alert(`Mensaje enviado por ${name} (${email}): ${message}`);
             e.target.reset();
         });
 
         // Auction place bid
         function placeBid(id) {
-            const bidInput = newWindow.document.getElementById(`bid-input-${id}`);
-            const bid = bidInput?.value;
+            const bidInput = document.getElementById(`bid-input-${id}`);
+            const bid = bidInput.value;
             if (bid) {
                 alert(`Puja de $${bid} colocada para el ítem ${id}. ¡Gracias por participar!`);
                 bidInput.value = '';
@@ -644,8 +607,7 @@
             const hours = Math.floor(time1 / 3600);
             const minutes = Math.floor((time1 % 3600) / 60);
             const seconds = time1 % 60;
-            const timer1 = newWindow.document.getElementById('auction-timer-1');
-            if (timer1) timer1.textContent = `${hours}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            document.getElementById('auction-timer-1').textContent = `${hours}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
         }, 1000);
 
         let time2 = 48 * 3600;
@@ -654,8 +616,7 @@
             const hours = Math.floor(time2 / 3600);
             const minutes = Math.floor((time2 % 3600) / 60);
             const seconds = time2 % 60;
-            const timer2 = newWindow.document.getElementById('auction-timer-2');
-            if (timer2) timer2.textContent = `${hours}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            document.getElementById('auction-timer-2').textContent = `${hours}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
         }, 1000);
     </script>
 </body>
